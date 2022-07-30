@@ -1,0 +1,189 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+    <img id="imagePreview" style="height: 300px;" />
+    <input id="imageUpload" type="file"  />
+
+    <div>resultat</div>
+    <div id="label-container"></div>
+
+
+
+
+
+@section Scripts{
+    <script src="~/tensorflow/tfjs/dist/tf.min.js"></script>
+    <script src="~/teachablemachine/image/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+        // More API functions here:
+        // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+      
+        const URL = '/Model/';
+
+        let model, labelContainer, maxPredictions;
+
+        // Load the image model
+        async function init() {
+            const modelURL = URL + 'model.json';
+            const metadataURL = URL + 'metadata.json';
+
+            // load the model and metadata
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            labelContainer = document.getElementById('label-container');
+            for (let i = 0; i < maxPredictions; i++) {
+                // and class labels
+                labelContainer.appendChild(document.createElement('div'));
+            }
+        }
+
+        async function predict() {
+            // predict can take in an image, video or canvas html element
+            var image = document.getElementById('imagePreview');
+            const prediction = await model.predict(image, false);
+            for (let i = 0; i < maxPredictions; i++) {
+                const classPrediction =
+                    prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
+                labelContainer.childNodes[i].innerHTML = classPrediction;
+            }
+        }
+    </script>
+
+   
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#imagePreview').attr('src', e.target.result);
+                    // $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+                    $('#imagePreview').hide();
+                    $('#imagePreview').fadeIn(650);
+                };
+                reader.readAsDataURL(input.files[0]);
+                init().then(() => {
+                    predict();
+                });
+            }
+        }
+        $('#imageUpload').change(function () {
+            readURL(this);
+        });
+    </script>
+
+
+
+}
+
+
+@*<button type="button" onclick="init()">Start</button>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+    <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg">
+
+    <div id="display-image"></div>
+    <div id="display-image1"></div>
+
+
+    <style>
+        #display-image   {
+            width: 400px;
+            height: 225px;
+            border: 1px solid black;
+            background-position: center;
+            background-size: cover;
+        }
+
+        #display-image1 {
+            width: 400px;
+            height: 225px;
+            border: 1px solid black;
+            background-position: center;
+            background-size: cover;
+        }
+    </style>
+
+    @section Scripts{
+
+       <script  type="text/javascript" asp-append-version=true>
+           const image_input = document.querySelector("#image-input");
+
+           image_input.addEventListener("change", function () {
+               const reader = new FileReader();
+               reader.addEventListener("load", () => {
+                   const uploaded_image = reader.result;
+                   document.querySelector("#display-image").style.backgroundImage = `url(${uploaded_image})`;
+
+               });
+               reader.readAsDataURL(this.files[0]);
+           });
+       </script>
+        <script src="~/tensorflow/tfjs/dist/tf.min.js"></script>
+        <script src="~/teachablemachine/image/dist/teachablemachine-image.min.js"></script>
+        <script type="text/javascript">
+            // More API functions here:
+            // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+            // the link to your model provided by Teachable Machine export panel
+            const URL = "/Model/";
+
+            let model, webcam, labelContainer, maxPredictions;
+
+            // Load the image model and setup the webcam
+            async function init() {
+                const modelURL = URL + "model.json";
+                const metadataURL = URL + "metadata.json";
+
+                // load the model and metadata
+                // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                // or files from your local hard drive
+                // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                model = await tmImage.load(modelURL, metadataURL);
+                maxPredictions = model.getTotalClasses();
+
+                // Convenience function to setup a webcam
+                const flip = true; // whether to flip the webcam
+                webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+                await webcam.setup(); // request access to the webcam
+                await webcam.play();
+                window.requestAnimationFrame(loop);
+
+                // append elements to the DOM
+                document.getElementById("#display-image1").appendChild(webcam.canvas);
+                labelContainer = document.getElementById("label-container");
+                for (let i = 0; i < maxPredictions; i++) { // and class labels
+                    labelContainer.appendChild(document.createElement("div"));
+                }
+            }
+
+            async function loop() {
+                webcam.update(); // update the webcam frame
+                await predict();
+                window.requestAnimationFrame(loop);
+            }
+
+            // run the webcam image through the image model
+            async function predict() {
+                // predict can take in an image, video or canvas html element
+                const image_input = document.querySelector("#image-input");
+                const prediction = await model.predict(image_input.files[0]);
+                for (let i = 0; i < maxPredictions; i++) {
+                    const classPrediction =
+                        prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+                    labelContainer.childNodes[i].innerHTML = classPrediction;
+                }
+            }
+
+
+
+        </script>
+
+    }*@

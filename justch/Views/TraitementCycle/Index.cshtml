@@ -1,0 +1,170 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="tab-content">
+    <div class="tab-pane show active" id="about-cont">
+        <div class="content">
+            <div class="row">
+                <div class="col-sm-4 col-3">
+                    <h4 class="page-title">TraitementCycle</h4>
+                </div>
+                <div class="col-sm-8 col-9 text-right m-b-20">
+                    <a href="#ajoutermodalTtraitementCycle" onclick="showmodaladdTraitementCycle()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter TraitementCycle  </a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="table" class="table table-border table-striped  ">
+                            <thead>
+                                <tr>
+                                    <th>Nom du TraitementCycle</th>
+                                    <th>Nom du ACT MEDICAL</th>
+                                    <th>Durer par Act MEDICAL</th>
+                                    <th>Type de Act MEDICAL</th>
+                                    <th>categorie de Act MEDICAL</th>
+
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableTraitementCycle">
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<div id="ajoutermodalTtraitementCycle" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   ajoute traitementCycle  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <form id="formtraitemen">
+                    <div class="modal-body">
+
+                        <div class="form-group ">
+
+                            <label for="Name" class="float-left">  Name *</label>
+
+                            <input type="text" name="Name" class="form-control" id="Name" placeholder="Name" required minlength="3">
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="IdMedicalAct" class="float-left">ACT MEDICAL </label>
+                            <select class="form-control" name="IdMedicalAct" id="IdMedicalAct" required>
+
+                                @foreach (var item in ViewBag.ACTMEDICAL)
+                                {
+                                    <option value=@item.ID> @item.Name</option>
+                                }
+                            </select>
+
+
+                        </div>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="submit" id="btn_submit" onclick="add()" class="btn btn-primary"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editermodalTtraitementCycle" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   Editer traitementCycle  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <form id="formtediter">
+                    <div class="modal-body">
+
+                        <div class="form-group" id="editerinput" >
+
+                            <label for="editerName" class="float-left">  Name *</label>
+
+                            <input type="text" name="editerName" class="form-control" id="editerName" placeholder="Name" required minlength="3">
+
+                        </div>
+                        <div class="form-group ">
+                            <label for="editerIdMedicalAct" class="float-left">ACT MEDICAL </label>
+                            <select class="form-control" name="editerIdMedicalAct" id="editerIdMedicalAct" required>
+
+                                @foreach (var item in ViewBag.ACTMEDICAL)
+                                {
+                                    <option value=@item.ID> @item.Name</option>
+                                }
+                            </select>
+
+
+                        </div>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="submit" id="btn_submit" onclick="editer()" class="btn btn-primary"><i class="fa fa-plus m-r-5"> editer </i> </button>
+                    </div>
+
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete_traitementCycle" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez sûrement supprimer ce Traitement Cycle   ?</h3>
+              
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmationdelete()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/js/mesJS/TraitementCycle.js" asp-append-version=true>
+
+
+
+    </script>
+
+
+
+}

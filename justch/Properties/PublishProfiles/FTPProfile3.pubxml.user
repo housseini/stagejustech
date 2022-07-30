@@ -1,0 +1,1842 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Ce fichier est utilisé par le processus de publication/package de votre projet web. Vous pouvez personnaliser le comportement de ce processus
+en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAug6dFZ5UR0i0kE96vpXz3gAAAAACAAAAAAAQZgAAAAEAACAAAACFvEeOZqmp2oh284vPZWqKHp1ehjn4HMS1oUYWIYgYDQAAAAAOgAAAAAIAACAAAACzvCMZO92APaWoLP2dS85/aRDmiLC8uhV1C8NXwAsjLyAAAACHqso7nt0rile1+kY0gJcCj09nRv/wF19CO48E9FHf2EAAAABuzYrPFxv/gQf8ACB8O1VBDPLs8QYP2E4ulcz21fuMh2Rh0n21Qi3i1GeVfDgpL4tcHaI6NIkU+qdbL+CsvZSy</EncryptedPassword>
+    <_PublishTargetUrl>ftp://198.37.116.25/www.Justech.somee.com/</_PublishTargetUrl>
+    <History>True|2022-07-18T15:29:44.0385294Z;True|2022-06-29T13:53:45.7975146+02:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>01/21/2022 02:02:14</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>06/21/2022 00:37:26</publishTime>
+    </File>
+    <File Include="BouncyCastle.Crypto.dll">
+      <publishTime>02/08/2019 02:50:10</publishTime>
+    </File>
+    <File Include="Core.Flash.dll">
+      <publishTime>06/04/2020 09:02:06</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:08:58</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="cs/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:08:58</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="de/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="dotnet-aspnet-codegenerator-design.dll">
+      <publishTime>02/09/2021 22:12:02</publishTime>
+    </File>
+    <File Include="EASendMail.dll">
+      <publishTime>06/27/2022 10:39:37</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="es/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="fr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="it/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="ja/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="justch.deps.json">
+      <publishTime>07/18/2022 16:42:05</publishTime>
+    </File>
+    <File Include="justch.dll">
+      <publishTime>07/18/2022 16:41:55</publishTime>
+    </File>
+    <File Include="justch.exe">
+      <publishTime>07/18/2022 16:41:55</publishTime>
+    </File>
+    <File Include="justch.pdb">
+      <publishTime>07/18/2022 16:41:55</publishTime>
+    </File>
+    <File Include="justch.runtimeconfig.json">
+      <publishTime>06/29/2022 04:35:25</publishTime>
+    </File>
+    <File Include="justch.Views.dll">
+      <publishTime>07/18/2022 16:42:04</publishTime>
+    </File>
+    <File Include="justch.Views.pdb">
+      <publishTime>07/18/2022 16:42:03</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="ko/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="libman.json">
+      <publishTime>05/30/2022 21:19:52</publishTime>
+    </File>
+    <File Include="MailKit.dll">
+      <publishTime>04/04/2020 04:00:10</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Authentication.JwtBearer.dll">
+      <publishTime>03/30/2022 17:32:06</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.JsonPatch.dll">
+      <publishTime>06/18/2021 20:26:44</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll">
+      <publishTime>06/18/2021 20:39:08</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Mvc.Razor.Extensions.dll">
+      <publishTime>02/23/2022 19:21:30</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll">
+      <publishTime>02/23/2022 21:51:00</publishTime>
+    </File>
+    <File Include="Microsoft.AspNetCore.Razor.Language.dll">
+      <publishTime>02/23/2022 19:21:24</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>09/12/2019 19:08:58</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.Workspaces.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.dll">
+      <publishTime>09/12/2019 19:07:46</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Razor.dll">
+      <publishTime>02/23/2022 19:21:28</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Workspaces.dll">
+      <publishTime>09/12/2019 19:08:34</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <publishTime>04/15/2020 05:36:10</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyInjection.dll">
+      <publishTime>04/15/2020 05:36:04</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyModel.dll">
+      <publishTime>06/17/2020 06:37:32</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>06/24/2019 21:50:38</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Logging.dll">
+      <publishTime>06/24/2019 21:53:26</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.dll">
+      <publishTime>06/24/2019 21:54:24</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll">
+      <publishTime>06/24/2019 21:59:32</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>06/24/2019 21:56:06</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll">
+      <publishTime>02/09/2021 22:11:34</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Core.dll">
+      <publishTime>02/09/2021 22:11:44</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.dll">
+      <publishTime>02/09/2021 22:11:52</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll">
+      <publishTime>02/09/2021 22:11:50</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll">
+      <publishTime>02/09/2021 22:11:42</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll">
+      <publishTime>02/09/2021 22:11:40</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
+      <publishTime>02/09/2021 22:11:52</publishTime>
+    </File>
+    <File Include="MimeKit.dll">
+      <publishTime>04/04/2020 02:59:56</publishTime>
+    </File>
+    <File Include="NETCore.MailKit.dll">
+      <publishTime>05/21/2020 18:22:12</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.Bson.dll">
+      <publishTime>11/28/2018 00:10:18</publishTime>
+    </File>
+    <File Include="Newtonsoft.Json.dll">
+      <publishTime>04/22/2019 03:06:16</publishTime>
+    </File>
+    <File Include="NuGet.Frameworks.dll">
+      <publishTime>04/24/2018 23:27:10</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:12</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:48</publishTime>
+    </File>
+    <File Include="pl/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:14</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:48</publishTime>
+    </File>
+    <File Include="pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:14</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:48</publishTime>
+    </File>
+    <File Include="ru/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>07/20/2020 23:33:18</publishTime>
+    </File>
+    <File Include="runtimes/win-arm64/native/sni.dll">
+      <publishTime>07/12/2017 13:24:24</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/sni.dll">
+      <publishTime>07/12/2017 13:24:22</publishTime>
+    </File>
+    <File Include="runtimes/win-x86/native/sni.dll">
+      <publishTime>07/12/2017 13:24:22</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll">
+      <publishTime>07/20/2020 23:33:24</publishTime>
+    </File>
+    <File Include="System.Composition.AttributedModel.dll">
+      <publishTime>11/05/2016 05:55:42</publishTime>
+    </File>
+    <File Include="System.Composition.Convention.dll">
+      <publishTime>11/05/2016 05:55:42</publishTime>
+    </File>
+    <File Include="System.Composition.Hosting.dll">
+      <publishTime>11/05/2016 05:55:42</publishTime>
+    </File>
+    <File Include="System.Composition.Runtime.dll">
+      <publishTime>11/05/2016 05:55:44</publishTime>
+    </File>
+    <File Include="System.Composition.TypedParts.dll">
+      <publishTime>11/05/2016 05:55:46</publishTime>
+    </File>
+    <File Include="System.Data.SqlClient.dll">
+      <publishTime>07/20/2020 23:21:14</publishTime>
+    </File>
+    <File Include="System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>06/24/2019 21:49:50</publishTime>
+    </File>
+    <File Include="System.Text.Json.dll">
+      <publishTime>04/15/2020 00:49:30</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:14</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:48</publishTime>
+    </File>
+    <File Include="tr/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>07/18/2022 16:42:22</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap-datetimepicker.min.css">
+      <publishTime>03/30/2019 16:26:14</publishTime>
+    </File>
+    <File Include="wwwroot/css/bootstrap.min.css">
+      <publishTime>03/30/2019 16:26:16</publishTime>
+    </File>
+    <File Include="wwwroot/css/dataTables.bootstrap4.min.css">
+      <publishTime>03/30/2019 16:26:14</publishTime>
+    </File>
+    <File Include="wwwroot/css/font-awesome.min.css">
+      <publishTime>03/30/2019 16:26:14</publishTime>
+    </File>
+    <File Include="wwwroot/css/fullcalendar.min.css">
+      <publishTime>03/30/2019 16:26:14</publishTime>
+    </File>
+    <File Include="wwwroot/css/select2.min.css">
+      <publishTime>03/30/2019 16:26:14</publishTime>
+    </File>
+    <File Include="wwwroot/css/site.css">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/css/sperme.css">
+      <publishTime>07/05/2022 11:43:49</publishTime>
+    </File>
+    <File Include="wwwroot/css/style.css">
+      <publishTime>03/30/2019 16:26:16</publishTime>
+    </File>
+    <File Include="wwwroot/css/tagsinput.css">
+      <publishTime>03/30/2019 16:26:14</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/174-modele-cv-informaticien.docx">
+      <publishTime>05/29/2022 22:28:37</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/20210429162851_00004 %282%29.pdf">
+      <publishTime>06/14/2022 21:38:21</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/21IN.pdf">
+      <publishTime>06/12/2022 23:45:49</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/3-GP-Planification.pdf">
+      <publishTime>06/06/2022 03:51:25</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/32_1.png">
+      <publishTime>04/18/2022 02:03:16</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/32_5.png">
+      <publishTime>04/18/2022 02:03:26</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/32_6.png">
+      <publishTime>04/18/2022 02:06:37</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/32_7.png">
+      <publishTime>04/18/2022 02:04:17</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/43e588cd-1bb9-4c3e-b7a8-991b5456d536.pdf">
+      <publishTime>06/20/2022 09:19:02</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/891c1137-f952-4acd-a7a3-2e63f507cd8b.pdf">
+      <publishTime>06/14/2022 21:41:49</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/9k.labels">
+      <publishTime>04/14/2022 20:27:17</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/9k.tree">
+      <publishTime>04/14/2022 20:52:05</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/coco.data">
+      <publishTime>04/11/2022 05:31:42</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/coco.names">
+      <publishTime>04/14/2022 19:24:14</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/Doc1.pdf">
+      <publishTime>04/01/2022 00:46:21</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/electronics-10-02319.pdf">
+      <publishTime>06/21/2022 05:57:48</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/french_colors.json">
+      <publishTime>07/10/2022 21:33:08</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/goal.txt">
+      <publishTime>04/18/2022 01:57:14</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/imagenet.shortnames.list">
+      <publishTime>04/14/2022 20:33:01</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/lettre de motivation Oumarou Bako Housseini - Copie.docx">
+      <publishTime>03/31/2022 23:01:56</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/lettre f.pdf">
+      <publishTime>04/01/2022 00:28:07</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/mon cv - Copie.pdf">
+      <publishTime>04/01/2022 00:30:04</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/Motivation.pdf">
+      <publishTime>05/23/2022 08:57:53</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/spermRand_CMPBrev2_2_751530.data">
+      <publishTime>04/14/2022 20:30:09</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/test_1_20.txt">
+      <publishTime>04/14/2022 18:58:53</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/test_2_30.txt">
+      <publishTime>04/14/2022 20:26:27</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/test_3_50.txt">
+      <publishTime>04/14/2022 20:16:04</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/valid_2_15.txt">
+      <publishTime>04/14/2022 19:09:24</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/voc.names">
+      <publishTime>04/18/2022 01:56:00</publishTime>
+    </File>
+    <File Include="wwwroot/favicon.ico">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/fonts/fontawesome-webfont3e6e.eot">
+      <publishTime>03/30/2019 16:26:20</publishTime>
+    </File>
+    <File Include="wwwroot/fonts/fontawesome-webfont3e6e.html">
+      <publishTime>03/30/2019 16:26:18</publishTime>
+    </File>
+    <File Include="wwwroot/fonts/fontawesome-webfont3e6e.svg">
+      <publishTime>03/30/2019 16:26:20</publishTime>
+    </File>
+    <File Include="wwwroot/fonts/fontawesome-webfont3e6e.ttf">
+      <publishTime>03/30/2019 16:26:20</publishTime>
+    </File>
+    <File Include="wwwroot/fonts/fontawesome-webfont3e6e.woff">
+      <publishTime>03/30/2019 16:26:20</publishTime>
+    </File>
+    <File Include="wwwroot/fonts/fontawesome-webfontd41d.eot">
+      <publishTime>03/30/2019 16:26:20</publishTime>
+    </File>
+    <File Include="wwwroot/img/attachment.png">
+      <publishTime>03/30/2019 16:26:18</publishTime>
+    </File>
+    <File Include="wwwroot/img/calander.png">
+      <publishTime>03/30/2019 16:26:20</publishTime>
+    </File>
+    <File Include="wwwroot/img/clock.png">
+      <publishTime>03/30/2019 16:26:20</publishTime>
+    </File>
+    <File Include="wwwroot/img/delete.png">
+      <publishTime>08/17/2020 14:15:00</publishTime>
+    </File>
+    <File Include="wwwroot/img/delete1.png">
+      <publishTime>08/17/2020 14:17:22</publishTime>
+    </File>
+    <File Include="wwwroot/img/doctor-thumb-12.jpg">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/favicon.ico">
+      <publishTime>03/30/2019 16:26:22</publishTime>
+    </File>
+    <File Include="wwwroot/img/logo-dark.png">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/logo.png">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/patient-thumb-01.jpg">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/placeholder-thumb.jpg">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/placeholder.jpg">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/Profile/IMGP1922.jpg">
+      <publishTime>07/18/2022 16:17:27</publishTime>
+    </File>
+    <File Include="wwwroot/img/sent.png">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/user.jpg">
+      <publishTime>03/30/2019 16:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/js/alertify.min.js">
+      <publishTime>10/09/2013 03:20:58</publishTime>
+    </File>
+    <File Include="wwwroot/js/app.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap-datetimepicker.min.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/js/bootstrap.min.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/js/Chart.bundle.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/chart.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/js/dataTables.bootstrap4.min.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/dossiermedical.js">
+      <publishTime>07/10/2022 22:11:06</publishTime>
+    </File>
+    <File Include="wwwroot/js/editedossiermerdicale.js">
+      <publishTime>07/10/2022 22:11:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/fullcalendar.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery-3.2.1.min.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery-ui.min.html">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.dataTables.min.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.fullcalendar.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.slimscroll.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.validate.min.js">
+      <publishTime>12/16/2019 10:48:20</publishTime>
+    </File>
+    <File Include="wwwroot/js/jquery.validate.unobtrusive.min.js">
+      <publishTime>12/16/2019 10:48:20</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/AddDossierMedical.js">
+      <publishTime>07/10/2022 22:06:20</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/AntecedentParticulier.js">
+      <publishTime>06/28/2022 11:48:48</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Appointment.js">
+      <publishTime>07/18/2022 15:14:16</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/BilanEndocrinien.js">
+      <publishTime>06/26/2022 05:48:00</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Consulter.js">
+      <publishTime>07/10/2022 22:08:04</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/ConsulterTraitementCycle.js">
+      <publishTime>07/10/2022 22:08:14</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Cuve.js">
+      <publishTime>07/12/2022 21:29:19</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Doctor.js">
+      <publishTime>07/10/2022 22:08:29</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/DocumentType.js">
+      <publishTime>07/10/2022 22:08:43</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/ExamenComplementaire.js">
+      <publishTime>06/28/2022 11:49:20</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Incubateur_Chambre.js">
+      <publishTime>07/10/2022 22:09:00</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Layout.js">
+      <publishTime>03/24/2022 14:22:55</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales-all.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales-all.min.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/af.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ar-dz.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ar-kw.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ar-ly.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ar-ma.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ar-sa.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ar-tn.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ar.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/az.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/bg.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/bn.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/bs.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ca.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/cs.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/cy.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/da.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/de-at.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/de.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/el.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/en-au.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/en-gb.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/en-nz.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/eo.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/es-us.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/es.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/et.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/eu.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/fa.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/fi.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/fr-ca.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/fr-ch.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/fr.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/gl.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/he.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/hi.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/hr.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/hu.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/hy-am.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/id.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/is.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/it.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ja.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ka.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/kk.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/km.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ko.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ku.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/lb.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/lt.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/lv.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/mk.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ms.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/nb.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ne.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/nl.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/nn.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/pl.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/pt-br.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/pt.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ro.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ru.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/si-lk.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/sk.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/sl.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/sm.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/sq.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/sr-cyrl.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/sr.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/sv.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ta-in.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/th.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/tr.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/ug.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/uk.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/uz.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/vi.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/zh-cn.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/locales/zh-tw.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/main.css">
+      <publishTime>02/09/2022 13:05:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/main.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/main.min.css">
+      <publishTime>02/09/2022 13:05:26</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/lib/main.min.js">
+      <publishTime>02/09/2022 13:18:12</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Login.js">
+      <publishTime>06/04/2022 04:35:08</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/MedicalAct.js">
+      <publishTime>07/18/2022 12:09:53</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/MedicalRecordAct.js">
+      <publishTime>07/18/2022 15:29:45</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataBiopsie.js">
+      <publishTime>07/15/2022 05:06:31</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataCongelationEnbryonnaire.js">
+      <publishTime>07/14/2022 03:03:35</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataCongelationOvocyte.js">
+      <publishTime>07/14/2022 03:06:19</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataCongelationSperme.js">
+      <publishTime>07/13/2022 08:29:55</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataCulture.js">
+      <publishTime>07/16/2022 14:38:55</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataInseminationIAC.js">
+      <publishTime>07/04/2022 19:46:44</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataPreparationSperme.js">
+      <publishTime>07/16/2022 07:13:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/ActDataTransfertsEnbryonnaire.js">
+      <publishTime>07/12/2022 08:57:38</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/CongelationBiopsieTesticulaire.js">
+      <publishTime>07/04/2022 13:29:21</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/Decoronisation.js">
+      <publishTime>07/16/2022 05:48:05</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/Injection.js">
+      <publishTime>07/03/2022 10:41:37</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/Ponction.js">
+      <publishTime>07/16/2022 08:19:40</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/NewFolder1/verifierActs.js">
+      <publishTime>07/16/2022 15:55:13</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Renseigment_de_base.js">
+      <publishTime>06/25/2022 04:11:08</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Room.js">
+      <publishTime>07/10/2022 22:09:42</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Serologie.js">
+      <publishTime>06/26/2022 03:54:53</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Spermogramme.js">
+      <publishTime>06/27/2022 12:33:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/techiciens.js">
+      <publishTime>07/10/2022 22:10:10</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/TentativeAnterieure.js">
+      <publishTime>06/25/2022 04:12:07</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/TraitementCycle.js">
+      <publishTime>07/10/2022 22:10:27</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/Utilisateur.js">
+      <publishTime>06/01/2022 21:54:13</publishTime>
+    </File>
+    <File Include="wwwroot/js/mesJS/verification.js">
+      <publishTime>06/25/2022 05:28:17</publishTime>
+    </File>
+    <File Include="wwwroot/js/moment.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/popper.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/profile.js">
+      <publishTime>06/28/2022 15:29:31</publishTime>
+    </File>
+    <File Include="wwwroot/js/Recheche.js">
+      <publishTime>06/21/2022 09:23:39</publishTime>
+    </File>
+    <File Include="wwwroot/js/select2.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/js/site.js">
+      <publishTime>07/10/2022 22:12:23</publishTime>
+    </File>
+    <File Include="wwwroot/js/tagsinput.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/datatables.net/jquery.dataTables.js">
+      <publishTime>05/30/2022 21:16:11</publishTime>
+    </File>
+    <File Include="wwwroot/lib/datatables.net/jquery.dataTables.min.js">
+      <publishTime>05/30/2022 21:16:12</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/bg.png">
+      <publishTime>07/05/2022 09:36:35</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/example.html">
+      <publishTime>07/05/2022 09:36:36</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/footer-bg.png">
+      <publishTime>07/05/2022 09:36:36</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/jquery-multi-step-form.css">
+      <publishTime>07/05/2022 09:36:36</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/jquery-multi-step-form.js">
+      <publishTime>07/05/2022 09:36:36</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/LICENSE">
+      <publishTime>07/05/2022 09:36:35</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/msform_overlay.png">
+      <publishTime>07/05/2022 09:36:36</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/msform_sprite.png">
+      <publishTime>07/05/2022 09:36:36</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-multi-step-form-master/README.md">
+      <publishTime>07/05/2022 09:36:35</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/bower.json">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/demos/css/jquery.toast.css">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/demos/index.html">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/demos/js/jquery.toast.js">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/dist/jquery.toast.min.css">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/dist/jquery.toast.min.js">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/package.json">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/README.md">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/src/jquery.toast.css">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-toast-plugin-master/src/jquery.toast.js">
+      <publishTime>11/20/2017 08:54:29</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/additional-methods.min.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/dist/jquery.validate.min.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery-validation/LICENSE.md">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.js">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/dist/jquery.min.map">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquery/LICENSE.txt">
+      <publishTime>01/21/2022 02:02:15</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/.gitignore">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/CODE_OF_CONDUCT.md">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/CONTRIBUTING.md">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/demo/css/normalize.min.css">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/demo/index.html">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/demo/js/vendor/html5-3.6-respond-1.1.0.min.js">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/dist/jQuery.print.min.js">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/index.d.ts">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/ISSUE_TEMPLATE.md">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/jQuery.print.js">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/LICENSE">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/package.json">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/README.md">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/jquueryprint/yarn.lock">
+      <publishTime>06/15/2022 19:42:00</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/app.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/bootstrap-datetimepicker.min.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/bootstrap.min.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/Chart.bundle.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/chart.js">
+      <publishTime>03/30/2019 16:26:28</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/dataTables.bootstrap4.min.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/fullcalendar.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/jquery-3.2.1.min.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/jquery-ui.min.html">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/jquery.dataTables.min.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/jquery.fullcalendar.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/jquery.slimscroll.js">
+      <publishTime>03/30/2019 16:26:30</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/moment.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/popper.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/select2.min.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/js/tagsinput.js">
+      <publishTime>03/30/2019 16:26:32</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/css/lightgallery.min.css">
+      <publishTime>03/30/2019 17:36:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/fonts/lgd41d.eot">
+      <publishTime>03/30/2019 17:36:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/fonts/lgd641.eot">
+      <publishTime>03/30/2019 17:36:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/fonts/lgd641.svg">
+      <publishTime>03/30/2019 17:36:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/fonts/lgd641.ttf">
+      <publishTime>03/30/2019 17:36:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/fonts/lgd641.woff">
+      <publishTime>03/30/2019 17:36:42</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/img/loading.gif">
+      <publishTime>03/30/2019 17:36:44</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/img/video-play.png">
+      <publishTime>03/30/2019 17:36:44</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/img/vimeo-play.png">
+      <publishTime>03/30/2019 17:36:44</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/img/youtube-play.png">
+      <publishTime>03/30/2019 17:36:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/light-gallery/js/lightgallery-all.min.js">
+      <publishTime>03/30/2019 17:36:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/summernote/dist/font/summernote4c4d.eot">
+      <publishTime>03/30/2019 17:50:56</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/summernote/dist/font/summernote4c4d.ttf">
+      <publishTime>03/30/2019 17:50:54</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/summernote/dist/font/summernote4c4d.woff">
+      <publishTime>03/30/2019 17:50:54</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/summernote/dist/font/summernoted41d.eot">
+      <publishTime>03/30/2019 17:50:54</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/summernote/dist/summernote-bs4.css">
+      <publishTime>03/30/2019 17:36:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/plugins/summernote/dist/summernote-bs4.min.js">
+      <publishTime>03/30/2019 17:36:48</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote/dist/font/summernote4c4d.eot">
+      <publishTime>03/30/2019 17:50:56</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote/dist/font/summernote4c4d.ttf">
+      <publishTime>03/30/2019 17:50:54</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote/dist/font/summernote4c4d.woff">
+      <publishTime>03/30/2019 17:50:54</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote/dist/font/summernoted41d.eot">
+      <publishTime>03/30/2019 17:50:54</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote/dist/summernote-bs4.css">
+      <publishTime>03/30/2019 17:36:46</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote/dist/summernote-bs4.min.js">
+      <publishTime>03/30/2019 17:36:48</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/CHANGELOG.md">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/dist/sweetalert2.all.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/dist/sweetalert2.all.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/dist/sweetalert2.css">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/dist/sweetalert2.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/dist/sweetalert2.min.css">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/dist/sweetalert2.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/LICENSE">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/package.json">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/README.md">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/buttons-handlers.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/buttons-handlers.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/constants.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/constants.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/globalState.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/globalState.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/close.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/close.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/enable-disable-elements.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/enable-disable-elements.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/getInput.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/getInput.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/hideLoading.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/hideLoading.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/progress-steps.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/progress-steps.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/update.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/update.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/validation-message.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/validation-message.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/_destroy.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/instanceMethods/_destroy.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/keydown-handler.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/keydown-handler.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/popup-click-handler.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/popup-click-handler.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/privateMethods.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/privateMethods.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/privateProps.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/privateProps.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_animations.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_body.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_core.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_mixins.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_theming.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_toasts-animations.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_toasts-body.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/scss/_toasts.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/argsToParams.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/argsToParams.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/bindClickHandler.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/bindClickHandler.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/dom.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/dom.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/fire.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/fire.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/mixin.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/mixin.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/showLoading.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/showLoading.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/timer.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/staticMethods/timer.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/SweetAlert.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/SweetAlert.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/sweetalert2.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/sweetalert2.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/sweetalert2.scss">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/aria.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/aria.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/classes.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/classes.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/defaultInputValidators.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/defaultInputValidators.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/DismissReason.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/DismissReason.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/animationEndEvent.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/animationEndEvent.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/domUtils.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/domUtils.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/getters.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/getters.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/index.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/index.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/init.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/init.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/inputUtils.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/inputUtils.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/measureScrollbar.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/measureScrollbar.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/parseHtmlToContainer.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/parseHtmlToContainer.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/render.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/render.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderActions.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderActions.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderCloseButton.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderCloseButton.min.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderContainer.js">
+      <publishTime>05/30/2022 21:16:39</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderContainer.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderContent.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderContent.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderFooter.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderFooter.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderIcon.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderIcon.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderImage.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderImage.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderInput.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderInput.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderPopup.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderPopup.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderProgressSteps.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderProgressSteps.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderTitle.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/dom/renderers/renderTitle.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/getTemplateParams.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/getTemplateParams.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/iosFix.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/iosFix.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/isNodeEnv.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/isNodeEnv.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/openPopup.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/openPopup.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/params.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/params.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/scrollbarFix.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/scrollbarFix.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/setParameters.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/setParameters.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/Timer.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/Timer.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/utils.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/utils/utils.min.js">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/src/variables.scss">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/lib/sweetalert2/sweetalert2.d.ts">
+      <publishTime>05/30/2022 21:16:40</publishTime>
+    </File>
+    <File Include="wwwroot/Model/metadata.json">
+      <publishTime>05/31/2022 01:09:52</publishTime>
+    </File>
+    <File Include="wwwroot/Model/model.json">
+      <publishTime>05/31/2022 01:09:52</publishTime>
+    </File>
+    <File Include="wwwroot/Model/weights.bin">
+      <publishTime>05/31/2022 01:09:52</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/custom-mobilenet.d.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/custom-mobilenet.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/custom-mobilenet.js.map">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/custom-mobilenet.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/index.d.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/index.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/index.js.map">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/index.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/teachable-mobilenet.d.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/teachable-mobilenet.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/teachable-mobilenet.js.map">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/teachable-mobilenet.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/teachablemachine-image.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/teachablemachine-image.min.js.LICENSE">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/teachablemachine-image.min.js.LICENSE.txt">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/canvas.d.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/canvas.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/canvas.js.map">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/canvas.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/tf.d.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/tf.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/tf.js.map">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/tf.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/webcam.d.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/webcam.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/webcam.js.map">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/utils/webcam.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/version.d.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/version.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/version.js.map">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/dist/version.min.js">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/package.json">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/README.md">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/src/custom-mobilenet.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/src/index.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/src/teachable-mobilenet.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/src/utils/canvas.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/src/utils/tf.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/src/utils/webcam.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/teachablemachine/image/src/version.ts">
+      <publishTime>05/30/2022 21:20:05</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/index.d.ts">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/index.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/index.js.map">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/index.min.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/index_test.js.map">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/miniprogram/index.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/miniprogram/index.js.map">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/miniprogram/index.min.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/tf.esm.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/tf.esm.js.map">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/tf.esm.min.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/tf.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/tf.js.map">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/tf.min.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/tf.min.js.map">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/version.d.ts">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/version.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/version.js.map">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/dist/version.min.js">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/package.json">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/README.md">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/src/index.ts">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="wwwroot/tensorflow/tfjs/src/version.ts">
+      <publishTime>05/30/2022 21:17:00</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:14</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:48</publishTime>
+    </File>
+    <File Include="zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll">
+      <publishTime>09/12/2019 19:09:00</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:09:14</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.resources.dll">
+      <publishTime>09/12/2019 19:07:48</publishTime>
+    </File>
+    <File Include="zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll">
+      <publishTime>09/12/2019 19:08:36</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

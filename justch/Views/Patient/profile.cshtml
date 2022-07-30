@@ -1,0 +1,384 @@
+﻿@model Patient
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content">
+
+    <div class="row">
+        <div class="col-sm-7 col-6">
+            <h4 class="page-title">Profile  Patient(s)</h4>
+        </div>
+
+        <div class="col-sm-5 col-6 text-right m-b-30">
+           
+            <a href="#" onclick="retour()" class="btn btn-primary"><i class="fa fa-back"></i>  retour </a>
+        </div>
+    </div>
+</div>
+<div class="card-box profile-header">
+    <div class="">
+        <div class="row">
+            <div class="col-md-3">
+                <div>
+                    @if (ViewBag.patient.Photo != null)
+                    {
+
+
+                        <img style="height: 150px; width:60%;" class="rounded-circle"  onclick="voirimage( '@ViewBag.patient.Photo')" id="imgae"  src="~/img/Profile/@ViewBag.patient.Photo" />
+                    }
+                    @if (ViewBag.patient.Photo == null)
+                    {
+                               <img style="height: 150px; width:60%;"  class="rounded-circle" src="~/img/user.jpg" />
+
+                    }
+                </div>
+            </div>
+            <fieldset>
+                <div>
+                    <h3 class="user-name m-t-0 mb-0">@ViewBag.patient.Civility</h3>
+                    <div class="staff-id">
+                        @ViewBag.patient.FirstName &nbsp &nbsp; @ViewBag.patient.LastName
+                    </div>
+                    <small class="text-muted">@ViewBag.patient.Dataofbirth<br> à @ViewBag.patient.Placeofbirth</small>
+                    <small class="text-muted">(@ViewBag.patient.Nationality)</small>
+
+
+                </div>
+
+            </fieldset>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <fieldset>
+
+                <h3 class="user-name m-t-0 mb-0">Contact</h3>
+                <ul class="personal-info">
+
+                    <li> <span class="text-muted"> +21656353102 </span>
+
+
+
+                    <li>
+                        <span class="text-muted"> housseinioumaroubako@gmail.com  </span>
+
+
+                    </li>
+
+
+
+                </ul>
+            </fieldset>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <fieldset>
+
+                <h3 class="user-name m-t-0 mb-0">Adresse</h3>
+                <ul class="personal-info">
+
+                    <li>
+                        <span class="text-muted">@ViewBag.patient.City (@ViewBag.patient.Country) </span>
+                    </li>
+                    <li>
+                        <span class="text-muted">@ViewBag.patient.Address </span>
+                    </li>
+
+
+                    <li>
+
+
+                        <span class="text-muted"> BP: @ViewBag.patient.PostalCode  </span>
+                    </li>
+
+
+
+                </ul>
+
+
+
+            </fieldset>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+
+
+            &nbsp;
+            &nbsp;
+
+
+
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <fieldset>
+                <h3 class="user-name m-t-0 mb-0">ASSURANCE</h3>
+                <ul class="personal-info">
+
+                    <li>
+                        <span class="text-muted">  agence :@ViewBag.patient.InsuranceAgency  <br /> </span>
+                        <span class="text-muted"> CIN ASSURANCE : @ViewBag.patient.InsuranceAgency   </span>
+                        &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;
+                        <div class="staff-msg">
+                            <a   href="/Patient/EditPatient/@ViewBag.patient.Id"   onclick="edit(@ViewBag.patient.Id)" class="btn btn-primary"> Modifier Patient  </a>
+                        </div>
+                    </li>
+                </ul>
+
+
+
+            </fieldset>
+            <div class="col-md-6">
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="card-box">
+</div>
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab"> Dossiers</a></li>
+
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab"> Documents</a></li>
+
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+
+            <div class="table-responsive">
+                <table class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                            <th>REFERENCE</th>
+                            <th>State</th>
+                            <th>type</th>
+                            <th>DATE DE CREATION</th>
+                            <th>DATE D'ADMISSION  </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.DossiersMedicals != null)
+                        {
+                            @foreach (var item in ViewBag.DossiersMedicals)
+                            {
+                                        <tr>
+                                            <td>
+                                        @item.Reference
+                                            </td>
+                                            <td>  @item.State</td>
+                                            <td>  @item.Type</td>
+                                            <td>@item.DateCreation</td>
+                                            <td>@item.DateAdmission</td>
+
+                                            <td> <a class="btn btn-primary" href="/DossierMedical/Consulter?Reference=@item.Id"> Consulter </a></td>
+
+                                        </tr>
+
+                            }
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+        <div class="tab-pane" id="bottom-tab3">
+            <div class="row">
+
+
+                <div class="col-md-12">
+                    <div class="text-right">
+                        <a href="#ajouterdocument" class="btn btn-primary" onclick="showmadaladd()"><i class="fa fa-plus"></i>  Ajouter </a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-border table-striped custom-table datatable mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Description</th>
+                                    <th>Fichier</th>
+                                    <th>Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in ViewBag.Documents)
+                                {
+
+
+                                        <tr>
+                                            <td> @item.Name</td>
+                                            <td> @item.Description</td>
+                                            <td> <a href="~/Documents/@item.Path"> </a> @item.Path</td>
+
+
+                                            <td class="text-right">
+                                                <div class="dropdown dropdown-action">
+                                                    <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="~/Documents/@item.Path"><i></i> Consulter </a>
+
+
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="ajouterdocument" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h3> <i class="fa fa-book m-r-5"> </i>  ajouter document </h3>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="float-left">type Document </label>
+                        <select id="TypeDocumment" class="form-control">
+                            @foreach (var item in ViewBag.DocumentType)
+                            {
+                                    <option value=@item.Code>  @item.Label </option>
+                            }
+
+
+                        </select>
+                        <input class=" form-control btn-primary" type="submit" value="Autre" onclick="showmodaladdtypefile()" />
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="float-left">DOSSIER  </label>
+                        <select id="DOSSIER" class="form-control">
+                            @if (ViewBag.DossiersMedicals != null)
+                            {
+                                @foreach (var item in ViewBag.DossiersMedicals)
+                                {
+                                            <option value=@item.Id>  @item.Reference</option>
+                                }
+
+                            }
+
+
+                        </select>
+
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPassword4" class="float-left">  NOM <span>*</span></label>
+
+                        <input type="text" class="form-control  " id="Nomd" placeholder="NOM">
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputAddress2" class="float-left">Fichier </label>
+                        <input type="file" class="form-control" id="Fichier">
+                    </div>
+                    <div class="form-group col-md-7">
+                        <label for="inputAddress" class="float-left">Descripion</label>
+                        <textarea class="form-control" id="Descripion" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="addDocument()"><i class="fa fa-plus m-r-5"> </i> Ajouter Documment  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="ajouterdocumentTYPE" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h3> <i class="fa fa-book m-r-5"> </i>  ajouter Type de document </h3>
+
+                <div class="form-row">
+
+
+
+
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4" class="float-left">  Code <span>*</span></label>
+
+                        <input type="text" class="form-control" id="Code" placeholder="Code">
+
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress2" class="float-left">Nom </label>
+                        <input type="text" class="form-control" id="NomDt" placeholder="Nom">
+                    </div>
+
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="addTypeDocument()"><i class="fa fa-plus m-r-5"> </i>  ajouter Type de document </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="supprimerdocument" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog modal-dialog-centered  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+                    <h1>Supprimer Document </h1>
+                    <p> etes vous sur de suppromer ce document   ? </p>
+
+                    <div class="clearfix">
+                        <button type="button"  onclick="fermer()" class="btn  btn-primary">Cancel</button>
+                        <button type="button" onclick="confirmationdelete()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+@section Scripts{
+
+<script src="~/js/profile.js" asp-append-version=true>
+
+
+</script>
+
+
+
+    }
+

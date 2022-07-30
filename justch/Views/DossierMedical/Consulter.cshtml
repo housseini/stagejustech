@@ -1,0 +1,3036 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Patient
+<div class="content">
+    <div class="row">
+        <div class="col-sm-7 col-6">
+            <h4 class="page-title">Dossier Patient(s)</h4>
+        </div>
+
+        <div class="col-sm-5 col-6 text-right m-b-30">
+            <input id="reference" value=@ViewBag.DossierMedicale.Reference />
+            <input id="id" value=@ViewBag.DossierMedicale.Id />
+
+            <a href="" class="btn btn-primary" onclick="rechargeREnseignement()"> <i class="fa fa-refresh"></i>  recharge </a>
+            <a href="#" onclick="retour()" class="btn btn-primary"><i class="fa fa-back"></i>  retour </a>
+        </div>
+    </div>
+    <div class="card-box profile-header">
+        <div class="row">
+            <div class="col-md-12">
+
+
+                <div class="">
+                    <div class="row">
+
+
+
+                        <div class="col-md-3" id="patient1">
+                        </div>
+
+                        <div class="col-md-3" id="patient2">
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <ul class="personal-info">
+
+
+                                <li>
+                                    <span class="title">Réference :</span>
+                                    <span class="text"><a href="#"> @ViewBag.DossierMedicale.Reference </a></span>
+                                </li>
+                                <li>
+                                    <span class="title">Date création :</span>
+                                    <span class="text"><a href="#"> @ViewBag.DossierMedicale.DateCreation</a></span>
+                                </li>
+                                <li>
+                                    <span class="title">Type :</span>
+                                    <span class="text"> @ViewBag.DossierMedicale.Type</span>
+                                </li>
+                                <li>
+                                    <span class="title"> State:</span>
+                                    <span class="text"> @ViewBag.DossierMedicale.State</span>
+
+
+                                </li>
+
+                                <li>
+                                    <br />
+                                    <br />
+
+
+
+                                    <div class="staff-msg">
+
+                                        @if (@ViewBag.DossierMedicale.State == "Incomplet")
+                                        {
+                                            <a href="#" onclick="completer(@ViewBag.DossierMedicale.Id)" class="btn btn-primary"> Mettre state a complet</a>
+                                        }
+                                        @if (@ViewBag.DossierMedicale.State == "complet")
+                                        {
+                                            <a href="#" onclick="Incompleter(@ViewBag.DossierMedicale.Id)" class="btn btn-primary"> Mettre state a Incomplet</a>
+
+
+                                        }
+
+                                        &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;  &nbsp;   &nbsp;  &nbsp;
+                                        <a href="editeDossierMedical/@ViewBag.DossierMedicale.Id" class="btn btn-primary"> Modifier </a>
+                                    </div>
+                                </li>
+
+
+
+
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="profile-tabs">
+    <ul id="myTab3" class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">RDV</a></li>
+        <li class="nav-item"><a class="nav-link " href="#bottom-tab1" data-toggle="tab">Renseigment Clinique </a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Actes Exporation </a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab4" data-toggle="tab">Traitement  Cycle  </a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab3" data-toggle="tab">Documents</a></li>
+
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <table id="Rdvd" width="100%" class=" table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Heur</th>
+                                <th>ACT</th>
+                                <th>Durer</th>
+                                <th>SALLE</th>
+                                <th>Patient </th>
+                                <th>MEDECIN </th>
+                                <th>Etat </th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablebody">
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab4">
+            <h4 class="page-title">Cycle de Traitement</h4>
+            <div class="text-right">
+                <a href="#ajoutermedicalrecordact" onclick="showaddmedicalrecordact()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Un cycle de  Traitement </a>
+
+
+            </div>
+            <br />
+            <div class="table-responsive">
+                <table id="tablemedicaleacteCycle" width="100%" class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                           
+                            <th> Name</th>
+                            <th>Patient(s)</th>
+                              <th> State</th>
+                            <th>Rang</th>
+                        
+                            <th> Medecin traitant</th>
+
+                            <th class="text-right">Action</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab5">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-title">compte Rendue </h4>
+                    <div class="text-right">
+                        <a href="#ajoutermedicalrecordactELEMENTAIRE" onclick="rechargeREnseignement()" class="btn btn-primary"><i class="fa fa-refresh"></i>  Recharger  </a>
+                        <a href="#ajoutermedicalrecordactELEMENTAIRE" onclick="rechargeREnseignement()" class="btn btn-primary"><i class="fa fa-print"></i>  Imprimer  </a>
+
+
+                    </div>
+                    <br />
+
+                </div>
+                <br />
+                <br />
+                <br />
+
+                <div class="col-md-12">
+                    <div class="card-box profile-header">
+                        <h4 class="page-title">Info Dossier </h4>
+
+                        <div class="row">
+
+
+                            <div class="col-md-5">
+                                <ul class="personal-info">
+
+
+                                    <li>
+                                        <span class="title">Réference :</span>
+                                        <span class="text"><a href="#"> @ViewBag.DossierMedicale.Reference </a></span>
+                                    </li>
+                                    <li>
+                                        <span class="title">Date création :</span>
+                                        <span class="text"><a href="#"> @ViewBag.DossierMedicale.DateCreation</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-5">
+                                <ul class="personal-info">
+                                    <li>
+                                        <span class="title">Type :</span>
+                                        <span class="text"> @ViewBag.DossierMedicale.Type</span>
+                                    </li>
+                                    <li>
+                                        <span class="title"> State:</span>
+                                        <span class="text"> @ViewBag.DossierMedicale.State</span>
+
+
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <br />
+
+                    <h4 class="page-title">Info Patient(e)(s) </h4>
+
+
+                    @if (@ViewBag.DossierPersonnaliser != null)
+                    {
+
+                        @foreach (var Patient in @ViewBag.DossierPersonnaliser.patients)
+                        {
+
+
+                            @if (Patient != null)
+                            {
+
+                                <div class="card-box profile-header">
+
+                                    <div class="row">
+                                        <div class=" col-md-3  profile-info-left">
+                                            <img style="height: 250px; width:80%;" class="rounded-0" src="/img/user.jpg" />
+
+
+
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <ul class="personal-info">
+
+
+                                                <li>
+                                                    <span class="title">Nom :</span>
+                                                    <span class="text"><a href="#"> @Patient.FirstName </a></span>
+                                                </li>
+                                                <br />
+                                                <li>
+                                                    <span class="title"> Date de naissance :</span>
+                                                    <span class="text"><a href="#">  @Patient.Dataofbirth.ToString("MM/dd/yyyy")</a></span>
+                                                </li>
+                                                <br />
+
+                                                <li>
+                                                    <span class="title">Nationnalité:</span>
+                                                    <span class="text"><a href="#">  @Patient.Nationality </a></span>
+                                                </li>
+                                                <br />
+                                                <li>
+                                                    <span class="title"> Telephone :</span>
+                                                    <span class="text"><a href="#">  @Patient.Phone</a></span>
+                                                </li>
+                                                <br />
+                                                <li>
+                                                    <span class="title">Adresse :</span>
+                                                    <span class="text"><a href="#">  @Patient.Address</a></span>
+                                                </li>
+
+
+
+
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Prenon :</span>
+                                                    <span class="text"> @Patient.LastName</span>
+                                                </li>
+                                                <br />
+                                                <li>
+                                                    <span class="title"> Lieu de naissance:</span>
+                                                    <span class="text">  @Patient.Placeofbirth</span>
+
+
+                                                </li>
+                                                <br />
+                                                <li>
+                                                    <span class="title">Cin :</span>
+                                                    <span class="text"> @Patient.Cin</span>
+                                                </li>
+                                                <br />
+                                                <li>
+                                                    <span class="title"> Email :</span>
+                                                    <span class="text">  @Patient.Email</span>
+
+
+                                                </li>
+                                                <br />
+                                                <li>
+                                                    <span class="title">Pays :</span>
+                                                    <span class="text"><a href="#">  @Patient.Country </a></span>
+                                                </li>
+
+
+                                            </ul>
+
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <br />
+
+                            }
+
+
+                        }
+
+
+
+                        @foreach (var MedicalRecordActs in @ViewBag.DossierPersonnaliser.MedicalRecordActs)
+                        {
+
+
+                            @if (MedicalRecordActs != null && (MedicalRecordActs.MedicalActName == "Congélation de Enbryonnaire"))
+                            {
+                                <h4 class="page-title">Info EXAMEN(s) </h4>
+                                <div class="card-box profile-header">
+
+                                    <div class="row">
+
+
+                                        <div class="col-md-3">
+                                            <ul class="personal-info">
+
+
+                                                <li>
+                                                    <span class="title">Nom :</span>
+                                                    <span class="text"><a href="#"> @MedicalRecordActs.MedicalActName </a></span>
+                                                </li>
+                                                <br />
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <ul class="personal-info">
+                                                <li>
+                                                    <span class="title">Type :</span>
+                                                    <span class="text">  @MedicalRecordActs.MedicalActType </span>
+                                                </li>
+                                                <br />
+                                            </ul>
+                                        </div>
+
+
+
+                                        @if (@ViewBag.DossierPersonnaliser.doctors != null && @ViewBag.DossierPersonnaliser.doctors[0].Id == MedicalRecordActs.IdPrescribingDoctorMedical)
+                                        {
+                                            <div class="col-md-3">
+                                                <ul class="personal-info">
+                                                    <li>
+                                                        <span class="title">Medecin Prescripteur:</span>
+                                                        <span class="text">   @ViewBag.DossierPersonnaliser.doctors[0].FirstName &nbsp;  @ViewBag.DossierPersonnaliser.doctors[0].LastName </span>
+                                                    </li>
+                                                    <br />
+
+                                                </ul>
+                                            </div>
+                                        }
+
+
+                                    </div>
+
+                                </div>
+                                @if (@ViewBag.DossierPersonnaliser.actDataCongelationEnbryonnaires != null)
+                                {
+                                    @foreach (var embroy in @ViewBag.DossierPersonnaliser.actDataCongelationEnbryonnaires)
+                                    {
+                                        @if (embroy != null && (embroy.IdMedicalRecordAct == MedicalRecordActs.Id))
+                                        {
+                                            <h4 class="page-title">Donnée </h4>
+
+                                            <div class="card-box profile-header">
+
+                                                <div class="row">
+
+
+                                                    <div class="col-md-3">
+                                                        <ul class="personal-info">
+
+
+                                                            <li>
+                                                                <span class="title">Nombre Enbryons Congeles </span>
+                                                                <span class="text"><a href="#"> @embroy.NombreEnbryonsCongeles </a></span>
+                                                            </li>
+                                                            <br />
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="col-md-3">
+                                                        <ul class="personal-info">
+                                                            <li>
+                                                                <span class="title">Comentaire:</span>
+                                                                <span class="text">  @embroy.Commentaires </span>
+                                                            </li>
+                                                            <br />
+                                                        </ul>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            @if (@ViewBag.DossierPersonnaliser.actDataCongelationEnbryonnaires != null) { }
+
+                                        <h4 class="page-title">Résulta Acte  </h4>
+
+
+
+
+                }
+
+                                    }}
+
+
+                            }
+                        }
+
+
+
+
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="page-title">Act Exploration </h4>
+                    <div class="text-right">
+                        <a href="#ajoutermedicalrecordactELEMENTAIRE" onclick="showaddmedicalrecordactELEMENTAIRE()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter un act Exploration  </a>
+
+
+                    </div>
+                    <br />
+
+                </div>
+                <br />
+                <br />
+                <br />
+
+                <div class="col-md-12">
+
+
+                    <div class="table-responsive">
+                        <table id="tableactelementaire" width="100%" class=" table table-striped table-bordered ">
+                            <thead>
+                                <tr>
+                                  
+                                    <th> Name</th>
+                                    <th>Patient(s)</th>
+                                    <th> State</th>
+                                    <th> Medecin traitant</th>
+                                    <th class="text-right">Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab3">
+            <div class="text-right">
+                <a href="#" onclick="vider()" class="btn btn-primary btn-rounded"><i class="fa fa-refresh"></i> Recharger   </a>
+
+                <a href="#ajouterdocument" onclick="showmadaladd()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter </a>
+
+
+            </div>
+            <br />
+            <div class="table-responsive">
+                <table id="tabledocument" width="100%" style="padding: 10px 10px;" class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Description</th>
+                            <th>Nom du fichier </th>
+                            <th>Path</th>
+                            <th>Action</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div id="contenue">
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="tab-pane" id="bottom-tab1">
+            <div class="profile-tabs">
+                <ul id="myTab1" class="nav nav-tabs nav-tabs-bottom">
+                    <li class="nav-item"><a class="nav-link active " href="#about-cont1" target="_blank" data-toggle="tab">Renseigment de Base </a></li>
+                    <li class="nav-item"><a class="nav-link  " href="#bottom-tab5" target="_blank" data-toggle="tab">TRAITEMENT ANTERIEUR </a></li>
+                    <li class="nav-item"><a class="nav-link  " href="#bottom-tab8" target="_blank" data-toggle="tab">Bilan Femme </a></li>
+
+                    <li class="nav-item"><a class="nav-link " href="#bottom-tab7" target="_blank" data-toggle="tab">Bilan Homme </a></li>
+
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane show active" id="about-cont1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Renseigment de Base  </h4>
+                            <div class="text-right" id="boutonrenseigment">
+                                <a href="#ajouterRenseigmentdebase" onclick="showRdBM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Renseigment de Base  </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <div class="row">
+
+                            <div class="col-lg-12 ">
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div id="infertilite" class="form-group gender-select">
+
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 ">
+                                        <div class="form-group" id="ans1">
+
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="gross">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="datg">
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="NBR">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="dataE">
+
+
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="NbreGeu">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="DateGEU">
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="nbrea">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="dateav">
+
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row">
+
+                                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                                <div class="form-group" id="poidMr">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                                <div class="form-group" id="tailMr">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                                <div class="form-group" id="BMIMMonsieurf">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="row">
+
+                                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                                <div class="form-group" id="poidmD">
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                                <div class="form-group" id="tailda">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-4">
+                                                <div class="form-group" id="BMIMMadamee">
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="Techniquess">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group" id="Indicationss">
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group" id="Observations">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <div class="form-group" id="Remarquess">
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="tab-pane" id="bottom-tab5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">TANTATIVE ANTERIEUR </h4>
+                            <div class="text-right">
+                                <a href="#ajouterTentativeAnterieur" onclick="showTAM()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER TANTATIVE ANTERIEUR </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="RATable" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>ACT</th>
+                                    <th>Remarques</th>
+                                    <th>Resultats</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="RATablebody">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+                <div class="tab-pane" id="bottom-tab8">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Examens  Complementaire </h4>
+                            <div class="text-right">
+                                <a href="#ajouterTentativeAnterieur" onclick="showEC()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Examens  Complementaire </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="ECTable" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ECHO</th>
+                                    <th>HSG</th>
+                                    <th>HSG_HS</th>
+                                    <th>TPC</th>
+                                    <th>CYTOGENETIQUE</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ECTablebody">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Antecedent Particulier </h4>
+                            <div class="text-right">
+                                <a href="#ajouteAntecedentParticulie" onclick="showAPF()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Antecedent Particulier </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="APTable" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th>MEDICAUX </th>
+                                    <th>CHIRIGICAUX </th>
+                                    <th>FAMILLIAUX    </th>
+                                    <th>GYNECOLOGIES    </th>
+                                    <th>AUTRES    </th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="APTablebody">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Serologie </h4>
+                            <div class="text-right">
+                                <a href="#ajouteMserologie" onclick="showSerologie()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Serologie</a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="SerologieTable" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Date </th>
+                                    <th>HIV </th>
+                                    <th>HVB    </th>
+                                    <th>HVC    </th>
+                                    <th>SYPHILIS    </th>
+                                    <th>CHLAMYDIA    </th>
+                                    <th>MYCOPLASMES    </th>
+                                    <th>AUTRES    </th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="SerologieTablebody">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Bilan Encodocrinien </h4>
+                            <div class="text-right">
+                                <a href="#AjouterBilanEncodocrinien" onclick="showBilanEncodocrinien()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Bilan Encodocrinien </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="BilanEncodocrinienTable" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th>Date </th>
+                                    <th>FSH </th>
+                                    <th>LH    </th>
+                                    <th>Prolactine    </th>
+                                    <th>TSH </th>
+                                    <th>E2    </th>
+                                    <th>Progesterone    </th>
+                                    <th>AMH    </th>
+                                    <th>AUTRES    </th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="BilanEncodocrinienTablebody">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="tab-pane" id="bottom-tab7">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">  Spermogramme TMS </h4>
+                            <div class="text-right">
+                                <a href="#ajouterSpermogrammeM" onclick="showSpermogrammeC()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Spermogramme TMS </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+                        <table id="SpermogrammeTable" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>VOL</th>
+                                    <th>NUM</th>
+                                    <th>MOILITE</th>
+                                    <th>VITA</th>
+                                    <th>FT</th>
+                                    <th>LEUCO</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="SpermogrammeTablebody">
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Antecedent Particulier </h4>
+                            <div class="text-right">
+                                <a href="#ajouteAntecedentParticulieH" onclick="showAPH()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Antecedent Particulier </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="APHTable" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th>MEDICAUX </th>
+                                    <th>CHIRIGICAUX </th>
+                                    <th>FAMILLIAUX    </th>
+                                    <th>GYNECOLOGIES    </th>
+                                    <th>TABAC    </th>
+                                    <th>ALCOOL    </th>
+                                    <th>AUTRES    </th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="APHTablebody">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Serologie </h4>
+                            <div class="text-right">
+                                <a href="#ajouteMserologie" onclick="showSerologieH()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Serologie</a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="SerologieTableH" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th>Date </th>
+                                    <th>HIV </th>
+                                    <th>HVB    </th>
+                                    <th>HVC    </th>
+                                    <th>SYPHILIS    </th>
+                                    <th>CHLAMYDIA    </th>
+                                    <th>MYCOPLASMES    </th>
+                                    <th>AUTRES    </th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="SerologieTablebodyH">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+
+                    <br />
+                    <br />
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4 class="page-title">Bilan Encodocrinien </h4>
+                            <div class="text-right">
+                                <a href="#AjouterBilanEncodocrinien" onclick="showBilanEncodocrinienH()" class="btn btn-primary"><i class="fa fa-plus"></i> AJOUTER Bilan Encodocrinien </a>
+                            </div>
+                            <br />
+                        </div>
+                    </div>
+                    <div class="content">
+
+                        <table id="BilanEncodocrinienTableH" width="100%" class=" table table-striped table-bordered">
+                            <thead>
+                                <tr>
+
+                                    <th>Date </th>
+                                    <th>FSH </th>
+                                    <th>Testosterone </th>
+                                    <th>AUTRES    </th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="BilanEncodocrinienTablebodHy">
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div id="inforendezvous" class="modal  bd-example-modal-lg">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content  ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> fiche de rendez vous</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="container-fluid ">
+
+                    <div id="fiche-content">
+                        <div class="account-logo" style="margin-left: auto; margin-right: auto; ">
+
+                            <h1 style="margin-left: auto; margin-right: auto; " class="float-left">   CLINIQUE </h1> &nbsp;    &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp;  &nbsp;  &nbsp; &nbsp;  &nbsp;  &nbsp; <img class="float-lg-right" src="/img/logo-dark.png" alt=""><br /> <br />
+                        </div>
+
+                        <table style="margin-left: auto; margin-right: auto; ">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <h1>fiche de rendez vous</h1>
+                                        <br />    <br />
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="remplirlafiche">
+                            </tbody>
+                        </table>
+                        <br />  <br /> <br />  <br /> <br />  <br /> <br />  <br />
+
+                        <h1 style="margin-left: auto; margin-right: auto; " class="float-lg-right">   Signature </h1>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="imprimer()" class="btn btn-secondary"> <i class="fa fa-print"></i> Imprimer</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="modifierdocument" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h3> <i class="fa fa-book m-r-5"> </i>  Modifier document </h3>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">PATIENT </label>
+                        <select id="IdPatientmodifier" class="select" multiple>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="inputState">type Document </label>
+                        <select id="TypeDocummentmodifier" class="form-control">
+                            @foreach (var item in ViewBag.DocumentType)
+                            {
+                                <option value=@item.Code>  @item.Label </option>
+                            }
+
+
+                        </select>
+                        <input class=" form-control btn-primary" type="submit" value="Autre" onclick="showmodaladdtypefile()" />
+                    </div>
+
+                    <div class="form-group col-md-4" id="formodifiernomdocument">
+                        <label for="inputPassword4">  NOM <span>*</span></label>
+
+                        <input type="text" class="form-control" id="modifierNomdoc" placeholder="NOM">
+
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputAddress2">nouveaux fichier </label>
+                        <input type="file" class="form-control" id="Fichiermodifier">
+
+                    </div>
+                    <div class="form-group col-md-12" id="forDescripiondocumentmodi">
+                    </div>
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="UpdateDocument()"><i class="fa fa-plus m-r-5"> </i> Modifier  Document  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ajouterdocument" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>    ajouter document  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="float-left" for="inputState">PATIENT </label>
+                        <select id="IdPatient" class="select" multiple>
+                        </select>
+                        <label class="text-danger" id="IdPatientNomd1">
+                            choisir au moins un patient
+
+                        </label>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="float-left" for="inputState">type Document </label>
+                        <select id="TypeDocumment" class="form-control">
+                            @foreach (var item in ViewBag.DocumentType)
+                            {
+                                <option value=@item.Code>  @item.Label </option>
+                            }
+
+
+                        </select>
+                        <input class=" form-control btn-primary" type="submit" value="Autre" onclick="showmodaladdtypefile()" />
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label class="float-left" for="inputPassword4">  NOM <span>*</span></label>
+
+                        <input type="text" class="form-control" id="Nomd" placeholder="NOM">
+                        <label class="text-danger" id="Nomd1">
+                            le nom de fichier est obligatoire
+
+                        </label>
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label class="float-left" for="inputAddress2">Fichier </label>
+                        <input type="file" class="form-control" id="Fichier">
+                        <label class="text-danger" id="fichier1">
+                            le fichier est obligatoire
+
+                        </label>
+                    </div>
+                    <div class="form-group col-md-7">
+                        <label class="float-left" for="inputAddress">Descripion</label>
+                        <textarea class="form-control" id="Descripion" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="addDocument()"><i class="fa fa-plus m-r-5"> </i> Ajouter Document  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ajoutermedicalrecordact" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  ajouter Medical Record Act </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <br />
+                <div class="form-row">
+                     <div class="form-group col-md-4">
+                        <label for="patients" class="float-left">Patients  </label>
+                        <select id="patients" class="form-control select" multiple required>
+                        </select>
+                        <label class="text-danger" id="e">
+                            merci de choisir le(s) patient(s) qui est (sont) conserner par cet act
+
+                        </label>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="float-left"> medecin(s)  </label>
+                        <select id="IdPrescribingDoctorMedial" class="form-control">
+                            <option value=0> select </option>
+                            @foreach (var item in ViewBag.Doctors)
+                            {
+                                <option value=@item.Id>  @item.FirstName &nbsp; @item.LastName </option>
+                            }
+
+
+                        </select>
+                        <label class="text-danger" id="d">
+                            merci de choisir qui le(s) medecin (s) va (vaut) realiser cet  act
+
+                        </label>
+
+                    </div>
+                   
+
+                    <div class="form-group col-md-4">
+                        <label class="float-left">Traitement Cycle  </label>
+
+                        <select class="form-control select" id="MedicalActName">
+                            <option value="FIV">
+                               FIV
+                            </option>
+                             <option value="ICSI">
+                                ICSI
+                            </option>
+                            <option value="IAC">
+                                IAC
+                            </option>
+
+
+                            <option value="Congélation Sperme">
+                                Congélation Sperme
+                            </option>
+                            <option value="Congélation Ovocytair">
+                                Congélation Ovocytair
+                            </option>
+                            <option value="Transfert d'embryon congélés (TEC)">
+                                Transfert d'embryon congélés (TEC)
+                            </option>
+                            <option value="Biopsie Testiculaire">
+                                Biopsie Testiculaire
+                            </option>
+
+                        </select>
+
+
+
+                        <label class="text-danger" id="g">
+                            merci entrez le Nom cet act
+
+                        </label>
+                    </div>
+
+                   
+                </div>
+
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="addMedicalRecordAct()"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="ajoutermedicalrecordactELEMENTAIRE" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  ajouter Medical Record Act  Elementaire</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputState" class="float-left"> medecins  </label>
+                            <select id="IdPrescribingDoctorMedial11" class="form-control">
+                                <option value=0> select </option>
+                                @foreach (var item in ViewBag.Doctors)
+                                {
+                                    <option value=@item.Id>  @item.FirstName &nbsp; @item.LastName </option>
+                                }
+
+
+                            </select>
+                            <label class="text-danger" id="d1">
+                                merci de choisir le medecin qui va realiser cet  act
+
+                            </label>
+
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputState" class="float-left">MedicalAct  </label>
+                            <select id="IdMedicalAct11" class="form-control">
+                            </select>
+                            <label class="text-danger" id="h11">
+                                merci de choisir medical  act
+
+                            </label>
+
+                        </div>
+
+
+
+
+
+                        <div class="form-group col-md-4">
+                            <label for="inputState" class="float-left">Patients  </label>
+                            <select id="patientss" class="form-control select" multiple>
+                            </select>
+                            <label class="text-danger" id="e1">
+                                merci de choisir le patient qui est (sont) conserner par cet act
+
+                            </label>
+                        </div>
+                    </div>
+
+
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="addMedicalRecordActElementaire()"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="modifiermedicalrecordact" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h3>
+                    <i class="fa fa-book m-r-5"> </i>  modifier
+
+                    Medical Record Act
+                </h3>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState" class="float-left"> medecins  </label>
+                        <select id="IdPrescribingDoctorMedial1" class="form-control">
+
+                            @foreach (var item in ViewBag.Doctors)
+                            {
+                                <option value=@item.Id>  @item.FirstName &nbsp; @item.LastName </option>
+                            }
+                        </select>
+                    </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState" class="float-left">Patients  </label>
+                            <select id="patientset1" class="form-control select" multiple>
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-4 ">
+                            <label class="float-left">Medical Act Name  </label>
+                            <br />
+                             
+                            <label class="form-control"  id="name1"> </label>
+                        </div>
+                       
+                    </div>
+
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="ModifierMedicalRecordAct()"><i class="fa fa-pencil m-r-5">modifier </i> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="modifiermedicalrecordactELEMENTAIRE" class="modal fade bd-example-modal-xl" role="dialog">
+        <div class="modal-dialog  modal-xl  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Modifier Medical Record Act  Elementaire</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputState" class="float-left"> medecins  </label>
+                                <select id="IdPrescribingDoctorMedial121" class="form-control">
+
+                                    @foreach (var item in ViewBag.Doctors)
+                                    {
+                                        <option value=@item.Id>  @item.FirstName &nbsp; @item.LastName </option>
+                                    }
+
+
+                                </select>
+
+
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label for="inputState" class="float-left">MedicalAct  </label>
+                                <select id="IdMedicalAct11154" class="form-control">
+                                    @foreach (var item in ViewBag.MedicalAct)
+                                    {
+                                        @if (@item.MedicalActType == "Exploration")
+                                        {
+                                            <option value=@item.ID>  @item.Name</option>
+                                        }
+                                    }
+
+
+                                </select>
+
+
+                            </div>
+
+
+
+
+
+                            <div class="form-group col-md-4">
+                                <label for="inputState" class="float-left">Patients  </label>
+                                <select id="patientssss" class="form-control select" multiple>
+                                </select>
+
+                            </div>
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="button" class="btn btn-primary" onclick="ModifierMedicalRecordActELMENTAIRE()"><i class="fa fa-pencil m-r-5">modifier </i> </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="ajouterdocumentTYPE" class="modal fade bd-example-modal-xl" role="dialog">
+        <div class="modal-dialog  modal-xl  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  ajouter Type de document </h3>
+
+                    <div class="form-row">
+
+
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">  Code <span>*</span></label>
+
+                            <input type="text" class="form-control" id="Code" placeholder="Code">
+
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2">Nom </label>
+                            <input type="text" class="form-control" id="NomDt" placeholder="Nom">
+                        </div>
+
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="addTypeDocument()"><i class="fa fa-plus m-r-5"> ajouter Type de document  </i> </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deletemedicalRecored" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="~/img/delete1.png" alt="" width="50" height="46">
+                    <h1>Delete </h1>
+                    <p>  vous vouliez supprimer ce medical Record Acts?</p>
+
+                    <div class="clearfix">
+                        <button type="button" onclick="fermer()" class="btn  btn-primary">Cancel</button>
+                        <button type="button" onclick="confirmationdelete1()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deletemedicalDOCUMENT" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="~/img/delete1.png" alt="" width="50" height="46">
+                    <h1>Delete </h1>
+                    <p>  vous vouliez supprimer ce Document ?</p>
+
+                    <div class="clearfix">
+                        <button type="button" onclick="fermer1()" class="btn  btn-primary">Cancel</button>
+                        <button type="button" onclick="confirmationdeletedocument()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="deleterendezvous" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="~/img/delete1.png" alt="" width="50" height="46">
+                    <h3>Vous voulez sûrement supprimer cet RENDEZ Vous  ?</h3>
+                    <div class="m-t-20">
+                        <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                        <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="deleteappoitement()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="ajouterRenseigmentdebase" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog   modal-lg ">
+            <div class="modal-content">
+
+
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter Renseignement Clinique </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <br>
+                    <div class="content">
+
+                        <div class="row">
+                            <form id="formAddrenseignementClinque">
+                                <div class="col-lg-12 ">
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group gender-select">
+                                                <label for="Type_d_Infertilite1" class="gen-label">Type d'Infertilite</label>
+                                                <div class="form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" id="Type_d_Infertilite" value="Primaire" name="Type_d_Infertilite" required class="form-check-input">Primaire
+                                                    </label>
+                                                </div>
+                                                <div class="form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" name="Type_d_Infertilite" id="Type_d_Infertilite" value="Secondaire" required class="form-check-input">Secondaire
+                                                    </label>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div class="form-group">
+                                                <label for="ans1" class="float-left"> Durer  <span class="text-danger">*</span></label>
+                                                <input class="form-control" id="ans" name="ans1" type="number" min="0" required>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Nombre des Grossesses<span class="text-danger">*</span></label>
+                                                <input class="form-control" id="Grossessesno" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Date de Grossesses </label>
+                                                <div class="cal-icon">
+                                                    <input type="text" id="Grossesses_date" class="form-control datetimepicker">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Nombre des ENFANTS<span class="text-danger">*</span></label>
+                                                <input class="form-control" id="ENFANTS" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Date de ENFANTS </label>
+                                                <div class="cal-icon">
+                                                    <input type="text" id="ENFANTS_date" class="form-control datetimepicker">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Nombre des GEU<span class="text-danger">*</span></label>
+                                                <input class="form-control" id="GEU" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Date de GEU </label>
+                                                <div class="cal-icon">
+                                                    <input type="text" id="GEU_date" class="form-control datetimepicker">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Nombre d Avortement <span class="text-danger">*</span></label>
+                                                <input class="form-control" id="Avortement" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Date de Avortement </label>
+                                                <div class="cal-icon">
+                                                    <input type="text" id="Avortement_date" class="form-control datetimepicker">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>Poid Monsieur </label>
+                                                        <input class="form-control" id="POIDMonsieur" type="text">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>Taille Monsieur </label>
+                                                        <input class="form-control" id="TailleMonsieur" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>BMIM Monsieur</label>
+                                                        <input class="form-control" id="BMIMMonsieur" type="text">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>Poid Madame </label>
+                                                        <input class="form-control" id="POIDMadame" type="text">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>Taille Madame </label>
+                                                        <input class="form-control" id="TailleMadame" type="text">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group">
+                                                        <label>BMIM Madame</label>
+                                                        <input class="form-control" id="BMIMMadame" type="text">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Techniques </label>
+                                                <input class="form-control" id="Techniques" type="text">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Indications </label>
+                                                <input class="form-control" id="Indications" type="text">
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="col-sm-12">
+                                            <label>Observation </label>
+                                            <textarea id="Observation" class="form-control"></textarea>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label>Remarque </label>
+                                            <textarea id="Remarque" class="form-control"></textarea>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="m-t-20 text-center">
+                                        <button type="submit" id="btn_submit" class="btn btn-primary submit-btn">Créer </button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="ModifierRenseigmentdebase" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog   modal-lg ">
+            <div class="modal-content">
+
+
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Modifier Renseignement Clinique </h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <br>
+                    <div class="content">
+
+                        <div class="row">
+                            <form id="modifierRB">
+                                <div class="col-lg-12 ">
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group gender-select" id="infertilite1">
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div class="form-group" id="ans11">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="gross1">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="datg1">
+
+
+
+
+
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="NBR1">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="dataE1">
+
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="NbreGeu1">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="DateGEU1">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="nbrea1">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="dateav1">
+
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group" id="poidMr1">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group" id="tailMr1">
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group" id="BMIMMonsieurf1">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="row">
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group" id="poidmD1">
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group" id="tailda1">
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-md-6 col-lg-4">
+                                                    <div class="form-group" id="BMIMMadamee1">
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="Techniquess1">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <div class="form-group" id="Indicationss1">
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="col-sm-12" id="Observations1">
+
+                                        </div>
+                                        <div class="col-sm-12" id="Remarquess1">
+
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="m-t-20 text-center">
+                                        <button type="submit" id="btn_submit" class="btn btn-primary submit-btn">Enregistrer </button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="ajouterTentativeAnterieur" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter TentativeAnterieur</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ajoutertentativeanterieur">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Dateante" class="fc-center"> Date  </label>
+                                        <div class="cal-icon">
+                                            <input id="Dateante" name="Dateante" class="form-control datetimepicker" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="ActtentativeA">Act  </label>
+                                    <input id="ActtentativeA" name="ActtentativeA" class="form-control " required />
+                                </div>
+
+                                <div class="col-md-12 col-12">
+                                    <label for="RemarquestentativeA">Remarques   </label>
+                                    <div class="form-group">
+                                        <textarea class="w-100" name="RemarquestentativeA" id="RemarquestentativeA" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <label for="ResultatstentativeA">Resultats   </label>
+                                    <div class="form-group">
+                                        <textarea class="w-100" name="ResultatstentativeA" id="ResultatstentativeA" required></textarea>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" id="addtentive" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="ModifiierMTentativeAnterieur" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Modifier TentativeAnterieur</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="modifiertentativeanterieur">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Dateante1" class="fc-center"> Date  </label>
+                                        <div class="cal-icon">
+                                            <input id="Dateante1" name="Dateante1" class="form-control datetimepicker" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="ActtentativeA1">Act  </label>
+                                    <input id="ActtentativeA1" name="ActtentativeA1" class="form-control " required />
+                                </div>
+
+                                <div class="col-md-12 col-12">
+                                    <label for="RemarquestentativeA1">Remarques   </label>
+                                    <div class="form-group">
+                                        <textarea class="w-100" name="RemarquestentativeA1" id="RemarquestentativeA1" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    <label for="ResultatstentativeA1">Resultats   </label>
+                                    <div class="form-group">
+                                        <textarea class="w-100" name="ResultatstentativeA1" id="ResultatstentativeA1" required></textarea>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Modifier </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="supprimerMTentativeAnterieur" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="/img/delete1.png" alt="" width="50" height="46">
+                    <h3>Vous voulez  supprimer cette Tentative anterieur  ?</h3>
+                    <div class="m-t-20">
+                        <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                        <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressiontentativean()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ajouterMExamenComplementaire" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter ExamenComplementaire</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ajouterExamenComplementaire">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Echo" class="fc-center"> Echo  </label>
+
+                                        <input id="Echo" name="Echo" class="form-control " required />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="Hsg">Hsg  </label>
+                                    <input id="Hsg" name="Hsg" class="form-control " required />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Hsg_Hs">Hsg_Hs   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Hsg_Hs" id="Hsg_Hs" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Tpc">Tpc   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Tpc" id="Tpc" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="Cytogenetique">Cytogenetique   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Cytogenetique" id="Cytogenetique" required />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ModifiererMExamenComplementaire" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Modifier ExamenComplementaire</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ModifierExamenComplementaire">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Echo1" class="fc-center"> Echo  </label>
+
+                                        <input id="Echo1" name="Echo1" class="form-control " required />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="Hsg1">Hsg  </label>
+                                    <input id="Hsg1" name="Hsg1" class="form-control " required />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Hsg_Hs1">Hsg_Hs   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Hsg_Hs1" id="Hsg_Hs1" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Tpc1">Tpc   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Tpc1" id="Tpc1" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="Cytogenetique1">Cytogenetique   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Cytogenetique1" id="Cytogenetique1" required />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="supprimerMExamenComplementaire" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="/img/delete1.png" alt="" width="50" height="46">
+                    <h3>Vous voulez  supprimer cet ExamenComplementaire  ?</h3>
+                    <div class="m-t-20">
+                        <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                        <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionExamenComplementaire()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ajouteAntecedentParticulie" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter AntecedentParticulier</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ajouteAntecedentParticulierF">
+                            <div class="row">
+
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="Medicaux">Medicaux  </label>
+                                    <input id="Medicaux" name="Medicaux" class="form-control " />
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Chirurgicaux">Chirurgicaux   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Chirurgicaux" id="Chirurgicaux" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Familiaux">Familiaux   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Familiaux" id="Familiaux" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Gynecologiques">Gynecologiques   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Gynecologiques" id="Gynecologiques" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="Autres">Autres   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Autres" id="Autres" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="Tabac1">
+                                    <label for="Tabac">Tabac   </label>
+                                    <div class="form-group">
+                                        <input type="text" class="w-100 form-control" name="TabacH" id="TabacH" />
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6" id="Alcool1">
+                                    <label for="Alcool">Alcool   </label>
+                                    <div class="form-group">
+                                        <input type="text" class="w-100 form-control" name="AlcoolH" id="AlcoolH" />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="MODIFIERAntecedentParticulie" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  modifier AntecedentParticulier</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="modifierAntecedentParticulierF">
+                            <div class="row">
+
+
+
+                                <div class=" col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Medicaux1">Medicaux  </label>
+                                        <input id="Medicaux1" name="Medicaux1" class="form-control " />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Chirurgicaux1">Chirurgicaux   </label>
+
+                                        <input class=" form-control " name="Chirurgicaux1" id="Chirurgicaux1" />
+
+                                    </div>
+                                </div>
+                                <div class="form-group  col-md-6">
+                                    <label for="Familiaux1">Familiaux   </label>
+
+                                    <input class="form-control  " name="Familiaux1" id="Familiaux1" />
+
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="Gynecologiques1">Gynecologiques   </label>
+
+                                    <input class="form-control " name="Gynecologiques1" id="Gynecologiques1" />
+
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <label for="Autres1">Autres   </label>
+
+                                    <input class="form-control w-100  " name="Autres1" id="Autres1" />
+
+                                </div>
+                                <div class=" form-group col-md-6" id="APHOME1">
+                                    <label for="Tabac1ap">Tabac   </label>
+
+                                    <input class="form-control " name="Tabac1ap" id="Tabac1ap" />
+
+                                </div>
+                                <div class="form-group col-md-6" id="APHOMmE1">
+                                    <label for="Alcool1ap">Alcool   </label>
+
+                                    <input class="form-control " name="Alcool1ap" id="Alcool1ap" />
+
+                                </div>
+
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">MODIFIER </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="supprimerMAntecedentParticulier" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="/img/delete1.png" alt="" width="50" height="46">
+                    <h3>Vous voulez  supprimer cet ancetdent particulier  ?</h3>
+                    <div class="m-t-20">
+                        <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                        <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionAntecedentParticulier()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ajouteMserologie" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter serologie</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ajouteserologief">
+                            <div class="row">
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="Dates">Date  </label>
+                                    <div class="cal-icon">
+                                        <input id="Dates" name="Dates" class="form-control  datetimepicker " type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class=" form-group col-md-6">
+                                    <label for="Hiv">Hiv   </label>
+
+                                    <input class="form-control" name="Hiv" id="Hiv" type="text" required />
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Hvb">Hvb   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Hvb" id="Hvb" type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Hvc">Hvc   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Hvc" id="Hvc" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Syphilis">Syphilis   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Syphilis" id="Syphilis" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Chlamydia">Chlamydia   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Chlamydia" id="Chlamydia" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Mycoplasmes">Mycoplasmes   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Mycoplasmes" id="Mycoplasmes" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Autress">Autres   </label>
+                                    <div class="form-group">
+                                        <input class="form-control w-100" name="Autress" id="Autress" type="text" required />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ModifierMserologie" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Modifier serologie</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="modifierserologief">
+                            <div class="row">
+
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="Datesss1">Date  </label>
+                                    <div class="cal-icon">
+                                        <input id="Datesss1" name="Datesss1" class="form-control datetimepicker " type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Hiv1">Hiv   </label>
+                                    <div class="form-group">
+                                        <input class="form-control " name="Hiv1" id="Hiv1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Hvb1">Hvb   </label>
+                                    <div class="form-group">
+                                        <input class="form-control " name="Hvb1" id="Hvb1" type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Hvc1">Hvc   </label>
+                                    <div class="form-group">
+                                        <input class="form-control " name="Hvc1" id="Hvc1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Syphilis1">Syphilis   </label>
+                                    <div class="form-group">
+                                        <input class="form-control " name="Syphilis1" id="Syphilis1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Chlamydia11">Chlamydia   </label>
+                                    <div class="form-group">
+                                        <input class="form-control " name="Chlamydia11" id="Chlamydia11" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Mycoplasmes1">Mycoplasmes   </label>
+                                    <div class="form-group">
+                                        <input class="form-control " name="Mycoplasmes1" id="Mycoplasmes1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Autress1">Autres   </label>
+                                    <div class="form-group">
+                                        <input class="w-100 form-control" name="Autress1" id="Autress1" type="text" required />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="supprimerMserologie" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="/img/delete1.png" alt="" width="50" height="46">
+                    <h3>Vous voulez  supprimer cet serologie  ?</h3>
+                    <div class="m-t-20">
+                        <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                        <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionSEROLOGIE()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="AjouterBilanEncodocrinien" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter BilanEncodocrinien</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ajouteBilanEncodocrinienf">
+                            <div class="row">
+
+
+
+                                <div class="form-group col-md-6">
+                                    <label for="DatesBilanEncodocrinien">Date  </label>
+                                    <div class="cal-icon">
+                                        <input id="DatesBilanEncodocrinien" name="DatesBilanEncodocrinien" class="form-control datetimepicker  " type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class=" form-group col-md-6">
+                                    <label for="Fsh">Fsh   </label>
+
+                                    <input class="form-control" name="Fsh" id="Fsh" type="text" />
+
+                                </div>
+                                <div class="col-md-6" id="lhf">
+                                    <label for="Lh">Lh   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Lh" id="Lh" type="text" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="Prolactinef">
+                                    <label for="Prolactine">Prolactine   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Prolactine" id="Prolactine" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Tshf">
+                                    <label for="Tsh">Tsh   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Tsh" id="Tsh" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="E2f">
+                                    <label for="E2">E2   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="E2" id="E2" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Progesteronef">
+                                    <label for="Progesterone">Progesterone   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Progesterone" id="Progesterone" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Amhf">
+                                    <label for="Amh">Amh   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Amh" id="Amh" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Testosteroneh">
+                                    <label for="Testosterone">Testosterone   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Testosterone" id="Testosterone" type="text" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="AutressE">Autres   </label>
+                                    <div class="form-group">
+                                        <input class="form-control w-100" name="AutressE" id="AutressE" type="text" />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ModifierBilanEncodocrinien" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Modifier serologie</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ModifierBilanEncodocrinienf">
+                            <div class="row">
+
+
+                                <div class="form-group col-md-12">
+                                    <label for="DatesBilanEncodocrinien1">Date  </label>
+                                    <div class="cal-icon">
+                                        <input id="DatesBilanEncodocrinien1" name="DatesBilanEncodocrinien1" class="form-control w-100 datetimepicker  " type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class=" form-group col-md-6">
+                                    <label for="Fsh1">Fsh   </label>
+
+                                    <input class="form-control" name="Fsh1" id="Fsh1" type="text" required />
+
+                                </div>
+                                <div class="col-md-6" id="Lh1f">
+                                    <label for="Lh1">Lh   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Lh1" id="Lh1" type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" id="Prolactine1f">
+                                    <label for="Prolactine1">Prolactine   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Prolactine1" id="Prolactine1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Tsh1f">
+                                    <label for="Tsh1">Tsh   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Tsh1" id="Tsh1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="E21f">
+                                    <label for="E21">E2   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="E21" id="E21" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Progesterone1f">
+                                    <label for="Progesterone1">Progesterone   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Progesterone1" id="Progesterone1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Amh1f">
+                                    <label for="Amh1">Amh   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Amh1" id="Amh1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6" id="Testosterone1h">
+                                    <label for="Testosterone1">Testosterone   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Testosterone1" id="Testosterone1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="AutressE1">Autres   </label>
+                                    <div class="form-group">
+                                        <input class="form-control w-100" name="AutressE1" id="AutressE1" type="text" required />
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="supprimerMBilanEncodocrinien" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="/img/delete1.png" alt="" width="50" height="46">
+                    <h3>Vous voulez  supprimer cet Bilan Encodocrinien  ?</h3>
+                    <div class="m-t-20">
+                        <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                        <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionBilanEncodocrinien()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="ajouterSpermogrammeM" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter SpermogrammeTMS</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="ajouteSpermogrammeTMSf">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Vol" class="fc-center">  Vol  </label>
+
+                                        <input id="Vol" name="Vol" class="form-control " required />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="DateSpermogrammeTMS">Date  </label>
+                                    <div class="cal-icon">
+                                        <input id="DateSpermogrammeTMS" name="DateSpermogrammeTMS" class="form-control datetimepicker  " type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class=" form-group col-md-6">
+                                    <label for="Num">Num   </label>
+
+                                    <input class="form-control" name="Num" id="Num" type="text" required />
+
+                                </div>
+                                <div class="col-md-6 ">
+                                    <label for="Mobilite">Mobilite   </label>
+
+                                    <div class=" form-group  form-control  ">
+                                        <input class="w-25 " pattern="[00-99]" style="border: none; width: 20% !important; " name="Mobilite" id="Mobilite" type="number" min="0" placeholder="--" required /> /
+                                        <input class=" w-25" pattern="[00-99]" style="border: none; width: 20% !important; " name="Mobilite" id="Mobilite2" type="number" min="0" placeholder="--" required />/
+                                        <input class=" w-25 " pattern="[00-99]" style="border: none; width: 20% !important; " name="Mobilite" id="Mobilite3" type="number" min="0" placeholder="--" required />/
+                                        <input class=" w-25" pattern="[09-99]" style="border: none; width: 20% !important; " name="Mobilite" id="Mobilite4" type="number" min="0" required="--" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Vita">Vita   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Vita" id="Vita" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Leuco">Leuco   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Leuco" id="Leuco" type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="ft">FT   </label>
+                                    <div class="form-group">
+                                        <input class="form-control w-100" name="ft" id="ft" type="text" required />
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="modifierSpermogrammeM" class="modal fade bd-example-modal-md" role="dialog">
+        <div class="modal-dialog  modal-md  ">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <div class="modal-header p-2 mb-2 bg-primary text-white">
+                        <h3> <i class="fa fa-book m-r-5"> </i>  Modifier SpermogrammeTMS</h3>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form id="modifierSpermogrammeTggMSf">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group ">
+                                        <label for="Vol1" class="fc-center">  Vol  </label>
+
+                                        <input id="Vol1" name="Vol1" class="form-control " required />
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label for="DateSpermogrammeTMS1">Date  </label>
+                                    <div class="cal-icon">
+                                        <input id="DateSpermogrammeTMS1" name="DateSpermogrammeTMS1" class="form-control datetimepicker  " type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class=" form-group col-md-6">
+                                    <label for="Num1">Num   </label>
+
+                                    <input class="form-control" name="Num1" id="Num1" type="text" required />
+
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Mobilite1">Mobilite   </label>
+                                    <div class="form-group form-control">
+                                        <input pattern="[00-99]" style="border: none; width: 20% !important; " name="Mobilite1" id="Mobilite1" type="number" required />/
+                                        <input pattern="[00-99]" style="border: none; width: 20% !important; " name="Mobilite1" id="Mobilite12" type="number" required />/
+                                        <input pattern="[00-99]" style="border: none; width: 20% !important; " name="Mobilite1" id="Mobilite13" type="number" required />/
+                                        <input pattern="[00-99]" style="border: none; width: 20% !important; " name="Mobilite1" id="Mobilite14" type="number" required />
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="Vita1">Vita   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Vita1" id="Vita1" type="text" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="Leuco1">Leuco   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="Leuco1" id="Leuco1" type="text" required />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <label for="FT1"> FT   </label>
+                                    <div class="form-group">
+                                        <input class="form-control" name="FT1" id="FT1" type="text" required />
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="mx-auto" style="width: 200px;">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Ajouter </i> </button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="supprimerMBSpermogrammeTMS" class="modal fade delete-modal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <img src="/img/delete1.png" alt="" width="50" height="46">
+                    <h3>Vous voulez  supprimer cet SpermogrammeTMS  ?</h3>
+                    <div class="m-t-20">
+                        <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                        <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionSpermogrammeTMS()">Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .custom {
+            width: 100%;
+            min-height: 900px;
+        }
+          .nav-link {
+        background-color: #009efb;
+    }
+    </style>
+
+    @section Scripts{
+
+
+
+        <script src="~/js/mesJs/Consulter.js" asp-append-version=true>
+
+
+        </script>
+        <script src="~/js/mesJS/MedicalRecordAct.js" asp-append-version=true>
+
+        </script>
+        <script src="~/js/mesJs/MedicalAct.js " asp-append-version=true>
+
+
+        </script>
+
+        <script src="~/js/mesJS/Renseigment_de_base.js" asp-append-version=true>
+
+
+        </script>
+        <script src="~/js/mesJS/TentativeAnterieure.js" asp-append-version=true>
+
+
+        </script>
+
+        <script src="~/js/mesJS/ExamenComplementaire.js" asp-append-version=true>
+
+
+        </script>
+
+        <script src="~/js/mesJS/AntecedentParticulier.js" asp-append-version=true>
+
+
+        </script>
+
+
+
+
+        <script src="~/js/mesJS/Serologie.js" asp-append-version=true>
+
+
+        </script>
+        <script src="~/js/mesJS/BilanEndocrinien.js" asp-append-version=true>
+
+
+        </script>
+        <script src="~/js/mesJS/Spermogramme.js" asp-append-version=true>
+
+
+        </script>
+
+        <script src="~/lib/jquueryprint/dist/jQuery.print.min.js" asp-append-version=true>
+
+
+        </script>
+
+
+
+
+
+
+    }

@@ -1,0 +1,276 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Liste Incubateur</a></li>
+        <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab"> Liste Chambre</a></li>
+
+    </ul>
+
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">Incubateurs </h4>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <a href="#ajoutermodalIncubateurs" onclick="showmodaladdIncubateurs()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter Incubateur </a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table id="TableIncubateurs" class="table table-border table-striped  ">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Nombre de chambre </th>
+
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="TableIncubateursBody">
+                                </tbody>
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane" id="bottom-tab2">
+            <div class="row">
+                <div class="col-sm-4 col-3">
+                    <h4 class="page-title">CHAMBRE</h4>
+                </div>
+
+                <div class="col-sm-8 col-9 text-right m-b-20">
+                    <a href="#ajoutermodalchambre" onclick="showmodaladdCHAMBRE()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter CHAMBRE </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive">
+                        <table id="chambreTable" width="100%" class="table table-border table-striped  ">
+                            <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Nom Incubateur</th>
+
+                                    <th class="text-right">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="chambreTablebody">
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="ajoutermodalIncubateurs" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   Ajout Incubateur </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <form id="ajouterIncubateur">
+                    <div class="modal-body">
+                        <div class="row">
+
+
+                            <div class="form-group col-md-6 ">
+                                <label for="NameIncubate" class="float-left">  Nom <span>*</span></label>
+
+                                <input type="text" class="form-control" id="NameIncubate" name="NameIncubate" placeholder="Name" required>
+                            </div>
+                            <div class="form-group col-md-6  ">
+                                <label for="nombrechambre" class="float-left"> Nombre de chambre </label>
+                                <input type="number" class="form-control" id="nombrechambre" name="nombrechambre" required min="2">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5"> enregistre </i> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="modifiermodalIncubateurs" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   Modifier Incubateur </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <form id="modifierIncubateur">
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="form-group col-md-6 ">
+                                <label for="NameIncubate1" class="float-left">  Nom <span>*</span></label>
+
+                                <input type="text" class="form-control" id="NameIncubate1" name="NameIncubate1" required>
+                            </div>
+                            <div class="form-group col-md-6  ">
+                                <label for="nombrechambre1" class="float-left"> Nombre de chambre </label>
+                                <input type="number" class="form-control" id="nombrechambre1" name="nombrechambre1" required min="2">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5"> enregistre </i> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="supprimerIncubateurM" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez  supprimer cet IncUBATEUR   ?</h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionIN()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ajoutermodalchambre" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   Ajout chambre </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <form id="ajouterchambre">
+                    <div class="modal-body">
+                        <div class="row">
+
+
+                            <div class="form-group col-md-6 ">
+                                <label for="Namechambre" class="float-left">  Nom <span>*</span></label>
+
+                                <input type="text" class="form-control" id="Namechambre" name="Namechambre" placeholder="Name" required>
+                            </div>
+                            <div class="form-group col-md-6  ">
+                                <label for="IncubateurId" class="float-left"> Incubateur </label>
+                                <select class="form-control" id="IncubateurId" name="IncubateurId">
+                                </select>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5"> enregistre </i> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="modifiermodalchambre" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>  modifie chambre </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <form id="modifierchambre">
+                    <div class="modal-body">
+                        <div class="row">
+
+
+                            <div class="form-group col-md-6 ">
+                                <label for="Namechambre1" class="float-left">  Nom <span>*</span></label>
+
+                                <input type="text" class="form-control" id="Namechambre1" name="Namechambre1" placeholder="Name" required>
+                            </div>
+                            <div class="form-group col-md-6  ">
+                                <label for="IncubateurId1" class="float-left"> Incubateur </label>
+                                <select class="form-control" id="IncubateurId1" name="IncubateurId1">
+                                </select>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5"> enregistre </i> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="supprimercHAMBREM" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez  supprimer cet CHAMBRE   ?</h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionCHMA()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+    <script src="~/js/mesJS/Incubateur_Chambre.js" asp-append-version=true>
+
+
+    </script>
+}

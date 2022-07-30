@@ -1,0 +1,572 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@using justch.Models.ENTITIES
+@model DossierMedical;
+@{
+}
+<div class="row">
+    <div class="col-lg-11">
+        <h4 class="page-title">Nouveau dossier</h4>
+
+    </div>
+    <div class="text-right">
+
+        <a href="/DossierMedical/Index" class="btn btn-primary"><i class="fa fa-back"></i>  retour </a>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card-box">
+            <div class="row">
+                <div class="col-md-6" id='choixtype'>
+                    <div class="form-group">
+                        <label>TYPE DE DOSSIER </label>
+                        <select class="select" id="type" name="Id">
+                            <option id="select"> select </option>
+                            <option value="Homme"> Homme </option>
+                            <option value="Femme"> Femme  </option>
+                            <option value="Couple"> Couple  </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group" id="Inputs">
+
+                        <label> N° DOSSIER </label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-box" id="formulaire1">
+            <div class="row">
+                <div class="col-md-11">
+                    <label> Mr </label>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <select class="select" multiple id="Id1" name="Id">
+                            <option value=0>  </option>
+                            @foreach (var item in ViewBag.Patients)
+                            {
+                                @if (@item.Gender == "Homme")
+                                {
+
+                                    <option value="@item.Id">@item.FirstName @item.LastName </option>
+                                }
+                            }
+                            }
+                        </select>
+                        <label id="tes2" class="text-danger"> ajouter ou selectinner le Mr  </label>
+
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <a class="btn btn-primary " href="#add_patient1" data-toggle="modal" data-target="#add_patient1"> <i class="fa fa-plus"></i></a>
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="form-group">
+                        <select class="select" multiple id="Id2">
+                            <option value=0>  </option>
+                            @if (ViewBag.Patients != null)
+                            {
+                                @foreach (var item in ViewBag.Patients)
+                                {
+
+                                    @if (@item.Gender == "Femme")
+                                    {
+
+                                        <option value="@item.Id">@item.FirstName @item.LastName </option>
+                                    }
+                                }
+                            }
+
+
+                        </select>
+                        <label id="tes3" class="text-danger"> ajouter ou selectinner la Dame  </label>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <a class="btn btn-primary " href="#add_patient" data-toggle="modal" data-target="#add_patient"> <i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card-box" id="formulaire2">
+            <div class="row">
+                <div class="col-md-12">
+                    <label> Madame </label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select multiple class="select" id="Id4" name="Id">
+                            <option value=0>  </option>
+                            @if (ViewBag.Patients != null)
+                            {
+                                @foreach (var item in ViewBag.Patients)
+                                {
+
+                                    @if (@item.Gender == "Femme")
+                                    {
+
+                                        <option value="@item.Id">@item.FirstName @item.LastName </option>
+                                    }
+                                }
+                            }
+
+                        </select>
+                        <label id="tes" class="text-danger"> ajouter ou selectinner une dame  </label>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-primary " href="#add_patient" data-toggle="modal" data-target="#add_patient"> <i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card-box" id="formulaire3">
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Mr</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select multiple class="select" id="Id3" name="Id">
+                            <option value=0>  </option>
+                            @if (ViewBag.Patients != null)
+                            {
+                                @foreach (var item in ViewBag.Patients)
+                                {
+                                    @if (@item.Gender == "Homme")
+                                    {
+
+                                        <option value="@item.Id">@item.FirstName @item.LastName </option>
+                                    }
+                                }
+                            }
+
+                        </select>
+                        <label id="tes1" class="text-danger"> ajouter ou selectinner le Mr  </label>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-primary " href="#add_patient1" data-toggle="modal" data-target="#add_patient1"> <i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="m-t-20 text-center" id="formuli">
+            <button class="btn btn-secondary submit-btn">retour</button>
+
+            <button class="btn btn-primary submit-btn" type="button" onclick="creer()">Creer dossier patient</button>
+        </div>
+
+    </div>
+</div>
+<div id="add_patient1" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog   modal-lg ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <h4 class="page-title">Ajout Patient</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 ">
+
+                            <div class="row">
+                                <div class="col-sm-6 ">
+                                    <div class="form-group">
+                                        <label>Nom <span class="text-danger">*</span></label>
+                                        <input class="form-control" id="FirstName1" type="text">
+                                        <label class="text-danger" id="e1">
+                                            saisir le Nom
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Prénom<span class="text-danger">*</span></label>
+                                        <input class="form-control" id="LastName1" type="text">
+                                        <label class="text-danger" id="f1">
+                                            saisir le Prenom
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Date de naissance</label>
+                                        <div class="cal-icon">
+                                            <input type="text" id="Dataofbirth1" class="form-control datetimepicker">
+                                        </div>
+                                        <label class="text-danger" id="g1">
+                                            la date est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Lieu de naissance </label>
+                                        <input class="form-control" id="Placeofbirth1" type="text">
+                                        <label class="text-danger" id="h1">
+                                            lieu de naissance  est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group gender-select">
+                                        <label class="gen-label">Gender</label>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input  checked type="radio" name="gender1" id="Gender1" value="Homme" class="form-check-input">Homme
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="gender" id="Gender1" value="Femme1" class="form-check-input">Femme
+                                            </label>
+                                        </div>
+                                        <label class="text-danger" id="l1">
+                                            genre est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group gender-select">
+                                        <label class="gen-label">Civilité</label>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" checked id="Civility1" value="Mr" name="Civility1" class="form-check-input">Mr
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="Civility1" id="Civility1" value="Mme" class="form-check-input">Mme
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="Civility" id="Civility" value="Mlle" class="form-check-input">Mlle
+                                            </label>
+                                        </div>
+                                        <label class="text-danger" id="m1">
+                                            Civility est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>CIN / Passport<span class="text-danger">*</span></label>
+                                        <input id="Cin1" class="form-control" type="text">
+                                        <label class="text-danger" id="d1">
+                                            saisir le cin
+
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" id="Address1" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Code Postal</label>
+                                                <input id="PostalCode1" type="number" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <select id="Country1" class="form-control select">
+                                                    <option>USA</option>
+                                                    <option>United Kingdom</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input id="City1" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Nationalité</label>
+                                                <select id="Nationality1" class="form-control select">
+                                                    <option>Tunisien</option>
+                                                    <option>Americain</option>
+                                                    <option>Français</option>
+                                                </select>
+                                                <label class="text-danger" id="j1">
+                                                    le telephone est obligatoire
+
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Profession </label>
+                                        <input id="Profession1" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input id="Email1" class="form-control" type="email">
+                                        <label class="text-danger" id="k1">
+                                            l'email est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>telephone </label>
+                                        <input id="Phone1" class="form-control" type="text">
+                                        <label class="text-danger" id="i1">
+                                            le telephone est obligatoire et doit etre numerique
+
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="m-t-20 text-center">
+                                <button type="submit" id="btnadd" class="btn btn-primary submit-btn" onclick="AddPatient1()">Créer Patient</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="add_patient" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog   modal-lg ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="content">
+                    <div class="row">
+                        <div class="col-lg-12 ">
+                            <h4 class="page-title">Ajout Patient</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 ">
+
+                            <div class="row">
+                                <div class="col-sm-6 ">
+                                    <div class="form-group">
+                                        <label>Nom <span class="text-danger">*</span></label>
+                                        <input class="form-control" id="FirstName" type="text">
+                                        <label class="text-danger" id="e">
+                                            saisir le Nom
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Prénom<span class="text-danger">*</span></label>
+                                        <input class="form-control" id="LastName" type="text">
+                                        <label class="text-danger" id="f">
+                                            saisir le Prenom
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Date de naissance</label>
+                                        <div class="cal-icon">
+                                            <input type="text" id="Dataofbirth" class="form-control datetimepicker">
+                                        </div>
+                                        <label class="text-danger" id="g">
+                                            la date est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Lieu de naissance </label>
+                                        <input class="form-control" id="Placeofbirth" type="text">
+                                        <label class="text-danger" id="h">
+                                            lieu de naissance  est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group gender-select">
+                                        <label class="gen-label">Gender</label>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="gender" id="Gender" value="Homme" class="form-check-input">Homme
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" checked name="gender" id="Gender" value="Femme" class="form-check-input">Femme
+                                            </label>
+                                        </div>
+                                        <label class="text-danger" id="l">
+                                            genre est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group gender-select">
+                                        <label class="gen-label">Civilité</label>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" id="Civility" value="Mr" name="Civility" class="form-check-input">Mr
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" checked  name="Civility" id="Civility" value="Mme" class="form-check-input">Mme
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline">
+                                            <label class="form-check-label">
+                                                <input type="radio" name="Civility" id="Civility" value="Mlle" class="form-check-input">Mlle
+                                            </label>
+                                        </div>
+                                        <label class="text-danger" id="m">
+                                            Civility est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>CIN / Passport<span class="text-danger">*</span></label>
+                                        <input id="Cin" class="form-control" type="text">
+                                        <label class="text-danger" id="d">
+                                            saisir le cin
+
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <input type="text" id="Address" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label>Code Postal</label>
+                                                <input id="PostalCode" type="number" class="form-control ">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Country</label>
+                                                <select id="Country" class="form-control select">
+                                                    <option>USA</option>
+                                                    <option>United Kingdom</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input id="City" type="text" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 col-md-6 col-lg-4">
+                                            <div class="form-group">
+                                                <label>Nationalité</label>
+                                                <select id="Nationality" class="form-control select">
+                                                    <option>Tunisien</option>
+                                                    <option>Americain</option>
+                                                    <option>Français</option>
+                                                </select>
+                                                <label class="text-danger" id="j">
+                                                    le telephone est obligatoire
+
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label>Profession </label>
+                                        <input id="Profession" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input id="Email" class="form-control" type="email">
+                                        <label class="text-danger" id="k">
+                                            l'email est obligatoire
+
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>telephone </label>
+                                        <input id="Phone" class="form-control" type="text">
+                                        <label class="text-danger" id="i">
+                                            le telephone est obligatoire et doit etre numerique 
+
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="m-t-20 text-center">
+                                <button type="submit" id="btnadd" class="btn btn-primary submit-btn" onclick="AddPatient()">Créer Patient</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts{
+
+    <script src="~/js/mesJS/AddDossierMedical.js" asp-append-version=true>
+
+
+    </script>
+}

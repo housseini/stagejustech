@@ -1,0 +1,205 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="content">
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title">les Medecins</h4>
+        </div>
+        <div class="col-sm-8 col-9 text-right m-b-20">
+            <a href="#addmodal" onclick="addmodalshow()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter medecin</a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table id="tabledocteuqqr" class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                            <th>Nom Prenom</th>
+                            <th>Speciality</th>
+                            <th>Telephones </th>
+                            <th>Email</th>
+                            <th>Adress</th>
+                            <th>Affiliation</th>
+                            <th>Type</th>
+
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.Doctors)
+                        {
+
+
+                            <tr>
+                                <td>  @item.FirstName   &nbsp;   @item.LastName   </td>
+                                <td>@item.Speciality </td>
+                                <td> @item.Phone1   &nbsp;  @item.Phone2 </td>
+                                <td>@item.Email  </td>
+                                <td>@item.Adress </td>
+                                <td>@item.Affiliation </td>
+                                <td>@item.Type </td>
+                                <td class="text-right">
+                                    <div class="dropdown dropdown-action">
+                                        <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" href="#editmodal" onclick="showeditemodal(@item.Id)"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+                                            <a class="dropdown-item" href="#supprimermodal" data-toggle="modal" onclick="showmodaldelle(@item.Id)"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="addmodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-3 mb-2 bg-primary text-white">
+
+                    <h3>   ajouter MEDECIN </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+
+
+
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4" class="float-left">  FirstName <span>*</span></label>
+
+                            <input type="text" class="form-control" id="FirstName" placeholder="FirstName">
+                            <label class="text-danger" id="a">
+                                saisir le Nom
+
+                            </label>
+                        </div>
+
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2 " class="float-left">LastName </label>
+                            <input type="text" class="form-control" id="LastName" placeholder="LastName">
+                            <label class="text-danger" id="dk">
+                                saisir le prenom
+
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">Speciality </label>
+                            <input type="text" class="form-control" id="Speciality" placeholder="Speciality">
+                            <label class="text-danger" id="di">
+                                saisir la specialite
+
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">Telephone </label>
+                            <input type="tel" class="form-control" id="Phone1" placeholder="Telephone">
+                            <label class="text-danger" id="dij">
+                                saisir le Numereau de telephone
+
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">Telephone 2 </label>
+                            <input type="tel" class="form-control" id="Phone2" placeholder="Telephone">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">Email  </label>
+                            <input type="email" class="form-control" id="Email" placeholder="email">
+                            <label class="text-danger" id="dijk">
+                                saisir votre adresse mail
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">Adress  </label>
+                            <input type="text" class="form-control" id="Adress" placeholder="Adress">
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">Affiliation  </label>
+                            <input type="text" class="form-control" id="Affiliation" placeholder="Affiliation">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">Type  </label>
+                            <input type="text" class="form-control" id="Type" placeholder="Type">
+                        </div>
+                    </div>
+                </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="addDooctor()"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+<div id="editmodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div id="modal-container" class="modal-body text-center">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="supprimermodal" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez sûrement supprimer cet docteur  ?</h3>
+                <h3>  cette action impliquera la suppression des tous ces rendez vous et les actes qu'il avait fait ou qu'il fera </h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmationdelete()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@section Scripts{
+
+<script src="~/js/mesJS/Doctor.js" asp-append-version=true>
+
+
+</script>
+
+
+
+    }

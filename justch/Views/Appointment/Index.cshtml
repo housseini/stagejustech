@@ -1,0 +1,850 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-sm-8 col-4">
+            <h4 class="page-title">Rendez Vous </h4>
+        </div>
+        <div class="col-sm-4 col-8 text-right  m-b-20">
+            <a href="#" onclick="rechargerlecalandrer()" class="btn btn-primary btn-rounded"><i class="fa fa-refresh"></i> </a>
+            <a href="#Rechercheavant" onclick="voirmodalrecher()" class="btn btn-primary btn-rounded" ><i class="fa fa-search"></i> rechecher Avancer  </a>
+            <a href="#ajoutermodal" onclick="showmodaladDap()" class="btn btn-primary btn-rounded" data-="modal"><i class="fa fa-plus"></i> Ajoutez </a>
+        </div>
+    </div>
+    <div class="profile-tabs ">
+        <ul class="nav nav-tabs nav-tabs-bottom ">
+            <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab"><i class="fa fa-calendar "></i> </a></li>
+            <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab"><i class="fa fa-list"></i></a></li>
+
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane show active" id="about-cont">
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card-box mb-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="calendar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane" id="bottom-tab2">
+            <div id="toudossiers" class="table-responsive">
+                <table id="table_rdvz" width="100%" class=" table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Heur</th>
+                            <th> ACT </th>
+                            <th> Durer </th>
+                            <th>SALLE</th>
+                            <th>Patient </th>
+                            <th>MEDECIN </th>
+                            <th>Etat </th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody  id="table_rdvz_body">
+                   
+
+                    </tbody>
+
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ajoutermodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog modal-md ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-3 mb-2 bg-primary text-white">
+                    <h3>   ajoute Rendez Vous </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <br />
+                    <fieldset class="col">
+                        <legend> DATE </legend>
+                        <div class="form-group text-center">
+                            <label for="inputAddress2" class="float-left">jour* </label>
+                            <input type="date" class="form-control" id="date">
+                            <label class="text-danger" id="jr">  entrez le jours du Rendez vous   </label>
+                        </div>
+                    </fieldset>
+                    <div class="form-row">
+
+                        <fieldset class="col">
+                            <legend> Patient </legend>
+
+
+
+
+                            <div class="form-group ">
+                                <label class="float-left" for="inputPassword4">  patient <span>*</span></label>
+
+                                <select class="select" id="IdPatients" multiple>
+                                    @if (ViewBag.Patients != null)
+                                    {
+                                        @foreach (var item in ViewBag.Patients)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                                <label class="text-danger" id="labpa">  choisir au moins un Patient </label>
+
+                            </div>
+                            <div class="form-group ">
+                                <label for="inputAddress2" class="float-left"> Act Medical </label>
+                                <select class="select" id="IdMedicalAct" multiple>
+                                    @if (ViewBag.MedicalActs != null)
+                                    {
+                                        @foreach (var item in ViewBag.MedicalActs)
+                                        {
+                                            <option value=@item.ID> @item.Name  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+
+                                <label class="text-danger" id="medi">  choisir au moins un act medical  </label>
+                            </div>
+                            <div class="form-group ">
+                                <label for="inputAddress2" class="float-left">heure 1 </label>
+                                <input type="time" class="form-control" id="Hour1">
+                                <label class="text-danger" id="hr1">  l heure du  Rendez vous   et Obligatoir </label>
+                            </div>
+
+                            <div class="form-group  ">
+                                <label for="inputAddress2" class="float-left">Medecins  </label>
+                                <select class="select" id="IdPrescribingDoctor1" multiple>
+                                    @if (ViewBag.Doctors != null)
+                                    {
+                                        @foreach (var item in ViewBag.Doctors)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                                <label class="text-danger" id="doc">  choisir au moins un medecin intervenant  </label>
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group ">
+                                <label for="inputAddress2 " class="float-left">salle  </label>
+                                <select class="select" id="IdRoom1" multiple>
+                                    @if (ViewBag.Rooms != null)
+                                    {
+                                        @foreach (var item in ViewBag.Rooms)
+                                        {
+                                            <option value=@item.Id> @item.Name   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                                <label class="text-danger" id="sal">  choisir au moins une salle </label>
+
+                            </div>
+
+
+
+
+
+
+
+
+                        </fieldset>
+                        <fieldset class="col">
+                            <legend>CONJOINT(E)</legend>
+
+
+
+
+                            <div class="form-group">
+                                <label class="float-left" for="inputPassword4" id="labpa">  patient <span>*</span></label>
+
+                                <select class="select" id="IdPatients111" multiple>
+                                    @if (ViewBag.Patients != null)
+                                    {
+                                        @foreach (var item in ViewBag.Patients)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputAddress2" class="float-left" id="medi"> Act Medical </label>
+                                <select class="select" id="IdMedicalAct111" multiple>
+                                    @if (ViewBag.Doctors != null)
+                                    {
+                                        @foreach (var item in ViewBag.MedicalActs)
+                                        {
+                                            <option value=@item.ID> @item.Name  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputAddress2" class="float-left" id='hr2'>heure 2  </label>
+                                <input type="time" class="form-control" id="Hour2">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputAddress2" class="float-left" id="doc">Medecins  </label>
+                                <select class="select" id="IdPrescribingDoctor1111" multiple>
+                                    @if (ViewBag.Doctors != null)
+                                    {
+                                        @foreach (var item in ViewBag.Doctors)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="inputAddress2 " class="float-left" id="sal">salle </label>
+                                <select class="select" id="IdRoom1111" multiple>
+                                    @if (ViewBag.Rooms != null)
+                                    {
+                                        @foreach (var item in ViewBag.Rooms)
+                                        {
+                                            <option value=@item.Id> @item.Name   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+
+
+                            </div>
+
+
+
+
+
+
+
+
+                        </fieldset>
+
+
+                        <div class="form-group col-md-12">
+                            <label for="inputAddress2" class="float-left">Notes </label>
+                            <textarea type="text" class="form-control" id="Notes" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="addppointment()"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div id="Rechercheavant" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-3 mb-2 bg-primary text-white">
+                    <h3>   <i class="fa fa-search m-r-5"> </i>  Rechercher avancée  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+
+
+
+                        <div class="form-group col-md-6">
+                            <label class="float-left" for="inputPassword4" id="labpa">  patients</label>
+
+                            <select class="select" id="IdPatientsrecherche" multiple>
+                                @if (ViewBag.Patients != null)
+                                {
+                                    @foreach (var item in ViewBag.Patients)
+                                    {
+                                        <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName   </option>
+
+
+                                    }
+
+                                }
+
+
+
+                            </select>
+
+                        </div>
+
+
+
+
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2 " class="float-left" id="sal">salle s </label>
+                            <select class="select" id="IdRoomrecher" multiple>
+                                @if (ViewBag.Rooms != null)
+                                {
+                                    @foreach (var item in ViewBag.Rooms)
+                                    {
+                                        <option value=@item.Id> @item.Name   </option>
+
+
+                                    }
+
+                                }
+
+
+
+                            </select>
+
+
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left" id="doc">Medecins  </label>
+                            <select class="select" id="IdPrescribingDoctorrecher" multiple>
+                                @if (ViewBag.Doctors != null)
+                                {
+                                    @foreach (var item in ViewBag.Doctors)
+                                    {
+                                        <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName  </option>
+
+
+                                    }
+
+                                }
+
+
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left" id="jr">jour  </label>
+                            <input type="date" class="form-control" id="dateREcher">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left" id="hr1"> plage  </label>
+                            <input type="number" class="form-control" id="plagerecher" min="0">
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left" id="medi"> Act Medical </label>
+                            <select class="select" id="IdMedicalActrecher" multiple>
+                                @if (ViewBag.MedicalActs != null)
+                                {
+                                    @foreach (var item in ViewBag.MedicalActs)
+                                    {
+                                        <option value=@item.ID> @item.Name  </option>
+
+
+                                    }
+
+                                }
+
+
+
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="recherche()"><i class="fa fa-plus m-r-5"> rechercher </i> </button>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+
+<div id="editemodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h3>   editer Rendez Vous </h3>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label class="float-left" for="inputPassword4" id="labpa0">  patients   &nbsp;:    &nbsp; </label>
+
+                        <select class="select" id="IdPatients11" multiple>
+                            @if (ViewBag.Patients != null)
+                            {
+                                @foreach (var item in ViewBag.Patients)
+                                {
+
+                                    <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName   </option>
+
+
+                                }
+
+                            }
+
+
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress2 " class="float-left" id="sal1">salles   &nbsp; </label>
+                        <select class="select" id="IdRoom11" multiple>
+                            @if (ViewBag.Rooms != null)
+                            {
+                                @foreach (var item in ViewBag.Rooms)
+                                {
+
+                                    <option value=@item.Id> @item.Name   </option>
+
+
+                                }
+
+                            }
+
+
+
+                        </select>
+
+
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress2" class="float-left" id="doc1">Medecins  &nbsp; </label>
+                        <select class="select" id="IdPrescribingDoctor11" multiple>
+                            @if (ViewBag.Doctors != null)
+                            {
+                                @foreach (var item in ViewBag.Doctors)
+                                {
+
+                                    <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName  </option>
+
+
+                                }
+
+                            }
+
+
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6" id="jr1">
+
+                    </div>
+                    <div class="form-group col-md-6 " id="hr11">
+
+
+                    </div>
+                    <div class="form-group col-md-6" id="hr22">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress2" class="float-left" id="medi11">  </label>
+                        <select class="select" id="IdMedicalAct11" multiple>
+                            @if (ViewBag.MedicalActs != null)
+                            {
+                                @foreach (var item in ViewBag.MedicalActs)
+                                {
+
+                                    <option value=@item.ID> @item.Name  </option>
+
+
+                                }
+
+                            }
+
+
+
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-12" id="noteedite">
+
+                    </div>
+
+
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="edite()"><i class="fa fa-plus m-r-5"> Enregistrer </i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="delete_appointement" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez sûrement supprimer cet RENDEZ Vous  ?</h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="deleteappoitement()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="Inforendevous" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-dialog-centered ">
+        <div class="modal-content">
+            <div class="modal-body text-center" id="infoRDV">
+                <div class="modal-header p-3 mb-2 bg-primary text-white">
+
+                    <h3 >   INFO Rendez Vous </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                    <br />
+                    <fieldset class="col">
+                        <legend> DATE </legend>
+                        <div class="form-group text-center" id="INFODATE">
+
+
+                        </div>
+                    </fieldset>
+                    <div class="form-row">
+
+                        <fieldset class="col">
+                            <legend> Patient </legend>
+
+
+
+
+                            <div class="form-group ">
+                                <label class="float-left" for="inputPassword4">  patient <span>*</span></label>
+
+                                <select class="select" id="IdPatientsinnfof" multiple>
+                                    @if (ViewBag.Patients != null)
+                                    {
+                                        @foreach (var item in ViewBag.Patients)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group ">
+                                <label for="inputAddress2 " class="float-left">salle  </label>
+                                <select class="select" id="IdRoominfo" multiple>
+                                    @if (ViewBag.Rooms != null)
+                                    {
+                                        @foreach (var item in ViewBag.Rooms)
+                                        {
+                                            <option value=@item.Id> @item.Name   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group  ">
+                                <label for="inputAddress2" class="float-left">Medecins  </label>
+                                <select class="select" id="IdPrescribingDoctorinfo" multiple>
+                                    @if (ViewBag.Doctors != null)
+                                    {
+                                        @foreach (var item in ViewBag.Doctors)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                            </div>
+
+                            <div class="form-group " id="infoheure">
+
+                            </div>
+
+                            <div class="form-group ">
+                                <label for="inputAddress2" class="float-left"> Act Medical </label>
+                                <select class="select" id="IdMedicalActinfo" multiple>
+                                    @if (ViewBag.MedicalActs != null)
+                                    {
+                                        @foreach (var item in ViewBag.MedicalActs)
+                                        {
+                                            <option value=@item.ID> @item.Name  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                            </div>
+
+
+                        </fieldset>
+                        <fieldset class="col">
+                            <legend>CONJOINT(E)</legend>
+
+
+
+
+                            <div class="form-group">
+                                <label class="float-left" for="inputPassword4" id="labpa">  patient <span>*</span></label>
+
+                                <select class="select" id="IdPatients111info" multiple>
+                                    @if (ViewBag.Patients != null)
+                                    {
+                                        @foreach (var item in ViewBag.Patients)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+
+                            </div>
+
+
+
+
+
+
+                            <div class="form-group">
+                                <label for="inputAddress2 " class="float-left" id="sal">salle </label>
+                                <select class="select" id="IdRoom1111info" multiple>
+                                    @if (ViewBag.Rooms != null)
+                                    {
+                                        @foreach (var item in ViewBag.Rooms)
+                                        {
+                                            <option value=@item.Id> @item.Name   </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputAddress2" class="float-left" id="doc">Medecins  </label>
+                                <select class="select" id="IdPrescribingDoctor1111infoee" multiple>
+                                    @if (ViewBag.Doctors != null)
+                                    {
+                                        @foreach (var item in ViewBag.Doctors)
+                                        {
+                                            <option value=@item.Id> @item.FirstName  &nbsp; @item.LastName  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                            </div>
+
+
+                            <div class="form-group" id="heur2Info">
+                                <label for="inputAddress2" class="float-left" id='hr2'>heure 2  </label>
+                                <input type="time" class="form-control" id="Hour2indf">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputAddress2" class="float-left" id="medi"> Act Medical </label>
+                                <select class="select" id="IdMedicalAct111Info" multiple>
+                                    @if (ViewBag.MedicalActs != null)
+                                    {
+                                        @foreach (var item in ViewBag.MedicalActs)
+                                        {
+                                            <option value=@item.ID> @item.Name  </option>
+
+
+                                        }
+
+                                    }
+
+
+
+                                </select>
+                            </div>
+
+
+                        </fieldset>
+
+
+                        <div class="form-group col-md-12" id="Infonote">
+
+
+                        </div>
+
+
+                        <div class="form-group col-md-12" id="statusedite">
+                            <label for="inputAddress2" class="float-left">STATUS </label>
+                            <select id="Appointementstatue" class="form-control select">
+                                <option value=" RETARDER "> RETARDER </option>
+                                <option value=" EN COURS "> En Cours </option>
+                                <option value=" TERMINER "> Terminer  </option>
+                                <option value=" ANNULER "> ANNULER  </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mx-auto" id="divbuton">
+                        <button type="button" class="btn btn-white" onclick="fermer()"><i class="m-r-5"> fermer </i> </button>
+
+                        <button type="button" class="btn  btn-danger" onclick="showmodalsupprimer()"><i class="fa fa-trash-o m-r-5"> suprimer </i> </button>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+    </div>
+</div>
+
+
+<style>
+    fieldset {
+        border-width: 1px;
+        border-style: solid;
+        border-color: #009efb;
+    }
+
+    legend {
+        background-color: #009efb;
+        color: white;
+        padding: 5px 5px;
+    }
+
+    input {
+        margin: 5px;
+    }
+</style>
+@section Scripts{
+
+<script src="/js/mesJS/Appointment.js" asp-append-version=true>
+
+
+</script>
+<script src="/js/fullcalendar.min.js" asp-append-version=true>
+
+
+</script>
+
+
+
+
+    }

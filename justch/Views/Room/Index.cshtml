@@ -1,0 +1,311 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="profile-tabs">
+	<ul class="nav nav-tabs nav-tabs-bottom">
+						<li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Liste des RoomType</a></li>
+						<li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab">Room</a></li>
+                      
+					</ul>
+
+					<div class="tab-content">
+						<div class="tab-pane show active" id="about-cont">
+                            <div class="content">
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title">RoomType</h4>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                        <a href="#ajoutermodalRoomtype"  onclick="showmodaladdRoomType()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter RoomType </a>
+                    </div>
+                </div>
+				  <div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table  id="roomtypetable" class="table table-border table-striped  ">
+								<thead>
+									<tr>
+										<th>Nom</th>
+										
+										<th class="text-right" >Action</th>
+									</tr>
+								</thead>
+                                <tbody>
+                                    @*@if (ViewBag.Roomtype!=null)
+                                   {
+                                       @foreach (var item in ViewBag.Roomtype)
+                                      {
+                                          <tr> 
+                                              <td>
+                                                  @item.Name
+                                              </td>
+                                               <td class="text-right">
+                                                 <a href="#editemodalRoomtype"  onclick="editedroomTypetolocalsession(@item.Id)" class="btn btn btn-secondary btn-rounded "><i class="fa fa-pencil"> </i> 
+                                                   edit  </a>
+                                                   
+                                                 <a href="#supprimermodalRoomtype"  onclick="addIdroomTypetolocalsession(@item.Id)" class="btn btn btn-danger btn-rounded "><i class="fa fa-trash"> </i> 
+                                                   delete  </a>
+                                              </td>
+                                          </tr>
+                                      }
+                                       
+                                   }*@
+                                </tbody>
+
+							
+							</table>
+						</div>
+					</div>
+                      </div>
+                       </div>
+						</div>
+						<div class="tab-pane" id="bottom-tab2">
+							  <div class="row">
+                                  <div class="col-sm-4 col-3">
+                              <h4 class="page-title">Room</h4>
+                            </div>
+
+                              <div class="col-sm-8 col-9 text-right m-b-20">
+                                 <a href="#ajoutermodalRoom"  onclick="showmodaladdRoom()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter Room </a>
+                                 </div>
+                                   </div>
+
+                    <div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table  id="room" width="100%" class="table table-border table-striped  ">
+								<thead>
+									<tr>
+                                        <th>Room Type</th>
+										<th>Nom</th>
+										
+										<th class="text-right" >Action</th>
+									</tr>
+								</thead>
+                                <tbody>
+                                    @*@if (   ViewBag.Room!=null)
+                                   {
+                                       @foreach (var item in ViewBag.Room)
+                                      {
+                                          <tr> 
+                                              <td>
+                                                  @foreach (var i in  ViewBag.Roomtype)
+                                                {
+                                                    @if(i.Id==item.IdRoomType){
+                                                        @i.Name
+                                                    }
+
+                                        }
+                                                
+                                              </td>
+                                              <td>
+                                                  @item.Name
+                                              </td>
+                                               <td class="text-right">
+                                                 <a href="#editemodalRoomtype"  onclick="editedroomTypetolocalsession(@item.Id)" class="btn btn btn-secondary btn-rounded "><i class="fa fa-pencil"> </i> 
+                                                   edit  </a>
+                                                   
+                                                 <a href="#supprimermodalRoom"  onclick="addIdroomtolocalsession(@item.Id)" class="btn btn btn-danger btn-rounded "><i class="fa fa-trash"> </i> 
+                                                   delete  </a>
+                                              </td>
+                                          </tr>
+                                      }
+                                       
+                                   }*@
+                                </tbody>
+
+							
+							</table>
+						</div>
+					</div>
+                      </div>
+						</div>
+						
+					</div>
+				</div>
+<div id="ajoutermodalRoomtype" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   ajoute ROOM TYPE </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group ">
+                        <label for="inputPassword4" class="float-left">  Name <span>*</span></label>
+
+                        <input type="text" class="form-control" id="NameRoomType" placeholder="Name">
+                    </div>
+                </div>
+
+
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="addRoomType()"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div id="ajoutermodalRoom" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   ajoute ROOM  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group ">
+                        <label for="inputPassword4" class="float-left">  Name <span>*</span></label>
+
+                        <input type="text" class="form-control" id="NameRoom" placeholder="Name">
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputAddress2" class="float-left">Room Type </label>
+                        <select class="form-control" id="Idroomtype">*
+                        @if(ViewBag.Roomtype != null)
+            {
+
+          
+                            @foreach (var item in ViewBag.Roomtype)
+                            {
+                                <option value=@item.Id> @item.Name</option>
+                            }
+                        }
+                        </select>
+
+                    </div>
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="addRoom()"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="editemodalRoomtype" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   Modifier ROOM TYPE </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group ">
+                        <label for="inputPassword4" class="float-left">  Name <span>*</span></label>
+
+                        <input type="text" class="form-control" id="NameRoomTypemodifier" placeholder="ENTREZ LE NOUVEAU NOM">
+                    </div>
+                </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="modifierRoomtype()"><i class="fa fa-pencil m-r-5"> modifier </i> </button>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+</div>
+<div id="editemodalRoom" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   EDIT ROOM  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" id="editroom">
+
+
+                        @*//<input type="text" class="form-control" id="NameRoom" placeholder="Name">*@
+                    </div>
+                    <div class="form-group ">
+                        <label for="inputAddress2" class="float-left">Room Type </label>
+                        <select class="form-control" id="Idroomtypeedi">
+
+                            @if (ViewBag.Roomtype != null)
+                            {
+                                @foreach (var item in ViewBag.Roomtype)
+                                {
+                                    <option value=@item.Id> @item.Name</option>
+                                }}
+                            </select>
+
+                    </div>
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="editeRoom()"><i class="fa fa-pencil m-r-5"> ENREGISTRER </i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="supprimermodalRoomtype" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+                <p> la suppresion de cet Room type impliquerai la suppression des toute les table dont il appartient ?</p>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()"   style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmationdeleteroomtype()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="supprimermodalRoom" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+                <p> la suppresion de cet Room  impliquerai la suppression des toute les table dont il appartient ?</p>>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()"   style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmationdeleteroom()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts{
+
+<script src="~/js/mesJS/Room.js" asp-append-version=true>
+
+
+</script>
+
+
+
+    }

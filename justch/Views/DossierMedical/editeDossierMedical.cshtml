@@ -1,0 +1,143 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using justch.Models.ENTITIES
+@model DossierMedical;
+
+
+<div class="row">
+    <div  class="col-sm-4 col-3" id="paragraphe" >
+
+
+   <h4 class="page-title">  Edit Dossier medical </h4> 
+    </div>
+    <div class="col-sm-8 col-9 text-right m-b-20">
+         <a href="/DossierMedical/Index" class="btn btn-primary  submit-btn">retour</a>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card-box" id="propriertaire">
+           
+            
+        </div>
+
+        <div class="card-box">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group" id="ETAT"  >
+                      
+                       
+                    </div>
+                    <div class="col-md-4" id='choixtype'>
+                        <div class="form-group">
+                            <label>TYPE DE DOSSIER </label>
+                            <select class="select" id="type" name="Id">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group" id="Inputs">
+                            
+                            <label> N° DOSSIER </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        <div class="card-box" id="formulaire2">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <label> Madame </label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <select class="select" id="Id4" name="Id">
+                            <option value=0>  </option>
+                            @if (ViewBag.Patients != null)
+                            {
+                                @foreach (var item in ViewBag.Patients)
+                                {
+
+                                    @if (@item.Gender == "Femme")
+                                    {
+
+                                        <option value="@item.Id">@item.FirstName @item.LastName </option>
+                                    }
+                                }
+                            }
+
+                        </select>
+
+                        <label id="tes" class="text-danger"> ajouter ou selectinner une dame  </label>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-primary " href="#add_patient" data-toggle="modal" data-target="#add_patient"> <i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="card-box" id="formulaire3">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <label>Mr</label>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+
+                        <select class="select" id="Id3" name="Id">
+                            <option value=0>  </option>
+                            @if (ViewBag.Patients != null)
+                            {
+                                @foreach (var item in ViewBag.Patients)
+                                {
+
+                                    @if (@item.Gender == "Homme")
+                                    {
+
+                                        <option value="@item.Id">@item.FirstName @item.LastName </option>
+                                    }
+                                }
+                            }
+
+                        </select>
+                        <label id="tes1" class="text-danger"> ajouter ou selectinner le Mr  </label>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <a class="btn btn-primary " href="#add_patient" data-toggle="modal" data-target="#add_patient"> <i class="fa fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="m-t-20 text-center" id="formuli">
+            <a href="/DossierMedical/Index" class="btn btn-secondary submit-btn">Annuler</a>
+
+            <button class="btn btn-primary submit-btn" type="button" onclick="modifier()">Modifier dossier patient</button>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+@section Scripts{
+
+<script src="~/js/editedossiermerdicale.js" asp-append-version=true>
+
+
+</script>
+
+ }
