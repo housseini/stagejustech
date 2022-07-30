@@ -1,0 +1,547 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="content">
+    <div class="profile-tabs">
+        <ul id="myTab" class="nav nav-tabs nav-tabs-bottom">
+            <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">Cuve </a></li>
+            <li class="nav-item"><a class="nav-link " href="#bottom-tab1" data-toggle="tab">Visotube </a></li>
+            <li class="nav-item"><a class="nav-link" href="#bottom-tab2" data-toggle="tab"> Paillette </a></li>
+
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane show active" id="about-cont">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="page-title"> Cuve </h4>
+                        <div class="text-right">
+                            <a href="#ajouterCuve" onclick="showCuve()" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter  Cuve </a>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <div class="content">
+
+                    <table id="cuveTable" width="100%" class=" table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Reference</th>
+                                <th>Nombre Canisters</th>
+
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cuveTablebody">
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="tab-pane " id="bottom-tab1">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="page-title"> Visotube </h4>
+                        <div class="text-right">
+                            <a href="#ajouterCuve" onclick="showViotube()" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter  Viotube </a>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <div class="content">
+
+                    <table id="ViotubeTable" width="100%" class=" table table-striped table-bordered">
+                        <thead>
+                            <tr>
+
+                                <th>Cuve</th>
+                                <th>couleur</th>
+                                <th>Capacite</th>
+                                <th>Numero Canister</th>
+                                <th>Numero Etage</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ViotubeTablebody">
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+            <div class="tab-pane " id="bottom-tab2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h4 class="page-title"> Paillette </h4>
+                        <div class="text-right">
+                            <a href="#ajouterPaillette" onclick="showPaillette()" class="btn btn-primary"><i class="fa fa-plus"></i> Ajouter  Paillette </a>
+                        </div>
+                        <br />
+                    </div>
+                </div>
+                <div class="content">
+
+                    <table id="Paillettetablee" width="100%" class=" table table-striped table-bordered">
+                        <thead>
+                            <tr>
+
+                                <th> Visotube couleur</th>
+                                <th> Paillette couleur</th>
+                                <th>Type Congelation</th>
+                                <th> Reference</th>
+                                <th>Statu</th>
+                                <th class="text-right">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="Paillettetablebody">
+                        </tbody>
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+<div id="ajouterCuve" class="modal fade bd-example-modal-md" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter Cuve</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form id="ajouteCuveF">
+                        <div class="row">
+
+
+
+                            <div class="form-group col-md-6">
+                                <label for="Nom">Nom  </label>
+                                <input id="Nom" name="Nom" class="form-control " required />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="Reference">Reference   </label>
+                                <div class="form-group">
+                                    <input class="w-100 form-control" name="Reference" id="Reference" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Canister">Nombre Canister   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Canister" id="Canister" min="2" />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="mx-auto" style="width: 200px;">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Enregistre </i> </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modifierCuve" class="modal fade bd-example-modal-md" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  Modifier Cuve</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form id="modifierCuveF">
+                        <div class="row">
+
+
+
+                            <div class="form-group col-md-6">
+                                <label for="Nom1">Nom  </label>
+                                <input id="Nom1" name="Nom1" class="form-control " required />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="Reference1">Reference   </label>
+                                <div class="form-group">
+                                    <input class="w-100 form-control" name="Reference1" id="Reference1" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Canister1">Nombre Canister   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Canister1" id="Canister1" min="2" />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="mx-auto" style="width: 200px;">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Enregistre </i> </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="supprimerCUVE" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez  supprimer cet Cuve entrainera la suppression de Visotube ,Paillette et tous ce qui es associer à ce element  ?</h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionCuve()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="ajouterVisotube" class="modal fade bd-example-modal-md" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter Visotube</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form id="ajouteVisotubeF">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="IdCuve">Cuve  </label>
+                                <select id="IdCuve" name="IdCuve" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group col-md-4">
+                                <label for="couleur">couleur  </label>
+                                <select id="couleur" name="couleur" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="Capicite">Capicite   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Capicite" id="Capicite" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Numeroc">Numero Canister   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Numeroc" id="Numeroc" min="2" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Numeroe">Numero Etage   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Numeroe" id="Numeroe" min="2" />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="mx-auto" style="width: 200px;">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Enregistre </i> </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="editerVisotubeM" class="modal fade bd-example-modal-md" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  EDITER Visotube</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form id="editerVisotubeF">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="IdCuve1">Cuve  </label>
+                                <select id="IdCuve1" name="IdCuve1" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group col-md-4">
+                                <label for="couleur1">couleur  </label>
+                                <select id="couleur1" name="couleur1" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="Capicite1">Capicite   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Capicite1" id="Capicite1" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Numeroc1">Numero Canister   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Numeroc1" id="Numeroc1" min="2" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="Numeroe1">Numero Etage   </label>
+                                <div class="form-group">
+                                    <input type="number" class="w-100 form-control" name="Numeroe1" id="Numeroe1" min="2" />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="mx-auto" style="width: 200px;">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Enregistre </i> </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="supprimerVisotube" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez  supprimer ?cet Visotube entrainera la suppression Paillette et tous ce qui es associer à ce element  ?</h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionVisotube()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div id="ajouterPaillette" class="modal fade bd-example-modal-md" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  Ajouter Paillette</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form id="ajoutePailletteF">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="IdVisotube">Visotube  </label>
+                                <select id="IdVisotube" name="IdVisotube" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group col-md-4">
+                                <label for="couleurPaillette">couleur  </label>
+                                <select id="couleurPaillette" name="couleurPaillette" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="congelationPaillette">type Congelation   </label>
+                                <div class="form-group">
+                                    <input type="text" class="w-100 form-control" name="congelationPaillette" id="congelationPaillette" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ReferencePaillette">Reference   </label>
+                                <div class="form-group">
+                                    <input type="text" class="w-100 form-control" name="ReferencePaillette" id="ReferencePaillette" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="StatuPaillette">Status  </label>
+                                <div class="form-group">
+                                    <input type="text" class="w-100 form-control" name="StatuPaillette" id="StatuPaillette" required />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="mx-auto" style="width: 200px;">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Enregistre </i> </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editerterPaillette" class="modal fade bd-example-modal-md" role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  editer Paillette</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <form id="editePailletteF">
+                        <div class="row">
+                            <div class="form-group col-md-4">
+                                <label for="IdVisotube1">Visotube  </label>
+                                <select id="IdVisotube1" name="IdVisotube1" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+
+                            <div class="form-group col-md-4">
+                                <label for="couleurPaillette1">couleur  </label>
+                                <select id="couleurPaillette1" name="couleurPaillette1" class="form-control couleur " required>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="congelationPaillette1">type Congelation   </label>
+                                <div class="form-group">
+                                    <input type="text" class="w-100 form-control" name="congelationPaillette1" id="congelationPaillette1" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ReferencePaillette1">Reference   </label>
+                                <div class="form-group">
+                                    <input type="text" class="w-100 form-control" name="ReferencePaillette1" id="ReferencePaillette1" required />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="StatuPaillette1">Status  </label>
+                                <div class="form-group">
+                                    <input type="text" class="w-100 form-control" name="StatuPaillette1" id="StatuPaillette1" required />
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="mx-auto" style="width: 200px;">
+                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus m-r-5">Enregistre </i> </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="supprimerPaillete" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez  supprimer cette Paillette ? entrainera la suppression  de tous ce qui es associer à ce element  ?</h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmesuppressionpaillette()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+    <script src="/js/mesJS/Cuve.js" asp-append-version=true>
+
+
+    </script>
+
+
+
+
+
+}

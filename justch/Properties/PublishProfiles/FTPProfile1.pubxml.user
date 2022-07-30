@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Ce fichier est utilisé par le processus de publication/package de votre projet web. Vous pouvez personnaliser le comportement de ce processus
+en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1lsDOKEZmk+WX5DKksU2sQAAAAACAAAAAAAQZgAAAAEAACAAAADf7EHkN4XHYqCcW3IQLCb8Py/RgTYHq3tw8AEEmzlOSQAAAAAOgAAAAAIAACAAAABHP/aq3BG5S3WZD8GBzWdld9J8TwRXOLmkvx8DcYDi8yAAAAAg5mEd81674hBk/bKxNVyo791LVt1lbncahQf1UzfEnkAAAADHpa2OXSE+bWWpvRiiXzjyrDa7md5Y/YW1m3c+rj5eTpbn2mJtYty1vwFciGWmZttUzFs5/DuNBS23b9eMQLVN</EncryptedPassword>
+    <_PublishTargetUrl>ftp://JUSTCH.somee.com/www.JUSTCH.somee.com/</_PublishTargetUrl>
+    <History>False|2022-05-10T16:39:08.4710028Z;</History>
+  </PropertyGroup>
+</Project>

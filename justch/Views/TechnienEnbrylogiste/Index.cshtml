@@ -1,0 +1,154 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title">les Techniciens</h4>
+        </div>
+        <div class="col-sm-8 col-9 text-right m-b-20">
+            <a href="#addmodal" onclick="addmodalshow()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter technicien</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table id="tableenbrologiste" class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                            <th>Nom </th>
+                            <th>Prenom</th>
+                           
+                          
+                            
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(ViewBag.Techniciens!=null)
+                        @foreach (var item in  ViewBag.Techniciens)
+                        {
+                            
+                      
+                        <tr>
+                            <td>  @item.FirsName     </td>
+                            <td>  @item.LastName  </td>
+                           <td class="text-right">
+                            <a href="#editemodal" onclick="edited(@item.Id)" class="btn btn btn-secondary btn-rounded "><i class="fa fa-pencil"> </i> 
+                               edit  </a>
+                                                   
+                          <a href="#supprimermodal"  onclick="addtolocalsession(@item.Id)" class="btn btn btn-danger btn-rounded "><i class="fa fa-trash"> </i> 
+                           delete  </a>
+                         </td>
+                        </tr>
+                          }
+                     
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="supprimermodal" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+               <p> la suppresion de ce Techinicien impliquerai la suppression des toute les table dont il appartient ?</p>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()"   style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmationdelete()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="addmodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-1 mb-2 bg-primary text-white">
+                    <h3>   ajouter technicien </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4" class="float-left">  FirstName <span>*</span></label>
+
+                            <input type="text" class="form-control" id="FirstName" placeholder="FirstName">
+                            <label class="text-danger" id="dee">
+                                saisir le Nom
+
+                            </label>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left">LastName </label>
+
+                            <input type="text" class="form-control" id="LastName" placeholder="LastName">
+                            <label class="text-danger" id="dre">
+                                saisir le Nom
+
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="addTECHNICIEN()"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="editmodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div id="modal-container" class="modal-body text-center">
+               
+
+             
+               
+            </div>
+             <div class="mx-auto" style="width: 200px;">
+                    <button type="button" class="btn btn-primary" onclick="modifierTECHNICIEN()"><i class="fa fa-pencil m-r-5"> modifier </i> </button>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+<script src="~/js/mesJS/techiciens.js" asp-append-version=true>
+
+
+</script>
+
+
+
+    }

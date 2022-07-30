@@ -1,0 +1,244 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MedicalAct
+<div class="content">
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title">Actes medical</h4>
+        </div>
+        <div class="col-sm-8 col-9 text-right m-b-30">
+            <a href="#" onclick="retour()" class="btn btn-primary btn-rounded float-right"><i class="fa fa-back"></i>  retour </a>
+            <a href="#ajoutermodal" onclick="showaddmodal()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter</a>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table id="tableMEDICALACT"   class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>MedicalActType</th>
+                            <th>Duration</th>
+                            <th>Category</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.Medicalacts != null)
+                        {
+                            @foreach (var item in ViewBag.Medicalacts)
+                            {
+                                <tr>
+                                    <td> @item.Name </td>
+                                    <td> @item.MedicalActType </td>
+                                    <td> @item.Duration </td>
+                                    <td> @item.Category </td>
+                                    <td class="text-right">
+                                        <div class="dropdown dropdown-action">
+                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                                            <div class="dropdown-menu dropdown-menu-right">
+                                                <a class="dropdown-item" href="#EXPLORER" onclick="showEXPLORERmodal(@item.ID)"><i class="fa fa-pencil m-r-5"></i> EXPLORER</a>
+
+                                                <a class="dropdown-item" href="#consultermodal" onclick="showconsultermodal(@item.ID)"><i class="fa fa-pencil m-r-5"></i> Consulter</a>
+                                                <a class="dropdown-item" href="#editmodal" onclick="showeditemodal(@item.ID)"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
+                                                <a class="dropdown-item" href="#supprimermodal" data-toggle="modal" onclick="showmodaldelle(@item.ID)"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                            }
+                        }
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="ajoutermodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   ajoute Medical Acte </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4" class="float-left">  Name <span>*</span></label>
+
+                            <select class="form-control select" id="Name" placeholder="Name">
+                                <option value="Biopsie">Biopsie</option>
+                                <option value="Décoronisation">Décoronisation</option>
+                                <option value="Decongelation"> Decongelation</option>
+                                <option value="Congélation de sperme">Congélation de sperme</option>
+                                <option value="Congélation d 'Ovocyte">Congélation d 'Ovocyte</option>
+                                <option value="Congélation de Enbryonnaire">Congélation de Enbryonnaire</option>
+                                <option value="Congelation Biopsie Testiculaire">Congelation Biopsie Testiculaire</option>
+
+                                <option value="Injection">Injection</option>
+                                <option value="Insémination / IAC">Insémination / IAC</option>
+                                <option value="Ponction de kystes">Ponction</option>
+                                <option value="Préparation sperme">Préparation sperme </option>
+                                <option value="Transfert d'embryon frais (TEF)">Transfert d'embryon frais (TEF)</option>
+                                <option value="Transfert (Insémination)">Transfert (Insémination)</option>
+                                <option value="Spermoculture">Spermoculture</option>
+
+                            </select>
+
+                            <label class="text-danger" id="mN">
+                                saisir le Nom de Act Medical
+
+                            </label>
+
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left">ROOM </label>
+
+
+                            <select class="form-control" id="IdRoom">
+
+                              
+                               
+                              
+                            </select>
+                           
+
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left">Duré </label>
+                            <input type="number" class="form-control" id="Duration" value=15 min=15>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputAddress2" class="float-left">Category </label>
+
+
+                            <select class="form-control select" id="Category" placeholder="Category">
+                                <option value="Ponction">Ponction</option>
+                                <option value="Preparation">Preparation</option>
+                                <option value="Congelation">Congelation</option>
+                                <option value="Transfert">Transfert</option>
+                                <option value="Culture">Culture</option>
+                                <option value="Decongelation">Decongelation</option>
+
+                            </select>
+                            <label class="text-danger" id="mc">
+                                saisir LA Category
+
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="addMedicalAct()"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+<div id="editmodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div id="modal-container" class="modal-body text-center">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="EXPLORER" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3> <i class="fa fa-book m-r-5"> </i>  EXPLORER ACT MEDICAL </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+
+                            <input type="text" placeholder="search" id="cherchermedicalacte" class="form-control" />
+                            <table id="mytabe" width="100%" class="table table-border table-striped custom-table  mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Type</th>
+                                        <th>Patient</th>
+                                        <th>Rang</th>
+                                        <th>State</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody id="bodytableexpore"></tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div id="consultermodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div id="modal-container1" class="modal-body text-center">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="supprimermodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog modal-dialog-centered  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="container">
+                    <h1>Delete </h1>
+                    <p> la suppresion de cet Act Medical impliquerai la suppression des toute les table dont il appartient ?</p>
+
+                    <div class="clearfix">
+                        <button type="button" class="btn  btn-primary">Cancel</button>
+                        <button type="button" onclick="confirmationdelete()" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+
+<script src="~/js/mesJS/MedicalAct.js" asp-append-version=true>
+
+
+</script>
+
+
+
+    }

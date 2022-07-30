@@ -1,0 +1,30 @@
+﻿.index-btn-wrapper{
+  display: flex;
+}
+
+.index-btn {
+    margin: 20px 15px 0 0;
+
+    padding: 10px 20px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #009efb;
+    border: 1px solid #009efb;
+}
+
+.index-btn:hover{
+  opacity: 0.8;
+}
+
+.step {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    margin: 0 2px;
+    color: white;
+    background: green;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.25;
+}

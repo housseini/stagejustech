@@ -1,0 +1,187 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="content">
+    <div class="row">
+        <div class="col-sm-4 col-3">
+            <h4 class="page-title">LES  UTILISATEUR </h4>
+        </div>
+        <div class="col-sm-8 col-9 text-right m-b-20">
+            <a href="#addmodal" onclick="addmodalshow()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Ajouter utilisateur</a>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="table-responsive">
+                <table id="tableUser" class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                            <th>UserName </th>
+                            <th>EMAIL</th>
+                            <th>Role </th>
+                            <th> Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="delete_utilisateur" class="modal fade delete-modal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="~/img/delete1.png" alt="" width="50" height="46">
+                <h3>Vous voulez sûrement supprimer cet utilisateur   ?</h3>
+                <h3>   L utilisateur n aura plus acces au systeme  </h3>
+                <div class="m-t-20">
+                    <a href="#" class="btn btn-white" data-dismiss="modal" onclick="fermer()" style="width: 25%;">Fermer</a>
+                    <button type="submit" class="btn btn-danger" style="width: 25%;" onclick="confirmationdelete()">Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="addmodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   ajouter Utilisateur  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+
+
+
+                        <div class="form-group col-md-4">
+                            <label for="inputPassword4" class="float-left">  Username <span>*</span></label>
+
+                            <input type="text" class="form-control" id="Username" placeholder="Username">
+                            <label class="text-danger" id="a">
+                                saisir le Nom
+
+                            </label>
+                        </div>
+
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2 " class="float-left">EMAIL </label>
+                            <input type="email" class="form-control" id="email" placeholder="email">
+                            <label class="text-danger" id="dk">
+                                saisir le email
+
+                            </label>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2 " class="float-left">PASSWORD </label>
+                            <input type="password" class="form-control" id="PASSWORD" required min="8">
+                            <label class="text-danger" id="d">
+                                saisir le PASSWORD
+                            </label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">ROLE </label>
+                            <select class="form-control" id="ROLE">
+                                <option value="Secretaire"> Secretaire</option>
+                                <option value="Admis"> Admis</option>
+                                <option value="Clinicien"> Clinicien</option>
+                                <option value="Embryologiste"> Embryologiste</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="addUser()"><i class="fa fa-plus m-r-5"> Ajouter </i> </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="editmodal" class="modal fade bd-example-modal-xl" role="dialog">
+    <div class="modal-dialog  modal-xl  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <div class="modal-header p-2 mb-2 bg-primary text-white">
+                    <h3>   editer Utilisateur  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-row">
+
+
+
+
+                        <div class="form-group col-md-4" id="USERSE">
+
+                        </div>
+
+
+                        <div class="form-group col-md-4" id="EMAILS">
+
+                        </div>
+
+                        <div class="form-group col-md-4" id="PASSS">
+
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress2" class="float-left">ROLE </label>
+                            <select class="form-control" id="ROLEE">
+                                <option value="Secretaire"> Secretaire</option>
+                                <option value="Admis"> Admis</option>
+                                <option value="Clinicien"> Clinicien</option>
+                                <option value="Embryologiste"> Embryologiste</option>
+
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                    <div class="mx-auto" style="width: 200px;">
+                        <button type="button" class="btn btn-primary" onclick="EditeUser()"><i class="fa fa-plus m-r-5"> Modifier </i> </button>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="~/js/mesJS/Utilisateur.js" asp-append-version=true>
+
+
+    </script>
+}
