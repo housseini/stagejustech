@@ -12,7 +12,8 @@ namespace justch.Controllers
 {
     public class UtilisateurController : Controller
     {
-    //
+        //
+        //[Authorize(Roles = "Admis")]
         public IActionResult Index()
         {
 
@@ -24,7 +25,7 @@ namespace justch.Controllers
         /// </summary>   
         /// /// <returns></returns>
 
-   
+ //       [Authorize(Roles = "Admis")]
         [HttpPost]
         public IActionResult Add(Utilisateur utilisateur)
         {
@@ -57,7 +58,7 @@ namespace justch.Controllers
         /// </summary>
         /// <param name="utilisateur"></param>
         /// <returns></returns>
-        [Authorize]
+        [Authorize(Roles = "Admis")]
         [HttpPost]
         public IActionResult Update(Utilisateur utilisateur)
         {

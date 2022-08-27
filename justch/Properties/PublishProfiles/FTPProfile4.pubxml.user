@@ -8,7 +8,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAepBiduL0+kK6CvF7RE3PSwAAAAACAAAAAAAQZgAAAAEAACAAAABYHtlTBspgGcFJCkaXYE+oOMwLW01/LL0x5h2kv+enZAAAAAAOgAAAAAIAACAAAAC7b0ZYGQGXomWio9WhP7AtCJzKp80ehj3EphFJYGGarSAAAADETaQn8fb++qDiSPoqH8w5BvCyiQ7CDfdeXpncY3OQ1EAAAAD3SBMpLGf04kfj08+jm2LU83G5veW/TPtWnpn6JXBtq5yFldqeC+NVu5aab4Wvffxo4DGArqQNURruGYbr5XPt</EncryptedPassword>
     <_PublishTargetUrl>ftp://Justech.somee.com/www.Justech.somee.com/</_PublishTargetUrl>
-    <History>True|2022-07-31T19:10:45.3027771Z;</History>
+    <History>False|2022-08-16T01:22:39.7540693Z;True|2022-07-31T21:10:45.3027771+02:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="appsettings.Development.json">
@@ -21,7 +21,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>02/08/2019 02:50:10</publishTime>
     </File>
     <File Include="Core.Flash.dll">
-      <publishTime>06/04/2020 09:02:06</publishTime>
+      <publishTime>04/06/2020 09:02:06</publishTime>
     </File>
     <File Include="cs/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>09/12/2019 19:08:58</publishTime>
@@ -102,25 +102,25 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>09/12/2019 19:08:36</publishTime>
     </File>
     <File Include="justch.deps.json">
-      <publishTime>07/31/2022 20:31:14</publishTime>
+      <publishTime>07/31/2022 22:39:07</publishTime>
     </File>
     <File Include="justch.dll">
-      <publishTime>07/31/2022 20:31:07</publishTime>
+      <publishTime>08/16/2022 02:32:43</publishTime>
     </File>
     <File Include="justch.exe">
-      <publishTime>07/31/2022 20:31:08</publishTime>
+      <publishTime>08/16/2022 02:32:43</publishTime>
     </File>
     <File Include="justch.pdb">
-      <publishTime>07/31/2022 20:31:07</publishTime>
+      <publishTime>08/16/2022 02:32:43</publishTime>
     </File>
     <File Include="justch.runtimeconfig.json">
       <publishTime>07/30/2022 04:25:39</publishTime>
     </File>
     <File Include="justch.Views.dll">
-      <publishTime>07/31/2022 20:31:14</publishTime>
+      <publishTime>08/16/2022 02:32:53</publishTime>
     </File>
     <File Include="justch.Views.pdb">
-      <publishTime>07/31/2022 20:31:14</publishTime>
+      <publishTime>08/16/2022 02:32:53</publishTime>
     </File>
     <File Include="ko/Microsoft.CodeAnalysis.CSharp.resources.dll">
       <publishTime>09/12/2019 19:09:00</publishTime>
@@ -153,7 +153,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>02/23/2022 19:21:30</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll">
-      <publishTime>02/23/2022 21:51:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Microsoft.AspNetCore.Razor.Language.dll">
       <publishTime>02/23/2022 19:21:24</publishTime>
@@ -165,7 +165,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>09/12/2019 19:09:12</publishTime>
     </File>
     <File Include="Microsoft.CodeAnalysis.dll">
-      <publishTime>09/12/2019 19:07:46</publishTime>
+      <publishTime>12/09/2019 19:07:46</publishTime>
     </File>
     <File Include="Microsoft.CodeAnalysis.Razor.dll">
       <publishTime>02/23/2022 19:21:28</publishTime>
@@ -279,7 +279,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>07/12/2017 13:24:22</publishTime>
     </File>
     <File Include="runtimes/win-x86/native/sni.dll">
-      <publishTime>07/12/2017 13:24:22</publishTime>
+      <publishTime>12/07/2017 13:24:22</publishTime>
     </File>
     <File Include="runtimes/win/lib/netcoreapp2.1/System.Data.SqlClient.dll">
       <publishTime>07/20/2020 23:33:24</publishTime>
@@ -321,7 +321,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>09/12/2019 19:08:36</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>07/31/2022 20:31:24</publishTime>
+      <publishTime>08/16/2022 02:33:02</publishTime>
     </File>
     <File Include="wwwroot/css/bootstrap-datetimepicker.min.css">
       <publishTime>03/30/2019 17:26:14</publishTime>
@@ -394,6 +394,9 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
     </File>
     <File Include="wwwroot/Documents/coco.names">
       <publishTime>04/14/2022 19:24:16</publishTime>
+    </File>
+    <File Include="wwwroot/Documents/cv.pdf">
+      <publishTime>08/07/2022 16:49:04</publishTime>
     </File>
     <File Include="wwwroot/Documents/Doc1.pdf">
       <publishTime>04/01/2022 00:46:22</publishTime>
@@ -482,6 +485,9 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
     <File Include="wwwroot/img/favicon.ico">
       <publishTime>03/30/2019 17:26:22</publishTime>
     </File>
+    <File Include="wwwroot/img/ice.png">
+      <publishTime>08/01/2022 14:31:54</publishTime>
+    </File>
     <File Include="wwwroot/img/logo-dark.png">
       <publishTime>03/30/2019 17:26:24</publishTime>
     </File>
@@ -505,6 +511,12 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
     </File>
     <File Include="wwwroot/img/sent.png">
       <publishTime>03/30/2019 17:26:24</publishTime>
+    </File>
+    <File Include="wwwroot/img/tutorial-preview-large.png">
+      <publishTime>08/01/2022 14:27:04</publishTime>
+    </File>
+    <File Include="wwwroot/img/téléchargement.png">
+      <publishTime>08/01/2022 14:29:30</publishTime>
     </File>
     <File Include="wwwroot/img/user.jpg">
       <publishTime>03/30/2019 17:26:24</publishTime>
@@ -858,13 +870,13 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>07/18/2022 12:09:54</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/MedicalRecordAct.js">
-      <publishTime>07/30/2022 21:56:28</publishTime>
+      <publishTime>08/01/2022 04:33:04</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/ActDataBiopsie.js">
-      <publishTime>07/15/2022 05:06:32</publishTime>
+      <publishTime>08/16/2022 02:15:37</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/ActDataCongelationEnbryonnaire.js">
-      <publishTime>07/14/2022 03:03:36</publishTime>
+      <publishTime>08/13/2022 23:40:20</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/ActDataCongelationOvocyte.js">
       <publishTime>07/14/2022 03:06:20</publishTime>
@@ -873,31 +885,31 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>07/13/2022 08:29:56</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/ActDataCulture.js">
-      <publishTime>07/31/2022 20:20:36</publishTime>
+      <publishTime>08/15/2022 00:01:58</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/ActDataInseminationIAC.js">
       <publishTime>07/04/2022 19:46:46</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/ActDataPreparationSperme.js">
-      <publishTime>07/31/2022 00:56:59</publishTime>
+      <publishTime>08/07/2022 18:08:22</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/ActDataTransfertsEnbryonnaire.js">
-      <publishTime>07/12/2022 08:57:40</publishTime>
+      <publishTime>08/13/2022 21:30:22</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/CongelationBiopsieTesticulaire.js">
       <publishTime>07/04/2022 13:29:22</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/Decoronisation.js">
-      <publishTime>07/31/2022 19:56:11</publishTime>
+      <publishTime>08/15/2022 00:08:16</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/Injection.js">
-      <publishTime>07/31/2022 11:45:50</publishTime>
+      <publishTime>08/08/2022 07:19:35</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/Ponction.js">
-      <publishTime>07/30/2022 23:48:11</publishTime>
+      <publishTime>08/11/2022 23:48:39</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/NewFolder1/verifierActs.js">
-      <publishTime>07/31/2022 19:35:28</publishTime>
+      <publishTime>08/14/2022 02:01:37</publishTime>
     </File>
     <File Include="wwwroot/js/mesJS/Renseigment_de_base.js">
       <publishTime>06/25/2022 04:11:10</publishTime>
@@ -978,7 +990,7 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
       <publishTime>07/05/2022 09:36:38</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-multi-step-form-master/README.md">
-      <publishTime>07/05/2022 09:36:36</publishTime>
+      <publishTime>05/07/2022 09:36:36</publishTime>
     </File>
     <File Include="wwwroot/lib/jquery-toast-plugin-master/bower.json">
       <publishTime>11/20/2017 09:54:30</publishTime>
@@ -1186,6 +1198,27 @@ en modifiant ce fichier MSBuild. Pour en savoir plus à ce sujet, visitez https:
     </File>
     <File Include="wwwroot/lib/plugins/summernote/dist/summernote-bs4.min.js">
       <publishTime>03/30/2019 18:36:48</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote-ext-print-master/.gitignore">
+      <publishTime>09/13/2018 11:16:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote-ext-print-master/bower.json">
+      <publishTime>09/13/2018 11:16:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote-ext-print-master/CHANGES">
+      <publishTime>09/13/2018 11:16:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote-ext-print-master/LICENSE">
+      <publishTime>09/13/2018 11:16:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote-ext-print-master/package.json">
+      <publishTime>09/13/2018 11:16:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote-ext-print-master/README.md">
+      <publishTime>09/13/2018 11:16:27</publishTime>
+    </File>
+    <File Include="wwwroot/lib/summernote-ext-print-master/summernote-ext-print.js">
+      <publishTime>09/13/2018 11:16:27</publishTime>
     </File>
     <File Include="wwwroot/lib/summernote/dist/font/summernote4c4d.eot">
       <publishTime>03/30/2019 18:50:56</publishTime>

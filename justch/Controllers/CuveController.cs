@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 using justch.Models.BLL;
 using justch.Models.DAL;
 using justch.Models.ENTITIES;
-
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace justch.Controllers
 {
     public class CuveController : Controller
     {
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         public IActionResult Index()
         {
+            ViewBag.CuveVisotubePaitelle = new CuveVisotubePaitelle();
             return View();
         }
+        [Authorize(Roles = "Clinicien,Embryologiste")]
 
         public IActionResult Add(Cuve actData)
         {
@@ -27,6 +31,8 @@ namespace justch.Controllers
         {
             return Json(BLL_Cuve.GetById(Id));
         }
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
 
         public IActionResult Update(Cuve actData)
         {
@@ -37,6 +43,8 @@ namespace justch.Controllers
         {
             return Json( BLL_Cuve.GETS());
         }
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         public IActionResult Delete(int Id)
         {
             return Json(BLL_Cuve.delete(Id));

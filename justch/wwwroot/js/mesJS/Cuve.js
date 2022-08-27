@@ -15,6 +15,9 @@ var menu = '<li class="menu-title">Main</li>' +
     '     <li   >' +
     '          <a href="/Doctor/Index"><i class="fa fa-user"></i> <span>Medecins</span></a>' +
     '      </li>' +
+    '     <li>' +
+    '          <a href="/STATISTIQUE/Index"><i class="fa fa-line-chart"></i> <span>Statistique</span></a>' +
+    '      </li>' +
     '    <li class="active">' +
     '       <a href="#"  data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-cog"> <span> Parametre </span></i></a>' +
     '      <div class="dropdown-menu ">' +
@@ -27,6 +30,8 @@ var menu = '<li class="menu-title">Main</li>' +
     '            <a class="dropdown-item" href="/Cuve/Index">Cuve</a> ' +
 
     '           <a class="dropdown-item" href="/Utilisateur/Index">Utilisateur</a> ' +
+    '      <a class="dropdown-item" href="/Database_Registre/Index">Sauvegarde</a> ' +
+
     '           <a class="dropdown-item" href="/Automatisation/Index">Classification</a> ' +
     '       </div> ' +
     '   </li>    ';
@@ -132,6 +137,21 @@ var menu = '<li class="menu-title">Main</li>' +
     
 
 
+
+    $('#IdCuve').change(function (event) {
+        $("#Numeroc").empty()
+
+        $.get("/Cuve/GetById", { Id: $("#IdCuve").val() }, function (re) {
+            i = 1;
+            while (i <= parseInt(re[0]['NombreCanisters'])) {
+                console.log(i)
+                $("#Numeroc").append('<option>' + i + '</option');
+                i++
+            }
+            $("#Canister1").val(re[0]['NombreCanisters'])
+        })
+    })
+
     $.get('/UTILITY/GetsColor', function (resulta) {
    
         
@@ -149,6 +169,7 @@ var menu = '<li class="menu-title">Main</li>' +
 
 function showCuve() {
     $("#ajouterCuve").modal('show')
+
 }
 
 function ajouteCuvefo() {
@@ -320,7 +341,7 @@ function editermodalaVisotube(id) {
     
 
     $.get("/Visotube/GetById", { Id: id }, function (re) {
-        console.log(re)
+     
         $("#couleur1").append('<option  selected    value="' + re[0].Couleur + '" > </option> ')
         $('#couleur1').css("background-color", re[0].Couleur)
         $('#Numeroe1').val(re[0].NumeroEtage)
@@ -365,7 +386,7 @@ function creercuveTable() {
 
             var model = re.reverse()
         for (var i = 0; i < model.length; i++) {
-            console.log(model[i]['Id'] )
+           
             $('#IdCuve').append('<option value="' + model[i]['Id'] + '" >'  + model[i]['Nom'] +'</option>')
             $('#IdCuve1').append('<option value="' + model[i]['Id'] + '" >' + model[i]['Nom'] + '</option>')
 
@@ -509,7 +530,17 @@ function confirmesuppressionCuve() {
 
 
 function showViotube() {
+    $("#Numeroc").empty()
 
+    $.get("/Cuve/GetById", { Id: $("#IdCuve").val() }, function (re) {
+        i = 1;
+        while (i <= parseInt(re[0]['NombreCanisters'])){
+            console.log(i)
+            $("#Numeroc").append('<option>' + i + '</option');
+            i++
+          }
+        $("#Canister1").val(re[0]['NombreCanisters'])
+    })
     $("#ajouterVisotube").modal('show')
 }
 

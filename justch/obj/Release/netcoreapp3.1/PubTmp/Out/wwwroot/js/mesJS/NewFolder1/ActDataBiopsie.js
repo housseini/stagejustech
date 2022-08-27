@@ -3,8 +3,13 @@
     $.get("/ActDataBiopsie/GetByIdTraitement", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
 
         if (resulta.length == 0) {
+            $("#BiopsieInfo").show()
+            $("#BiopsieInfo1").hide()
             $("#boutonActDataBiopsie").append(' <a href="#AjouterActDataBiopsieM" onclick="showaddActDataBiopsie()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Act ActDataBiopsie </a>')
         } else {
+
+            $("#BiopsieInfo").hide()
+            $("#BiopsieInfo1").show()
             $("#boutonActDataBiopsie").append(' <a href="#EDITERActDataBiopsieM" onclick="showditeActDataBiopsie()" class="btn btn-primary"><i class="fa fa-plus"></i>  EDITER Act ActDataBiopsie </a>')
             $("#DateeActDataBiopsie").text(resulta[0].Date)
             $("#heureeActDataBiopsie").text(resulta[0].Heure)

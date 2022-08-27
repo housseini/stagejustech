@@ -2,10 +2,104 @@
 
 
 
+
+
+
+    $('#acte3').mouseenter(function () {
+       
+        if ($("#example1 tbody tr").length ==1) {
+            $('#acte3').css({ "cursor": 'not-allowed' });
+        }
+        else {
+      
+
+            $('#acte3').css({ "cursor": 'pointer' });
+
+        }
+
+    });
+
+    $('#acte3').click((event) => {
+        if ($("#example1 tbody tr").length == 1) {
+            event.stopPropagation()
+        }
+    })
+
+
+
+
+    //culture 
+
+    $('#acte4').mouseenter(function () {
+
+        if ($("#example1 tbody tr").length == 1) {
+            $('#acte4').css({ "cursor": 'not-allowed' });
+        }
+        else {
+          
+          
+
+            $('#acte4').css({ "cursor": 'pointer' });
+
+        }
+
+    });
+
+    $('#acte4').click((event) => {
+        if ($("#example1 tbody tr").length == 1) {
+            event.stopPropagation()
+        }
+    })
+
+
+    $('#example7 tbody   tr ').each(function () {
+        if ($.trim($(this).find('td').eq(1).text()) == "Dégeénèré" || $.trim($(this).find('td').eq(1).text()) == "Métaphase I") {
+
+            $(this).css("background-color", '#F9B0DB');
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    teste2 = false
+
+
+    $('#acte3,#acte4,#acte5,#acte6,#acte8').click((event) => {
+        if (teste2 != true) {
+            event.stopPropagation()
+        }
+    })
+
+
+
+ 
+
     var table = $('#example').DataTable();
 
     $('#example tbody').on('click', 'tr', function () {
         $(this).toggleClass('selected');
+        if ($.trim($(this).find('td').eq(1).text()) == "Dégeénèré") {
+
+            $(this).toggleClass("odd selected");
+        }
+
     });
 
     $('#button').click(function () {
@@ -68,6 +162,7 @@
             
             $("#boutonActDataDecoronisation").append(' <a href="#ajouteDEcoronisationM" onclick="showaddDEcoronisationM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter ActDataDecoronisation </a>')
         } else {
+            teste2 = true
             $("#CultureInfo").hide()
             $("#CultureInfo1").show()
             $("#DecoronisationInfo1").show()
@@ -91,7 +186,7 @@
                     re1=[]
                     resulta.forEach(item => {
                         re.push({ numero: item.DecoronisationOvocyteNumeroOvocyte, etat: item.DecoronisationOvocyteEtat, commentaire: item.DecoronisationOvocyteCommantaire })
-                        if (item.DecoronisationOvocyteEtat == "Métaphase II" || item.DecoronisationOvocyteEtat == "Vésicule germinale =>Métaphase II" || item.DecoronisationOvocyteEtat == "Vésicule germinale" || item.DecoronisationOvocyteEtat == "Métaphase I =>Métaphase II") {
+                        if (item.DecoronisationOvocyteEtat == "Métaphase II" || item.DecoronisationOvocyteEtat == "Vésicule germinale =>Métaphase II"  || item.DecoronisationOvocyteEtat == "Métaphase I =>Métaphase II") {
                             re1.push({ numero: item.DecoronisationOvocyteNumeroOvocyte, etat: item.DecoronisationOvocyteEtat, commentaire: item.DecoronisationOvocyteCommantaire })
                         }
 
@@ -120,14 +215,26 @@
 
     })
 
+
+
+
+
 }
+
+
+
 
 
 
 )
 
 function creatableinjetions(re) {
+  
     $("#nombreovovytesinjecter").val(re.length)
+    $("#nombreovovytesinjecter1").text(re.length)
+    
+    $("#nombreDovocyteInjectione").text(re.length)
+    
     if ($.fn.DataTable.isDataTable("#example1")) {
         $('#example1').DataTable().destroy();
 
@@ -141,7 +248,7 @@ function creatableinjetions(re) {
         "aoColumns":
             [
 
-                { "data": "numero", "name": " numero", "autoWidth": true },
+                { "data": "numero", "name": "numero", "autoWidth": true },
                 { "data": "etat", "name": "etat ", "autoWidth": true },
                 { "data": "commentaire", "name": "commentaire", "autoWidth": true },
 
@@ -149,6 +256,8 @@ function creatableinjetions(re) {
             ],
 
     });
+
+
 
 
 
@@ -177,6 +286,17 @@ function creatabledeconoOvocyte(re) {
              
 
             ],
+
+    });
+
+
+    $('#example tbody   tr ').each(function () {
+        console.log($.trim($(this).find('td').eq(0).text()))
+        if ($.trim($(this).find('td').eq(1).text()) == "Dégeénèré" || $.trim($(this).find('td').eq(1).text()) == "Métaphase I") {
+
+            $(this).css("background-color", '#F9B0DB');
+        }
+
 
     });
 

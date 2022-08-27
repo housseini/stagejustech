@@ -52,6 +52,12 @@
     })
 
 
+    $('#example7 tbody   tr ').each(function () {
+        if ($.trim($(this).find('td').eq(1).text()) == "Dégeénèré" || $.trim($(this).find('td').eq(1).text()) == "Métaphase I") {
+
+            $(this).css("background-color", '#F9B0DB');
+        }
+    })
 
 
 
@@ -83,17 +89,7 @@
 
 
 
-    //$('#acte3,#acte4,#acte5,#acte6 ,#acte8').mouseenter(function () {
-    //    if (teste2 != true) {
-    //        $('#acte4,#acte3 ,#acte5 ,#acte6 ,#acte8').css({ "cursor": 'not-allowed' });
-    //    }
-    //    else {
-
-    //        $('#acte3,#acte4,#acte5,#acte6,#acte8').css({ "cursor": 'pointer' });
-
-    //    }
-
-    //});
+ 
 
     var table = $('#example').DataTable();
 

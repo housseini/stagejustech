@@ -150,7 +150,7 @@ function creertableactemedicalexplorationCycle(model) {
                             + ' <div class="dropdown dropdown-action">'
                             + '<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>' +
                             '<div class="dropdown-menu dropdown-menu-right">' +
-                            '<a class="dropdown-item" href="/DossierMedical/ConsulterTraitementCycle?Reference=' + sessionStorage.getItem('IdDossierMedical')+'" onclick="ConsulterTRAITEMENTC(' + data + ')"><i class="fa fa-pencil m-r-5"></i>Consulter </a>' +
+                            '<a class="dropdown-item" href="/DossierMedical/ConsulterTraitementCycle?Reference=' + sessionStorage.getItem('IdDossierMedical') + '&Idtraitement='+data +'" onclick="ConsulterTRAITEMENTC(' + data + ')"><i class="fa fa-pencil m-r-5"></i>Consulter </a>' +
 
                             ' <a class="dropdown-item" href="#modifiermedicalrecordact" onclick="showmadalmodifierMedicalrecordact(' + data + ')"><i class="fa fa-pencil m-r-5"></i> editer </a>' +
                             '<a class="dropdown-item" href="#deletemedicalRecored" onclick="showmadaldeleteMedicalrecordact(' + data + ')"><i class="fa fa-trash m-r-5"></i> supprimer </a>' +

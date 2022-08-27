@@ -10,6 +10,7 @@ namespace justch.Models.DAL
 {
     public class DAL_Patient
     {
+        private static SqlConnection? mycon = null;
         public static Patient GetPatient(DataRow dataRow)
         {
             Patient p = new Patient();
@@ -129,7 +130,7 @@ namespace justch.Models.DAL
             {
 
                 string query = @" insert into Patient(FirstName,LastName,Cin ,IssuedOn ,MaidenName,Gender,Photo, Profession,Email ,Phone,Dataofbirth,Placeofbirth,Address,PostalCode, City,Country,InsuranceAgency,InsuranceID ,Nationality,Civility,State) values(@FirstName,@LastName,@Cin ,@IssuedOn ,@MaidenName,@Gender,@Photo, @Profession,@Email ,@Phone,@Dataofbirth,@Placeofbirth,@Address,@PostalCode,@City,@Country,@InsuranceAgency,@InsuranceID ,@Nationality,@Civility,@State);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -281,21 +282,25 @@ namespace justch.Models.DAL
             }
             catch (Exception e)
             {
-                if (e.Message.Contains(" Violation of UNIQUE KEY"))
+                if (e.Message.Contains("Violation of UNIQUE KEY constraint 'Uk_cin'"))
                     return new Message(false, "CE CIN EXISTE   DEJA ");
-                if (e.Message.Contains(" UNIQUE KEY constraint 'UQ__Patient__C1FFD81E9BE1234F'"))
-                    return new Message(false, "CE CIN EXIST DEJA ");
-                if (e.Message.Contains(" UNIQUE KEY constraint 'UQ__Patient__5C7E359E260C7649'"))
+              
+                if (e.Message.Contains("Violation of UNIQUE KEY constraint 'Uk_Phone'"))
                     return new Message(false, "Cet Numero de telephone   EXIST DEJA"); 
-                if (e.Message.Contains("Violation of UNIQUE KEY constraint 'UQ__Patient__A9D10534C0788B0C'"))
-                    return new Message(false, "Cet Adresse Email  EXIST DEJA ");
+                if (e.Message.Contains("Violation of UNIQUE KEY constraint 'Uk_Email'"))
+                    return new Message(false, "Cette Adresse Email  EXIST DEJA ");
 
                 else
                     return new Message(false, e.Message);
 
+          
 
             }
-
+            finally
+            {
+                mycon.Close();
+            }
+            
 
 
         }
@@ -304,7 +309,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = @"select * from Patient ORDER BY Id Desc;";
-                SqlConnection mycon = DbConnection.GetConnection();
+                mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -318,6 +323,9 @@ namespace justch.Models.DAL
             {
                 return null;
             }
+            finally {
+                mycon.Close();
+            }
 
         }
         public static Patient getPatientById(int id)
@@ -325,14 +333,14 @@ namespace justch.Models.DAL
             try
             {
                 string query = @"select * from Patient where(Id=" + id + @");";
-                SqlConnection cn = DbConnection.GetConnection();
-                cn.Open();
-                SqlCommand cmd = new SqlCommand(query, cn);
+                 mycon = DbConnection.GetConnection();
+                mycon.Open();
+                SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
                 DataTable table = new DataTable();
                 SqlDataReader MyReader = cmd.ExecuteReader();
                 table.Load(MyReader);
-                cn.Close();
+                mycon.Close();
                 return GetPatient(table.Rows[0]);
 
 
@@ -342,6 +350,10 @@ namespace justch.Models.DAL
             {
                 return null;
             }
+            finally
+            {
+                mycon.Close();
+            }
         }
         public static Patient getPatientsByCIN(string CIN)
         {
@@ -350,7 +362,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = @"select *from Patient where(Cin ='" + CryptageEncryptage.Encrypte(CIN) + @"',);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -364,13 +376,17 @@ namespace justch.Models.DAL
             {
                 return null;
             }
+            finally
+            {
+                mycon.Close();
+            }
         }
         public static List<Patient> getPatientsBy_Fisrtname_LastName(string fisrtname, string lastname)
         {
             try
             {
                 string query = @"select *from Patient where(FirstName ='" + CryptageEncryptage.Encrypte(fisrtname) + @"or LastName='" + CryptageEncryptage.Encrypte(lastname) + @"',);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -384,6 +400,7 @@ namespace justch.Models.DAL
             {
                 return null;
             }
+            finally { mycon.Open(); }
 
         }
         public static List<Patient> getPatientsBy_EMAIL_Adress(string email, string adree)
@@ -391,7 +408,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = @"select *from Patient where(Email ='" + CryptageEncryptage.Encrypte(email) + @"or Address='" + CryptageEncryptage.Encrypte(adree) + @"',);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -405,6 +422,10 @@ namespace justch.Models.DAL
             {
                 return null;
             }
+            finally
+            {
+                mycon.Open();
+            }
 
         }
         public static Patient getPatientsBy_EMAIL(string email)
@@ -412,7 +433,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = "select *from Patient where(Email =@email);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -428,6 +449,10 @@ namespace justch.Models.DAL
             {
                 return null;
             }
+            finally
+            {
+                mycon.Open();
+            }
 
         }
 
@@ -438,9 +463,9 @@ namespace justch.Models.DAL
             try
             {
                 string query = @"delete from Patient where(Id=" + id + @");";
-                SqlConnection cn = DbConnection.GetConnection();
-                cn.Open();
-                SqlCommand cmd = new SqlCommand(query, cn);
+                mycon = DbConnection.GetConnection();
+                mycon.Open();
+                SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
                 cmd.ExecuteNonQuery();
                 DAL_Appointment.deletebyidPatients(id);
@@ -454,12 +479,16 @@ namespace justch.Models.DAL
                 }
                 DAL_DossierMedicalPatient.deleteDossierMedicalPatient("IdPatient", id.ToString());
                 DAL_Document.DeleteByidpatiene(id);
-                cn.Close();
+                mycon.Close();
                 return new Message(true, "Patient supprimé ");
             }
             catch (Exception e)
             {
                 return new Message(false, e.ToString());
+            }
+            finally
+            {
+                mycon.Open();
             }
         }
         public static Message update(Patient p)
@@ -467,9 +496,9 @@ namespace justch.Models.DAL
             try
             {
                 string query = "Update Patient set Cin=@Cin,IssuedOn=@IssuedOn,FirstName=@FirstName,LastName=@LastName,State=@State,MaidenName=@MaidenName,Gender=@Gender,Profession=@Profession,Photo=@Photo,Phone=@Phone,Email=@Email,Dataofbirth=@Dataofbirth,Placeofbirth=@Placeofbirth,Address=@Address,PostalCode=@PostalCode,City=@City,Country=@Country,InsuranceAgency=@InsuranceAgency,InsuranceID=@InsuranceID,Nationality=@Nationality,Civility=@Civility where(Id=@Id)";
-                SqlConnection connection = DbConnection.GetConnection();
-                connection.Open();
-                SqlCommand command = new SqlCommand(query, connection);
+                 mycon = DbConnection.GetConnection();
+                mycon.Open();
+                SqlCommand command = new SqlCommand(query, mycon);
                 command.CommandTimeout = 50;
 
                 command.CommandType = CommandType.Text;
@@ -563,7 +592,7 @@ namespace justch.Models.DAL
                 command.ExecuteNonQuery();
 
 
-                connection.Close();
+              
 
 
                 return new Message(true, "   modifié avec succes ");
@@ -572,6 +601,12 @@ namespace justch.Models.DAL
             {
                 return new Message(false, e.ToString());
             }
+           
+                 finally
+            {
+                    mycon.Open();
+                }
+            
         }
         public static List<Patient> getPatientsBy(string CIN, string FirstName, string LastName, string Phone, string Email, DateTime Addedon, string State, DateTime Dataofbirth, int nombre)
         {
@@ -583,7 +618,7 @@ namespace justch.Models.DAL
                 DateTime datDIN = Addedon.AddDays(-nombre);
                 DateTime dat = Addedon.AddDays(nombre);
                 string query = "select *from Patient where( Cin=@CIN OR   FirstName=@FirstName OR LastName=@LastName OR Phone=@Phone  OR Email=@Email OR Dataofbirth=@Dataofbirth OR State=@State OR   ( Addedon between  @dataa and @dat)) ;";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -645,6 +680,10 @@ namespace justch.Models.DAL
             catch
             {
                 return null;
+            }
+            finally
+            {
+                mycon.Open();
             }
         }
 

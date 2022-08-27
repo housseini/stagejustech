@@ -17,10 +17,13 @@
     $.get("/ActDataCongelationSperme/GetByIdTraitement", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
 
         if (resulta.length == 0) {
+            $("#congelationspermeInfo").hide()
+            $("#congelationspermeInfo1").show()
             
             $("#boutonActDataActDataCongelationSperme").append(' <a href="#ajouteboutonActDataActDataCongelationSpermeM" onclick="showaddboutonActDataActDataCongelationSpermeM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter ActDataActDataCongelationSperme </a>')
         } else {
-
+            $("#congelationspermeInfo1").hide()
+            $("#congelationspermeInfo").show()
             $("#DateDEcoronisation1").val(resulta[0].Date)
             $("#HeureDEcoronisation1").val(resulta[0].Heure)
             $("#CommentairesDEcoronisation1").val(resulta[0].Commentaires)

@@ -23,21 +23,23 @@ namespace justch.Controllers
             this.f = f;
             this.webHostEnvironment = webHostEnvironment;
         }
-        [Authorize]
-        [Authorize]
+
+ 
         public IActionResult Index()
         {
           
             ViewBag.countrys = GetAllContry();
             return View(BLL_Patient.GetPatients());
+        // return Json(BLL_Patient.GetPatients());
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
+    
         [HttpPost]
         public IActionResult Adven(string CIN, string FirstName, string LastName, string Phone, string Email, DateTime Addedon, string State, DateTime Dataofbirth, int nombre)
         {
             return Json(BLL_Patient.Adven(CIN, FirstName, LastName, Phone, Email, Addedon, State, Dataofbirth, nombre));
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult Profile(int Id)
         {
@@ -61,7 +63,7 @@ namespace justch.Controllers
             ViewBag.MedicalAct=BLL_MedicalAct.gets();
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         public JsonResult GetPatients()
         {
             return Json(BLL_Patient.GetPatients());
@@ -75,7 +77,7 @@ namespace justch.Controllers
 
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpPost]
         public IActionResult FILEUPLOAD(IFormFile file)
         {
@@ -92,7 +94,7 @@ namespace justch.Controllers
                 return Json(new Message(false, "file non ajoutée "));
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpPost]
         public IActionResult AddPatient(Models.ENTITIES.Patient patient)
         {
@@ -116,7 +118,7 @@ namespace justch.Controllers
 
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult Delete(int Id)
         {
@@ -148,7 +150,7 @@ namespace justch.Controllers
 
             return lisname;
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult GetPatientsBy_EMAIL(string email)
         {
@@ -172,7 +174,7 @@ namespace justch.Controllers
 
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult EditPatient(int Id)
         {
@@ -182,7 +184,7 @@ namespace justch.Controllers
 
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpPost]
         public IActionResult Edd(Models.ENTITIES.Patient patient)
         {
@@ -216,6 +218,8 @@ namespace justch.Controllers
                 return Json(new Message(false, "file non ajoutée "));
             }
         }
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
+
         [HttpPost]
         public IActionResult AddDocument(Document d,int id)
         {
@@ -236,6 +240,8 @@ namespace justch.Controllers
 
         }
         //delete document by id 
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
+
         [HttpGet]
         public IActionResult DeleteDocument(int id)
         {
@@ -280,12 +286,14 @@ namespace justch.Controllers
         public IActionResult Updatedocument(Document d)
         {
             return Json(BLL_Document.update(d));
-        } 
+        }
         /// <summary>
         /// supprimer le document selon id document  
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         public IActionResult deleteDocument(int id)
         {
             return Json(BLL_Document.Delete(id));

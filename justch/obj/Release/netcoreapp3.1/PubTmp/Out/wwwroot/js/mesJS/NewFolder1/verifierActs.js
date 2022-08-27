@@ -1,4 +1,20 @@
 ﻿$().ready(function () {
+ 
+
+    $('#summernote').summernote({
+        toolbar: [
+
+            ['misc', ['print']],
+
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['fontsize', ['fontsize']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['height', ['height']]
+        ],
+    })
+       
     $("#acte13").show()
     $("#acte12").show()
     $("#acte11").show()
@@ -23,7 +39,14 @@
     $.get('/MedicalAct/GetmedicalActRecordByid', { id: sessionStorage.getItem("IdmedicalrecordActe") }, function (re) {
 
         if (re.MedicalActName == "ICSI") {
-            $('#myTab2 a[href="#about-cont"]').tab('show');
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+
+                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+            }
             $("#acte13").hide()
             $("#acte12").hide()
             $("#acte11").hide()
@@ -34,7 +57,14 @@
           
         }
         if (re.MedicalActName == "FIV") {
-            $('#myTab2 a[href="#about-cont"]').tab('show');
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+
+                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+            }
             $("#acte13").hide()
             $("#acte12").hide()
             $("#acte11").hide()
@@ -46,7 +76,14 @@
         }
 
         if (re.MedicalActName == "IAC") {
-            $('#myTab2 a[href="#bottom-tab1"]').tab('show');
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+
+                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+            }
 
             $("#acte13").hide()
             $("#acte11").hide()
@@ -63,7 +100,14 @@
 
         }
         if (re.MedicalActName == "Congélation Sperme") {
-            $('#myTab2 a[href="#bottom-tab1"]').tab('show');
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+
+                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+            }
 
             $("#acte13").hide()
             $("#acte11").hide()
@@ -80,7 +124,14 @@
 
         }
         if (re.MedicalActName == "Congélation Ovocytair") {
-            $('#myTab2 a[href="#about-cont"]').tab('show');
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+
+                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+            }
 
             $("#acte13").hide()
             $("#acte11").hide()
@@ -96,7 +147,14 @@
 
         }
         if (re.MedicalActName == "Transfert d'embryon congélés (TEC)") {
-            $('#myTab2 a[href="#bottom-tab5"]').tab('show');
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+
+                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+            }
                 
             $("#acte13").hide()
             $("#acte11").hide()
@@ -114,7 +172,14 @@
         }
 
         if (re.MedicalActName == "Biopsie Testiculaire") {
-            $('#myTab2 a[href="#bottom-tab13"]').tab('show');
+            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if (activeTab) {
+
+                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+            }
 
             $("#acte5").hide()
             $("#acte11").hide()
@@ -135,3 +200,9 @@
     })
 
 })
+
+function imprimer() {
+
+   
+
+}

@@ -17,7 +17,7 @@ namespace justch.Controllers
         public IFlasher f;
         public DossierMedical(IFlasher f) { this.f = f; }
         #region
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult Index()
 
@@ -34,7 +34,8 @@ namespace justch.Controllers
             
           
         }
-        [Authorize]
+
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult Consulter(int  Reference)
         {
@@ -49,34 +50,34 @@ namespace justch.Controllers
 ;
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste,Secretaire")]
+
         public IActionResult Add()
         {
             ViewBag.Countrys = GetAllContry();
             ViewBag.Patients = BLL_Patient.GetPatients();
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult GETS()
         {
             return Json(BLL_DossierMedical.GetDossiersMedicals());
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult GetpATIENTSBYREFENCE(int  Re)
         {
             return Json(BLL_View_P_DMP_DM.Get_list_Patient(Re));
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire")]
         [HttpPost]
         public IActionResult RechercherAvance(int Id, string Cin, string Ref, DateTime dataa, string email, string telephone ,int nbr)
         {
             return Json(BLL_DossierMedical.RechercherAvance(Id, Cin, Ref, dataa, email, telephone, nbr));
             //return Json(dataa);
         }
-        [Authorize]
-
+        [Authorize(Roles = "Clinicien,Secretaire")]
         [HttpPost]
         public IActionResult AddDossierMedical(Models.ENTITIES.DossierMedical DossierMedical, int id)
         {
@@ -88,7 +89,7 @@ namespace justch.Controllers
             return Json(message);
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire")]
         [HttpPost]
         public IActionResult AddDossierMedicalTowP(Models.ENTITIES.DossierMedical dossierMedical, string ids)
         {
@@ -108,7 +109,7 @@ namespace justch.Controllers
 
         }
 
-        [Authorize]
+
         public List<string> GetAllContry()
         {
             List<string> lisname = new List<string>();
@@ -130,7 +131,7 @@ namespace justch.Controllers
 
             return lisname;
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien")]
         [HttpGet]
         public IActionResult DeleteDossierMedical(int id) {
             var message = BLL_DossierMedical.deleteDossierMedical("Id", id.ToString());
@@ -141,7 +142,7 @@ namespace justch.Controllers
             return Json(message);
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire")]
         public IActionResult editeDossierMedical(int id)
         {
           
@@ -152,7 +153,7 @@ namespace justch.Controllers
             return View();
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire")]
         [HttpPost]
         public IActionResult editeDossierMedical(Models.ENTITIES.DossierMedical d, DossierMedicalPatient dmp)
         {
@@ -164,8 +165,8 @@ namespace justch.Controllers
             return Json(message);
 
         }
+        [Authorize(Roles = "Clinicien,Secretaire")]
 
-        [Authorize]
         [HttpPost]
         public IActionResult editeDossierMedicalsing ( Models.ENTITIES.DossierMedical d )
         {
@@ -180,8 +181,10 @@ namespace justch.Controllers
 
 
 
-        [Authorize]
+
         //ajouter un document Type
+        [Authorize(Roles = "Clinicien,Secretaire")]
+
         [HttpPost]
         public IActionResult AddDocummentType(justch.Models.ENTITIES.DocumentType  documment)
         {
@@ -193,7 +196,7 @@ namespace justch.Controllers
             return Json(message);
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire")]
         [HttpPost]
       public IActionResult AddMedicalRecordAct(MedicalRecordAct recordAct)
         {
@@ -204,8 +207,8 @@ namespace justch.Controllers
                 this.f.Flash(Types.Warning, message.message);
             return Json(message);
         }
-        [Authorize]
 
+        [Authorize(Roles = "Clinicien,Secretaire")]
         [HttpGet]
     public IActionResult DeleteMedicalRecordAct(int id)
     {
@@ -216,7 +219,7 @@ namespace justch.Controllers
             this.f.Flash(Types.Warning, message.message);
         return Json(message);
     }
-        [Authorize]
+
 
         [HttpGet]
     public int Count ( )
@@ -230,19 +233,18 @@ namespace justch.Controllers
         {
             return Json( BLL_DossierMedical.GetDossierMedicalbyID(id));
         }
-        [Authorize]
+      
         [HttpGet] 
         public IActionResult GetMedicalActsByIdmedicalrecord(int id )
         {
             return Json(BLL_MedicalRecordAct.getsByIdMedicalRecord(id));
         }
-        [Authorize]
-
+        [Authorize(Roles = "Clinicien,Secretaire")]
         public IActionResult Completer(int Id )
         {
             return Json(BLL_DossierMedical.completer(Id));
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire")]
 
         public IActionResult InCompleter(int Id)
         {
@@ -252,6 +254,7 @@ namespace justch.Controllers
         }
         #endregion
         #region
+        [Authorize(Roles = "Clinicien,Embryologiste")]
         public IActionResult ConsulterTraitementCycle(int Reference,int Idtraitement)
         {
             ViewBag.MedicalActRecords = BLL_MedicalRecordAct.getsByIdMedicalRecord(Reference);
@@ -261,9 +264,11 @@ namespace justch.Controllers
             ViewBag.Doctors = BLL_Doctor.gets();
             ViewBag.MedicalAct = BLL_MedicalAct.gets();
             ViewBag.CultureComplet = BLL_ActDataCulture.GetCultureComplet(Idtraitement);
+            ViewBag.DossierPersonnaliser = BLL_DossierMedicalPersonniser.get(Reference);
+
             return View();
         }
-
+        [Authorize(Roles = "Clinicien,Embryologiste")]
         public IActionResult ConsulterActExploration(int Reference)
         {
 

@@ -16,12 +16,17 @@
 
         if (resulta.length == 0) {
             $("#InjectionInfo").hide()
+            $("#InjectionEInfo1").hide()
+            $("#InjectionEInfo").show()
             $("#InjectionInfo1").show()
+            
 
             $("#boutonActDataInjection").append(' <a href="#ajouteInjectionM" onclick="showaddInjectionM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Injection </a>')
         } else {
             $("#InjectionInfo").show()
             $("#InjectionInfo1").hide()
+            $("#InjectionEInfo1").show()
+            $("#InjectionEInfo").hide()
 
             $("#DateDEcoronisation1").val(resulta[0].Date)
             $("#HeureDEcoronisation1").val(resulta[0].Heure)
@@ -114,7 +119,7 @@ function editeDinjectionfo() {
             Id: 0, IdMedicalRecordAct: sessionStorage.getItem("IdmedicalrecordActe"),
             IdTretingDoctor: parseInt($("#IdTretingDoctorInjection1").val()), IdEnbryologisteDoctor: parseInt($("#IdEnbryologisteDoctorInjection1").val()),
             EmbryologisteDoctorType: "Embryogiste",
-            Date: $("#DateInjection11").val(), Heure: $("#HeureInjection1").val(), Commentaires: $("#CommentairesInjection1").val(), NombreOvocytesInjectes: parseInt($("#nombreovovytesinjecter1").val())
+            Date: $("#DateInjection11").val(), Heure: $("#HeureInjection1").val(), Commentaires: $("#CommentairesInjection1").val(), NombreOvocytesInjectes: parseInt($("#nombreovovytesinjecter1").text())
 
 
         }

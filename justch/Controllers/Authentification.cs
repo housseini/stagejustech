@@ -36,6 +36,8 @@ namespace justch.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name,utilisateur.UserName),
+                     new Claim(ClaimTypes.Email,utilisateur.Email),
+                     new Claim(ClaimTypes.Role,utilisateur.Type),
 
                 };
                 var token = _authentificationService.Generetetoken(_configuration1["Jwt:Key"], claims);
@@ -45,11 +47,10 @@ namespace justch.Controllers
                     SameSite = SameSiteMode.Strict
 
                 });
-                return Ok(new
+                return Json(new
                 {
-                    access_token = token,
-                    token_type = " bearer ",
-                    expires_in = DateTime.UtcNow.AddMinutes(15),
+                    Type = utilisateur.Type,
+                
                 });
             }
 

@@ -1,6 +1,531 @@
 ﻿
 $().ready(function () {
-    $("#tableculture").DataTable()
+    $("#formActDataCulture").on('submit', function (e) {
+        e.preventDefault()
+        AjouterformActDataCulture()
+
+    })
+
+    $("#jourCongelationEnbryssonnaireCongelationData").change(function () {
+        $.get("/ActDataCulture/GetCultureComplet", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
+            if ($("#jourCongelationEnbryssonnaireCongelationData").val() == "Jours 1") { 
+            $("#DateENCongelationData").val(resulta.ActDataCulture.J1Date)
+            $("#HeureenCongelationData").val(resulta.ActDataCulture.J1Heure)
+
+            resulta.cuturesData.forEach(item => {
+
+                if (item.OvocytesCultureJour == 1 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                    $("#GradeEnbryon").val(item.OvocytesCultureGrade)
+                }
+            })
+
+            }
+
+            if ($("#jourCongelationEnbryssonnaireCongelationData").val() == "Jours 2") {
+                $("#DateENCongelationData").val(resulta.ActDataCulture.J2Date)
+                $("#HeureenCongelationData").val(resulta.ActDataCulture.J2Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 2 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GradeEnbryon").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#jourCongelationEnbryssonnaireCongelationData").val() == "Jours 3") {
+                $("#DateENCongelationData").val(resulta.ActDataCulture.J3Date)
+                $("#HeureenCongelationData").val(resulta.ActDataCulture.J3Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 3 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GradeEnbryon").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#jourCongelationEnbryssonnaireCongelationData").val() == "Jours 4") {
+                $("#DateENCongelationData").val(resulta.ActDataCulture.J4Date)
+                $("#HeureenCongelationData").val(resulta.ActDataCulture.J4Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 4 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GradeEnbryon").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#jourCongelationEnbryssonnaireCongelationData").val() == "Jours 5") {
+                $("#DateENCongelationData").val(resulta.ActDataCulture.J5Date)
+                $("#HeureenCongelationData").val(resulta.ActDataCulture.J5Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 5 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GradeEnbryon").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#jourCongelationEnbryssonnaireCongelationData").val() == "Jours 6") {
+                $("#DateENCongelationData").val(resulta.ActDataCulture.J6Date)
+                $("#HeureenCongelationData").val(resulta.ActDataCulture.J6Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 6 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GradeEnbryon").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+
+        })
+
+
+
+    })
+
+
+    $("#Jourtransfersst").change(function () {
+
+
+        $.get("/ActDataCulture/GetCultureComplet", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
+            if ($("#Jourtransfersst").val() == "jours 1") {
+
+                $("#DateEnbryonnaireCongelationData").val(resulta.ActDataCulture.J1Date)
+                $("#HeureEnbryonnaireCongelationData").val(resulta.ActDataCulture.J1Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 1 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GlaireActDataTransfertsEnbryonnaiare").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+
+            if ($("#Jourtransfersst").val() == "jours 2") {
+                
+                $("#DateEnbryonnaireCongelationData").val(resulta.ActDataCulture.J2Date)
+                $("#HeureEnbryonnaireCongelationData").val(resulta.ActDataCulture.J2Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 2 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GlaireActDataTransfertsEnbryonnaiare").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#Jourtransfersst").val() == "jours 3") {
+              
+                $("#DateEnbryonnaireCongelationData").val(resulta.ActDataCulture.J3Date)
+                $("#HeureEnbryonnaireCongelationData").val(resulta.ActDataCulture.J3Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 3 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GlaireActDataTransfertsEnbryonnaiare").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#Jourtransfersst").val() == "jours 4") {
+              
+                $("#DateEnbryonnaireCongelationData").val(resulta.ActDataCulture.J4Date)
+                $("#HeureEnbryonnaireCongelationData").val(resulta.ActDataCulture.J4Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 4 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GlaireActDataTransfertsEnbryonnaiare").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#Jourtransfersst").val() == "jours 5") {
+              
+                $("#DateEnbryonnaireCongelationData").val(resulta.ActDataCulture.J5Date)
+                $("#HeureenCongHeureEnbryonnaireCongelationDataelationData").val(resulta.ActDataCulture.J5Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 5 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GlaireActDataTransfertsEnbryonnaiare").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+            if ($("#Jourtransfersst").val() == "jours 6") {
+
+                $("#DateEnbryonnaireCongelationData").val(resulta.ActDataCulture.J6Date)
+                $("#HeureEnbryonnaireCongelationData").val(resulta.ActDataCulture.J6Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 6 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GlaireActDataTransfertsEnbryonnaiare").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+            }
+
+        })
+
+
+
+    })
+
+
+    $("#transfert").hide()
+    $("#transfert1").hide()
+    $("#congelation").hide()
+    $("#congelation1").hide()
+
+
+    $('#tableculture').DataTable({
+        sort: false
+    });
+
+    $('#btn_submit45').on('click',()=> {
+        if ($("#Devenir").val() == "Degeneré") {
+            AjouterDevenirEmbryon()
+        }
+        if ($("#Devenir").val() == "Transferé") {
+         AjouterTransfere()
+        }
+        if ($("#Devenir").val() == "Congélé") {
+
+          
+            AjouterCongeletion()
+        }
+    } )
+    $("#Devenir").change(() => {
+        if ($("#Devenir").val() =="Transferé") {
+          
+            $.get("/ActDataCulture/GetCultureComplet", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
+
+                $("#DateEnbryonnaireCongelationData").val(resulta.ActDataCulture.J1Date)
+                $("#HeureEnbryonnaireCongelationData").val(resulta.ActDataCulture.J1Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 1 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GlaireActDataTransfertsEnbryonnaiare").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+
+            })
+            $("#transfert").show()
+            $("#transfert1").show()
+            $("#congelation").hide()
+            $("#congelation1").hide()
+        }
+        if ($("#Devenir").val() == "Degeneré") {
+            $("#transfert").hide()
+            $("#transfert1").hide()
+            $("#congelation").hide()
+            $("#congelation1").hide()
+        }
+        if ($("#Devenir").val() == "Congélé") {
+
+
+            $.get("/ActDataCulture/GetCultureComplet", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
+
+                $("#DateENCongelationData").val(resulta.ActDataCulture.J1Date)
+                $("#HeureenCongelationData").val(resulta.ActDataCulture.J1Heure)
+
+                resulta.cuturesData.forEach(item => {
+
+                    if (item.OvocytesCultureJour == 1 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                        $("#GradeEnbryon").val(item.OvocytesCultureGrade)
+                    }
+                })
+
+
+            })
+
+            $("#transfert").hide()
+            $("#transfert1").hide()
+            $("#congelation").show()
+            $("#congelation1").show()
+        }
+    })
+    $('#tableculture tbody   tr ').on('click', function () {
+        console.log($(this).find('td').eq(8).text())
+        
+        if ($.trim($(this).find('td').eq(8).text()) == "Degeneré" || $.trim($(this).find('td').eq(1).text()) == "Dégeénèré") {
+       
+            $(this).toggleClass("odd selected");
+        }
+
+    })
+   
+
+    $('#tableculture tbody   tr ').each(function () {
+
+        if ($.trim($(this).find('td').eq(8).text()) == "Degeneré" || $.trim($(this).find('td').eq(1).text()) == "Dégeénèré") {
+           
+            $(this).css("background-color",'#F9B0DB');
+        }
+
+        if ($.trim($(this).find('td').eq(8).text()) == "Congélé") {
+         
+            $(this).css("background-color", '#C1EDFF');
+        }
+        if ($.trim($(this).find('td').eq(8).text()) == "Transferé") {
+           
+           
+            $(this).css("background-color", '#B0F5F7');
+        }
+    });
+
+
+
+
+    $('#tableculture1 tbody   tr ').each(function () {
+
+        if ($.trim($(this).find('td').eq(8).text()) == "Degeneré" || $.trim($(this).find('td').eq(1).text()) == "Dégeénèré") {
+
+            $(this).css("background-color", '#F9B0DB');
+        }
+
+        if ($.trim($(this).find('td').eq(8).text()) == "Congélé") {
+
+            $(this).css("background-color", '#C1EDFF');
+        }
+        if ($.trim($(this).find('td').eq(8).text()) == "Transferé") {
+
+
+            $(this).css("background-color", '#B0F5F7');
+        }
+    });
+
+
+
+
+
+
+
+    $('#tableculture thead  tr  th ').on('click', function () {
+
+        if ($(this).text() == "Numero Embryon" || $(this).text() == "Décoronisation" || $(this).text() == "commentaire") {
+
+         
+        } else {
+
+
+            $('th').removeClass("selected");
+            $(this).toggleClass('selected');
+            if ($('#tableculture').DataTable().rows('.selected').data().toArray().length == 0) {
+                Swal.fire({
+
+                    icon: 'error',
+                    title: 'Vous devez choisir au moin une ligne ',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+            if ($(this).text() != "Devenir de l' embryon" ) {
+                if ($('#tableculture').DataTable().rows('.selected').data().toArray().length > 0) {
+                    $("#entete").text($(this).text())
+
+                    sessionStorage.setItem("jours", $(this).text().split(' ')[1])
+                    console.log(sessionStorage.getItem("jours"))
+                    nu = []
+                    $('#tableculture').DataTable().rows('.selected').data().toArray().forEach(item => {
+
+                        nu.push(parseInt(item[0]))
+
+                    })
+
+                    sessionStorage.setItem('formActDataCulturenumero', nu)
+                    $("#formActDataCulturenumero").text(nu)
+                    $.get("/ActDataCulture/GetCultureComplet", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
+                        if (sessionStorage.getItem("jours") == 1) {
+
+                           $("#J1Date").val(resulta.ActDataCulture.J1Date)
+                            $("#J1Heure").val(resulta.ActDataCulture.J1Heure)
+                            resulta.cuturesData.forEach(item => {
+
+                                if (item.OvocytesCultureJour == 1 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCultureGrade").val(item.OvocytesCultureGrade)
+                                }
+                            })
+
+
+                            resulta.dataDecoronisationOvocyteDatas.forEach(item => {
+                                if ( item.DecoronisationOvocyteNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCulturecommentaire").val(item.DecoronisationOvocyteCommantaire)
+                                }
+
+
+                            })
+
+
+                        }
+
+
+                        if (sessionStorage.getItem("jours") == 2) {
+
+                            $("#J1Date").val(resulta.ActDataCulture.J1Date)
+                            $("#J1Heure").val(resulta.ActDataCulture.J1Heure)
+                            resulta.cuturesData.forEach(item => {
+
+                                if (item.OvocytesCultureJour == 2 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCultureGrade").val(item.OvocytesCultureGrade)
+                                }
+                            })
+
+
+                            resulta.dataDecoronisationOvocyteDatas.forEach(item => {
+                                if (item.DecoronisationOvocyteNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCulturecommentaire").val(item.DecoronisationOvocyteCommantaire)
+                                }
+
+
+                            })
+
+
+                        }
+                        if (sessionStorage.getItem("jours") == 3) {
+
+                            $("#J1Date").val(resulta.ActDataCulture.J1Date)
+                            $("#J1Heure").val(resulta.ActDataCulture.J1Heure)
+                            resulta.cuturesData.forEach(item => {
+
+                                if (item.OvocytesCultureJour == 3 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCultureGrade").val(item.OvocytesCultureGrade)
+                                }
+                            })
+
+
+                            resulta.dataDecoronisationOvocyteDatas.forEach(item => {
+                                if (item.DecoronisationOvocyteNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCulturecommentaire").val(item.DecoronisationOvocyteCommantaire)
+                                }
+
+
+                            })
+
+
+                        }
+                        if (sessionStorage.getItem("jours") == 4) {
+
+                            $("#J1Date").val(resulta.ActDataCulture.J1Date)
+                            $("#J1Heure").val(resulta.ActDataCulture.J1Heure)
+                            resulta.cuturesData.forEach(item => {
+
+                                if (item.OvocytesCultureJour == 4 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCultureGrade").val(item.OvocytesCultureGrade)
+                                }
+                            })
+
+
+                            resulta.dataDecoronisationOvocyteDatas.forEach(item => {
+                                if (item.DecoronisationOvocyteNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCulturecommentaire").val(item.DecoronisationOvocyteCommantaire)
+                                }
+
+
+                            })
+
+
+                        }
+                        if (sessionStorage.getItem("jours") == 5) {
+
+                            $("#J1Date").val(resulta.ActDataCulture.J1Date)
+                            $("#J1Heure").val(resulta.ActDataCulture.J1Heure)
+                            resulta.cuturesData.forEach(item => {
+
+                                if (item.OvocytesCultureJour == 5 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCultureGrade").val(item.OvocytesCultureGrade)
+                                }
+                            })
+
+
+                            resulta.dataDecoronisationOvocyteDatas.forEach(item => {
+                                if (item.DecoronisationOvocyteNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCulturecommentaire").val(item.DecoronisationOvocyteCommantaire)
+                                }
+
+
+                            })
+
+
+                        }
+                        if (sessionStorage.getItem("jours") == 6) {
+
+                            $("#J1Date").val(resulta.ActDataCulture.J1Date)
+                            $("#J1Heure").val(resulta.ActDataCulture.J1Heure)
+                            resulta.cuturesData.forEach(item => {
+
+                                if (item.OvocytesCultureJour == 6 && item.OvocytesCultureNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCultureGrade").val(item.OvocytesCultureGrade)
+                                }
+                            })
+
+
+                            resulta.dataDecoronisationOvocyteDatas.forEach(item => {
+                                if (item.DecoronisationOvocyteNumeroOvocyte == sessionStorage.getItem('formActDataCulturenumero').split(',')[0]) {
+                                    $("#OvocytesCulturecommentaire").val(item.DecoronisationOvocyteCommantaire)
+                                }
+
+
+                            })
+
+
+                        }
+
+
+                    })
+
+
+
+
+
+
+                $("#AJOUTEActDataCultureM").modal("show")
+              
+                }
+
+            }
+            if ($(this).text() == "Devenir de l' embryon") {
+
+                nu = []
+                $('#tableculture').DataTable().rows('.selected').data().toArray().forEach(item => {
+
+                    nu.push(parseInt(item[0]))
+
+                })
+
+                sessionStorage.setItem('formActDataCulturenumero', nu)
+                $("#NumeroEmbryonC").text(nu)
+
+
+                $("#AJOUTEActDataCultureM").modal("hide")
+                $("#AjouterDevenirEmbryon").modal('show')
+            }
+
+
+        }
+    });
+
+
+    $('#tableculture tbody').on('click', 'tr', function () {
+        $(this).toggleClass('selected');
+    });
+
+
+
+
+
+  
+  
     $('#IdJ1Incubateur11').change(function () {
         $("#J1Chambres11").empty();
 
@@ -125,7 +650,7 @@ $().ready(function () {
                     $("#OvocytesCultureNumeroOvocyte1").text(resulta[0].OvocytesCultureNumeroOvocyte)
                     $("#OvocytesCultureJour1").text(resulta[0].OvocytesCultureJour)
                     $("#OvocytesCultureGrade1").text(resulta[0].OvocytesCultureGrade)
-
+                 
 
                     $("#OvocytesCultureNumeroOvocyte11").val(resulta[0].OvocytesCultureNumeroOvocyte)
                     $("#OvocytesCultureJour11").val(resulta[0].OvocytesCultureJour)
@@ -263,10 +788,7 @@ $().ready(function () {
 
         }
     })
-    $("#formActDataCulture").on('submit', function (e) {
-        AjouterformActDataCulture()
-        e.preventDefault()
-    })
+
 
     $("#formEDITEActDataCulture").on('submit', function (e) {
        EditerformActDataCulture()
@@ -302,7 +824,64 @@ $().ready(function () {
 
 })
 
+function AjouterCongeletion() {
+    if (($("#DateENCongelationData").val()) != "" && ($("#HeureenCongelationData").val()) != "" && ($("#jourCongelationMilieuEnbryonnaireCMilieuData").val()) != "") {
+        $.post("/ActDataCongelationEnbryonnaire/Add",
+            {
 
+                listenumero: sessionStorage.getItem('formActDataCulturenumero'),
+                IdMedicalRecordAct: sessionStorage.getItem("IdmedicalrecordActe"),
+                IdEnbryologisteDoctor: parseInt($("#IdEnbryologisteDoctorEnbryonnaireCongelationData").val()),
+                IdPaillete: parseInt($("#IdPailleEnbryonnaireCongelationData").val()),
+                sang: $("#SangActDataTransfertsEnbryondnaire").val(),
+                glaire: $("#GradeEnbryon").val(),
+                idculture: parseInt(sessionStorage.getItem("IdActDataCulture")),
+                Mileu: ($("#jourCongelationMilieuEnbryonnaireCMilieuData").val()),
+                Date: ($("#DateENCongelationData").val()),
+                heur: ($("#HeureenCongelationData").val()),
+                com: $("#CommentairesEnbryonnaireCongelationData").val(),
+                nombreembroyontr: sessionStorage.getItem('formActDataCulturenumero').length,
+                Jours: ($("#jourCongelationEnbryssonnaireCongelationData").val()),
+            }, function (result) {
+                if (result.status) {
+
+
+
+                    Swal.fire({
+
+                        icon: 'success',
+                        title: result.message,
+                        showConfirmButton: false,
+                        timer: 3000
+                    })
+
+                    $("#AJOUTEActDataCultureM").modal('hide');
+                    $("#formActDataCulture").trigger("reset");
+                    window.location.reload()
+
+
+
+                }
+                else {
+
+                    Swal.fire({
+
+                        icon: 'error',
+                        title: result.message,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+
+                }
+
+
+
+            })
+
+
+    }
+
+}
 
 
 
@@ -313,47 +892,21 @@ function showaddActDataCulture() {
 
 
 function AjouterformActDataCulture() {
-    $.post("/ActDataCulture/Add", {
-        actData: {
-            Id: 0, IdMedicalRecordAct: sessionStorage.getItem("IdmedicalrecordActe"),
-            IdJ1EmbryologisteDoctor: parseInt($("#IdJ1EmbryologisteDoctor").val()),
-            IdJ2EmbryologisteDoctor: parseInt($("#IdJ2EmbryologisteDoctor").val()),
-            IdJ3EmbryologisteDoctor: parseInt($("#IdJ3EmbryologisteDoctor").val()),
-            IdJ4EmbryologisteDoctor: parseInt($("#IdJ4EmbryologisteDoctor").val()),
-            IdJ5EmbryologisteDoctor: parseInt($("#IdJ5EmbryologisteDoctor").val()),
-            IdJ6EmbryologisteDoctor: parseInt($("#IdJ6EmbryologisteDoctor").val()),
-            J1Chambres: ($("#J1Chambres").val()),
-            J2Chambres: ($("#J2Chambres").val()),
-            J3Chambres: ($("#J3Chambres").val()),
-            J4Chambres: ($("#J4Chambres").val()),
-            J5Chambres: ($("#J5Chambres").val()),
-            J6Chambres: ($("#J6Chambres").val()),
-            J1Date: ($("#J1Date").val()),
-            J2Date: ($("#J2Date").val()),
-            J3Date: ($("#J3Date").val()),
-            J4Date: ($("#J4Date").val()),
-            J5Date: ($("#J5Date").val()),
-            J6Date: ($("#J6Date").val()),
-            J1Heure: ($("#J1Heure").val()),
-            J2Heure: ($("#J2Heure").val()),
-            J3Heure: ($("#J3Heure").val()),
-            J4Heure: ($("#J4Heure").val()),
-            J5Heure: ($("#J5Heure").val()),
-            J6Heure: ($("#J6Heure").val()),
-            IdJ1Incubateur: parseInt($("#IdJ1Incubateur").val()),
-            IdJ2Incubateur: parseInt($("#IdJ2Incubateur").val()),
-            IdJ3Incubateur: parseInt($("#IdJ3Incubateur").val()),
-            IdJ4Incubateur: parseInt($("#IdJ4Incubateur").val()),
-            IdJ5Incubateur: parseInt($("#IdJ5Incubateur").val()),
-            IdJ6Incubateur: parseInt($("#IdJ6Incubateur").val()),
-            J1EmbryologisteDoctorType: "Embryogiste",
-            J2EmbryologisteDoctorType: "Embryogiste",
-            J3EmbryologisteDoctorType: "Embryogiste",
-            J4EmbryologisteDoctorType: "Embryogiste",
-            J5EmbryologisteDoctorType: "Embryogiste",
-            J6EmbryologisteDoctorType: "Embryogiste"
-          
-        }
+
+    $.post("/ActDataCulture/Update",
+        {
+
+        listenumero: sessionStorage.getItem('formActDataCulturenumero'),
+        idactculture: sessionStorage.getItem("IdActDataCulture"),
+        Jours: sessionStorage.getItem("jours"),
+        Grade: $("#OvocytesCultureGrade").val(),
+        chambre: $("#J1Chambres").val(),
+        Incubateur: parseInt($("#IdJ1Incubateur").val()),
+        enbryologite: parseInt($("#IdJ1EmbryologisteDoctor").val()),
+        date: ($("#J1Date").val()),
+        heur: ($("#J1Heure").val()),
+        Commentaire: $("#OvocytesCulturecommentaire").val(),
+        iddeco: sessionStorage.getItem("IdDataDecoronisation")    
     }, function (result) {
         if (result.status) {
 
@@ -369,7 +922,7 @@ function AjouterformActDataCulture() {
 
             $("#AJOUTEActDataCultureM").modal('hide');
             $("#formActDataCulture").trigger("reset");
-            window.location.reload()
+         window.location.reload()
 
 
 
@@ -393,6 +946,68 @@ function AjouterformActDataCulture() {
 
 function showEditerActDataCulture() {
     $("#EditerActDataCultureM").modal('show')
+}
+
+
+
+function AjouterTransfere() {
+
+    if (($("#DateEnbryonnaireCongelationData").val()) != "" && ($("#HeureEnbryonnaireCongelationData").val()) != "" && ($("#catheterActDataTransfertsEnbryonnairere").val()) != "") { 
+    $.post("/ActDataTransfertsEnbryonnaire/Add",
+        {
+
+            listenumero: sessionStorage.getItem('formActDataCulturenumero'),
+            IdMedicalRecordAct: sessionStorage.getItem("IdmedicalrecordActe"),
+            IdEnbryologisteDoctor: parseInt($("#IdEnbryologisteDoctorEnbryonnaireCongelationData").val()),
+            IdDoctor: parseInt($("#IdEnbryologisteDoctorEnbryonnaireMedecinCongelationData").val()),
+            sang: $("#SangActDataTransfertsEnbryondnaire").val(), 
+            glaire: $("#GlaireActDataTransfertsEnbryonnaiare").val(),
+    
+            idculture: parseInt(sessionStorage.getItem("IdActDataCulture"))
+           , cathere: ($("#catheterActDataTransfertsEnbryonnairere").val()),
+            transfer: ($("#TranserferActDataTransfertsEnbryonnairesdf").val()),
+            Date: ($("#DateEnbryonnaireCongelationData").val()),
+            heur: ($("#HeureEnbryonnaireCongelationData").val()),
+            com: $("#CommentairesActDataTransfertsEnbryonnairezzz").val(),
+            nombreembroyontr: sessionStorage.getItem('formActDataCulturenumero').length,
+            Jours: ($("#Jourtransfersst").val()),
+        }, function (result) {
+            if (result.status) {
+
+
+
+                Swal.fire({
+
+                    icon: 'success',
+                    title: result.message,
+                    showConfirmButton: false,
+                    timer: 3000
+                })
+
+                $("#AJOUTEActDataCultureM").modal('hide');
+                $("#formActDataCulture").trigger("reset");
+                  window.location.reload()
+
+
+
+            }
+            else {
+
+                Swal.fire({
+
+                    icon: 'error',
+                    title: result.message,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+
+            }
+
+
+
+    })
+    }
+
 }
 
 function EditerformActDataCulture() {
@@ -588,16 +1203,15 @@ function showaddDevenirEmbryon() {
 }
 
 function AjouterDevenirEmbryon() {
-
     $.post("/DevenirEmbryon/Add", {
-        actData: {
-            Id: 0, IdActDataCulture: sessionStorage.getItem("IdActDataCulture"),
-            NumeroEmbryon: parseInt($("#NumeroEmbryonC").val()),
-          
-            Devenir: ($("#Devenir").val())
 
-
-        }
+        listenumero: $("#NumeroEmbryonC").text(),
+        Devenir: ($("#Devenir").val()),
+        idculture: parseInt(sessionStorage.getItem("IdActDataCulture")),
+        idcongelation: parseInt(sessionStorage.getItem("IdActDataCongelationEnbryonnaire")),
+       
+        idtransafert: parseInt(sessionStorage.getItem("IdActDataTransfertsEnbryonnaire"))
+       
     }, function (result) {
         if (result.status) {
 

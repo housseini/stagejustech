@@ -48,7 +48,18 @@ function Login() {
         }
         else {
 
-            location.href = "/Patient/Index";
+            if (re.Type == "Admis") {
+                location.href = "/Utilisateur/Index";
+            }
+            if (re.Type == "Secretaire") {
+                location.href = "/Patient/Index";
+            }
+            if (re.Type == "Clinicien") {
+                location.href = "/Patient/Index";
+            } if (re.Type == "Embryologiste") {
+                location.href = "/DossierMedical/Index";
+            }
+       
   
 
 

@@ -883,3 +883,5 @@ E:\projet\projet\stage\code\justch\justch\obj\Debug\netcoreapp3.1\justch.csproj.
 E:\projet\projet\stage\code\justch\justch\obj\Debug\netcoreapp3.1\justch.dll
 E:\projet\projet\stage\code\justch\justch\obj\Debug\netcoreapp3.1\justch.pdb
 E:\projet\projet\stage\code\justch\justch\obj\Debug\netcoreapp3.1\justch.genruntimeconfig.cache
+E:\projet\projet\stage\code\justch\justch\obj\Debug\netcoreapp3.1\Razor\Views\Database_Registre\Index.cshtml.g.cs
+E:\projet\projet\stage\code\justch\justch\obj\Debug\netcoreapp3.1\Razor\Views\STATISTIQUE\Index.cshtml.g.cs

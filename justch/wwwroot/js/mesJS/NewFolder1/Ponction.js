@@ -12,7 +12,7 @@
 
 
     $('#acte2').click((event) => {
-        if (teste1 != true) {
+        if (teste1 != true && (sessionStorage.getItem("nom_traitemaint") == "FIV" || sessionStorage.getItem("nom_traitemaint") == "ICSI") ){
             event.stopPropagation()
         } 
     })
@@ -20,7 +20,7 @@
 
 
     $('#acte2').mouseenter(function () {
-        if(teste1 != true) {
+        if (teste1 != true && (sessionStorage.getItem("nom_traitemaint") == "FIV" || sessionStorage.getItem("nom_traitemaint") == "ICSI")) {
             $(' #acte2').css({ "cursor": 'not-allowed' });
         }
         else {
@@ -36,13 +36,15 @@
 
         if (resulta.length == 0) {
             $('#ponctionInfo1').hide()
-
+            $('#ponctionEInfo1').hide()
+            $('#ponctionEInfo').show()
             $("#boutonponction").append(' <a href="#ajoutePontionM" onclick="showaddPontionM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Ponction </a>')
         } else {
             teste1 = true
             $('#ponctionInfo').hide()
             $('#ponctionInfo1').show()
-
+            $('#ponctionEInfo1').show()
+            $('#ponctionEInfo').hide()
             $.get("/Doctor/Gets", function (re) {
                 for (i = 0; i < re.length; i++) {
                     if (re[i].Id == resulta[0].IdTretingDoctor) {

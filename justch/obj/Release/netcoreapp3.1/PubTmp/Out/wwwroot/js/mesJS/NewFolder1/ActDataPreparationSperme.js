@@ -1,11 +1,30 @@
 ﻿$().ready(function () {
-
+    teste=false
     $(".tab").css("display", "none");
     $("#tab-1").css("display", "block");
     $("#tab-4").css("display", "block");
 
     $("#tab-13").css("display", "block");
-    
+
+    $('#acte7,#acte12').click((event) => {
+        if (teste != true) {
+            event.stopPropagation()
+        }
+    })
+
+
+
+    $('#acte7,#acte12').mouseenter(function () {
+        if (teste != true) {
+            $(' #acte7,#acte12').css({ "cursor": 'not-allowed' });
+        }
+        else {
+
+            $('#acte7,#acte12').css({ "cursor": 'pointer' });
+
+        }
+
+    });
 
 
     $("#formPreparationSpermeAdd").on('submit', function (e) {
@@ -28,6 +47,8 @@
             $('#accordion').hide()
             $("#boutonDataPreparationSperme").append(' <a href="#ajouteDataPreparationSpermeM" onclick="showaddDataPreparationSpermeM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter DataPreparationSperme </a>')
         } else {
+            teste = true
+
             $('#PreparationSpermeInfo').hide()
             $('#accordion').show()
             $("#boutonDataPreparationSperme").append(' <a href="#editeDataPreparationSpermeM" onclick="showeditDataPreparationSpermeM()" class="btn btn-primary"><i class="fa fa-plus"></i>  editer DataPreparationSperme </a>')

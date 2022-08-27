@@ -1,4 +1,9 @@
 ﻿$().ready(function () {
+    
+
+
+  
+
     if (sessionStorage.getItem("IdRenseingnementClinique")) {
         creerRATable()
     }
@@ -65,6 +70,8 @@ function creerRATable() {
 
     if (sessionStorage.getItem("IdRenseingnementClinique")) {
         $.get("/TentativeAnterieure/Gets", { IdRenseignement: sessionStorage.getItem("IdRenseingnementClinique") }, function (re) {
+
+          
             if ($.fn.DataTable.isDataTable("#RATable")) {
                 $('#RATable').DataTable().destroy();
             }

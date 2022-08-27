@@ -13,7 +13,7 @@ namespace justch.Controllers
         {
             this.f = f;
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         public IActionResult Index ( )
         {
             ViewBag.Patients=BLL_Patient.GetPatients();
@@ -23,7 +23,7 @@ namespace justch.Controllers
             ViewBag.Appointements= BLL_Utiliy.allRdv();
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpPost]
         public IActionResult Add ( justch.Models.ENTITIES.Appointment ap )
         {
@@ -41,7 +41,7 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpPost]
         public IActionResult Update ( justch.Models.ENTITIES.Appointment ap )
         {
@@ -60,7 +60,7 @@ namespace justch.Controllers
             }
         }
 
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult Delete ( int ap )
         {
@@ -78,14 +78,14 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult GetRdv_Complet ( int Id  )
         {
             return Json(BLL_Appointment.GetRdv_Complet(Id));
         }
 
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
 
         [HttpGet]
 
@@ -93,7 +93,7 @@ namespace justch.Controllers
         {
             return Json(BLL_Appointment.gets());
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpPost]
         public IActionResult Rechercheravancer(int IPITENT, int Room, DateTime jour, int plage, int Idmedecin, int IdAct)
         {
@@ -104,7 +104,7 @@ namespace justch.Controllers
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Secretaire,Embryologiste")]
         [HttpGet]
         public IActionResult Terminer( int Id)
         {

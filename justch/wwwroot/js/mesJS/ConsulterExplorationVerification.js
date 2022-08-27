@@ -39,10 +39,12 @@
       
 
     $.get('/MedicalAct/GetmedicalActRecordByid', { id: sessionStorage.getItem('IdmedicalrecordActe') }, function (re) {
-        console.log(re)
+        
      
         if (re.MedicalActName == "Congélation de sperme") {
-            $('#myTab2 a[href="#acte7"]').tab('show');
+         
+            $('#myTab3 a[href="#acte7"]').tab('show');
+            sessionStorage.setItem("tests1", true)
             $("#acte7").show()
             $("#bottom-tab11").show()
 
@@ -51,7 +53,7 @@
         }
 
         if (re.MedicalActName == "Ponction de kystes" || re.MedicalActName == "Ponction ovocytaire" ) {
-            $('#myTab2 a[href="#acte0"]').tab('show');
+            $('#myTab3 a[href="#acte0"]').tab('show');
           
             $("#acte0").show()
             $("#about-cont").show()
@@ -111,6 +113,7 @@
         }
 
         if (re.MedicalActName == "Congélation de Enbryonnaire") {
+            alert("suis ici 1")
             $('#myTab2 a[href="#acte6"]').tab('show');
             $("#acte6").show()
             $("#bottom-tab6").show()
@@ -118,11 +121,13 @@
         }
         if (re.MedicalActName == "Transfert (Insémination)") {
             $('#myTab2 a[href="#acte9"]').tab('show');
+            alert("suis ici 2")
             $("#acte9").show()
             $("#bottom-tab10").show()
 
         }
         if (re.MedicalActName == "Decongelation") {
+            alert("suis ici 3")
             $('#myTab2 a[href="#acte10"]').tab('show');
             $("#acte10").show()
             $("#bottom-tab8").show()
@@ -130,7 +135,9 @@
         }
 
         if (re.MedicalActName == "Congelation Biopsie Testiculaire") {
+            alert("suis ici 4")
             $('#myTab2 a[href="#acte11"]').tab('show');
+            sessionStorage.setItem("tests1",true)
             $("#acte11").show()
             $("#bottom-tab9").show()
 

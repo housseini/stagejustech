@@ -1,9 +1,47 @@
 ﻿$().ready(function () {
+    teste3 = false
+    $("#Transfertinfon1").hide()
+    $("#Transfertinfon").hide()
+
+
+
+
+    $('#acte5').mouseenter(function () {
+
+        if (teste3 != true) {
+            $('#acte5').css({ "cursor": 'not-allowed' });
+        }
+        else {
+          
+
+            $('#acte5').css({ "cursor": 'pointer' });
+
+        }
+
+    });
+
+
+    $('#acte5').click((event) => {
+        if (teste3 != true) {
+            event.stopPropagation()
+        }
+    })
+
+
+
     $.get("/ActDataTransfertsEnbryonnaire/GetByIdTraitement", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
 
         if (resulta.length == 0) {
+          
+            $("#Transfertinfon").show()
+            $("#Transfertinfon1").hide()
             $("#boutonActDataTransfertsEnbryonnaire").append(' <a href="#ajouteActDataTransfertsEnbryonnaireM" onclick="showaddActDataTransfertsEnbryonnaireM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter ActDataTransfertsEnbryonnaire </a>')
         } else {
+            teste3 = true
+            $("#Transfertinfon1").show()
+            $("#Transfertinfon").hide()
+
+
             $("#boutonActDataTransfertsEnbryonnaire").append(' <a href="#editerActDataTransfertsEnbryonnaireM" onclick="showediteActDataTransfertsEnbryonnaireM()" class="btn btn-primary"><i class="fa fa-plus"></i>  editer ActDataTransfertsEnbryonnaire </a>')
             sessionStorage.setItem("IdActDataTransfertsEnbryonnaire", resulta[0].Id)
 
@@ -36,16 +74,15 @@
             $.get("/EnbryonTransfertData/GetByIdTraitement", { Id: resulta[0].Id }, function (resulta) {
 
                 if (resulta.length == 0) {
-                    $("#boutonActDataTransfertsEnbryonnaire").append(' <a href="#ajouteTransfertsEnbryonnaireM" onclick="showTransfertsEnbryonnaireM()" class="btn btn-primary"><i class="fa fa-plus"></i> TransfertsEnbryonnaire </a>')
+
+                   
+
                 } else {
-                    $("#boutonTransfertsEnbryonnaire").append(' <a href="#editerTransfertsEnbryonnaireM" onclick="showediteediterTransfertsEnbryonnaireMM()" class="btn btn-primary"><i class="fa fa-plus"></i>  editer ActDataTransfertsEnbryonnaire </a>')
-                    $("#Numeroenbryone").text(resulta[0].Numeroenbryon)
-                    $("#Numeroenbryone11").val(resulta[0].Numeroenbryon)
-                    $("#Jourtransferte11").val(resulta[0].Jourtransfert)
-
-                    $("#Jourtransferte").text(resulta[0].Jourtransfert)
+              
 
 
+
+                    createtableTransfer(resulta)
 
                 }
             })
@@ -76,6 +113,32 @@
     })
 
 })
+function createtableTransfer(donne) {
+    
+    $("#NombreEnbryonsTransferesActDataTransfertsEnbryonnaire1").val(donne.length)
+    $("#NombreeEnbryonsTransferes").text(donne.length)
+    //if ($.fn.DataTable.isDataTable("#exampletransfer")) {
+    //    $('#exampletransfer').DataTable().destroy();
+
+
+    //}
+    //$('#exampletransfer').DataTable({
+    //    "filter": true,
+    //    "aaData": donne,
+    //    "sort": false,
+    //    "select": true,
+    //    "aoColumns":
+    //        [
+
+    //            { "data": "Numeroenbryon", "name": "numero ovocyte", "autoWidth": true },
+               
+    //            { "data": "Jourtransfert", "name": "Jours de transfer", "autoWidth": true },
+
+
+    //        ],
+
+    //});
+}
 
 
 

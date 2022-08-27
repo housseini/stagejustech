@@ -76,6 +76,7 @@ connection.Close();
 
         public static List<Cuve> GETS(int Id)
         {
+            try { 
             DalMigration.create_table_Cuve();
 
             connection = DbConnection.GetConnection();
@@ -90,6 +91,15 @@ connection.Close();
             table.Load(reader);
             connection.Close();
             return Gets(table);
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                connection.Close();
+            }
 
         }
         public static List<Cuve> GETS()

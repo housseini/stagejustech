@@ -1,5 +1,17 @@
 ﻿$().ready(function () {
+
+    renseige=false
+
+
     $.get("/RenseignementClinque/GetbyIddossiermedicale", { id: sessionStorage.getItem('IdDossierMedical') }, function (re) {
+        if (re == null) {
+            renseige = false
+        }
+        else {
+
+            renseige = true
+            sessionStorage.setItem("renseige", true)
+        }
       
         if (re) {
             sessionStorage.setItem("IdRenseingnementClinique", re.Id)
@@ -75,6 +87,25 @@
         UpdaterenseignementClinque()
         e.preventDefault()
     })
+
+    $('#TRAITEMENT_ANTERIEUR1,#Bilan_Femme1,#Bilan_Homme1').click((event) => {
+        if (renseige != true) {
+            event.stopPropagation()
+        }
+    })
+
+
+    $('#TRAITEMENT_ANTERIEUR1,#Bilan_Femme1,#Bilan_Homme1').mouseenter(function () {
+        if (renseige != true) {
+            $('#TRAITEMENT_ANTERIEUR1,#Bilan_Femme1,#Bilan_Homme1').css({ "cursor": 'not-allowed' });
+        }
+        else {
+
+            $('#TRAITEMENT_ANTERIEUR1,#Bilan_Femme1,#Bilan_Homme1').css({ "cursor": 'pointer' });
+
+        }
+
+    });
 })
 
 
@@ -119,7 +150,8 @@ function AddrenseignementClinque() {
             })
 
             $("#ajouterRenseigmentdebase").modal('hide');
-            location.href = '/DossierMedical/ Consulter?Reference = '+localStorage.getItem(IdDossierMedical)+' #ModifierRenseigmentdebase'
+            location.reload();
+         //   location.href = '/DossierMedical/ Consulter?Reference = '+localStorage.getItem(IdDossierMedical)+' #ModifierRenseigmentdebase'
             
 
         }

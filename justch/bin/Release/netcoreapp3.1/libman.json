@@ -20,6 +20,11 @@
       "provider": "jsdelivr",
       "library": "@teachablemachine/image@0.8.5",
       "destination": "wwwroot/teachablemachine/image/"
+    },
+    {
+      "provider": "cdnjs",
+      "library": "Chart.js@3.9.1",
+      "destination": "wwwroot/Chart.js/"
     }
   ]
 }

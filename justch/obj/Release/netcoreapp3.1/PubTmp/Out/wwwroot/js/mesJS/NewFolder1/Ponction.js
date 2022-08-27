@@ -1,17 +1,17 @@
 ﻿$().ready(function () {
     teste1 = false
-    $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-        localStorage.setItem('activeTab', $(e.target).attr('href'));
-    });
-    var activeTab = localStorage.getItem('activeTab');
-    if (activeTab) {
+    //$('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+    //    localStorage.setItem('activeTab', $(e.target).attr('href'));
+    //});
+    //var activeTab = localStorage.getItem('activeTab');
+    //if (activeTab) {
 
-        $('#myTab2 a[href="' + activeTab + '"]').tab('show');
-    }
+    //    $('#myTab2 a[href="' + activeTab + '"]').tab('show');
+    //}
 
 
 
-    $('#acte1, #acte2').click((event) => {
+    $('#acte2').click((event) => {
         if (teste1 != true) {
             event.stopPropagation()
         } 
@@ -19,13 +19,13 @@
 
 
 
-    $('#acte1, #acte2').mouseenter(function () {
+    $('#acte2').mouseenter(function () {
         if(teste1 != true) {
-            $('#acte1, #acte2').css({ "cursor": 'not-allowed' });
+            $(' #acte2').css({ "cursor": 'not-allowed' });
         }
         else {
 
-            $('#acte1, #acte2').css({ "cursor": 'pointer' });
+            $('#acte2').css({ "cursor": 'pointer' });
 
         }
       
@@ -36,13 +36,15 @@
 
         if (resulta.length == 0) {
             $('#ponctionInfo1').hide()
-
+            $('#ponctionEInfo1').hide()
+            $('#ponctionEInfo').show()
             $("#boutonponction").append(' <a href="#ajoutePontionM" onclick="showaddPontionM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Ponction </a>')
         } else {
             teste1 = true
             $('#ponctionInfo').hide()
             $('#ponctionInfo1').show()
-
+            $('#ponctionEInfo1').show()
+            $('#ponctionEInfo').hide()
             $.get("/Doctor/Gets", function (re) {
                 for (i = 0; i < re.length; i++) {
                     if (re[i].Id == resulta[0].IdTretingDoctor) {
@@ -133,6 +135,7 @@
             $("#IdTretingDoctorActDataCongelationSperme1").append('<option value="' + re[i].Id + '"> ' + re[i].FirstName + '  ' + re[i].LastName +'</option>')
             $("#IdTreatingDoctorActDataBiopsie").append('<option value="' + re[i].Id + '"> ' + re[i].FirstName + '  ' + re[i].LastName +'</option>')
             $("#IdTreatingDoctorActDataBiopsie1").append('<option value="' + re[i].Id + '"> ' + re[i].FirstName + '  ' + re[i].LastName +'</option>')
+            $("#IdEnbryologisteDoctorEnbryonnaireMedecinCongelationData").append('<option value="' + re[i].Id + '"> ' + re[i].FirstName + '  ' + re[i].LastName +'</option>')
             
 
         }
@@ -179,6 +182,7 @@
             $("#IdJ4EmbryologisteDoctor11").append('<option value="' + re[i].Id + '"> ' + re[i].UserName + '</option>')
             $("#IdJ5EmbryologisteDoctor11").append('<option value="' + re[i].Id + '"> ' + re[i].UserName + '</option>')
             $("#IdJ6EmbryologisteDoctor11").append('<option value="' + re[i].Id + '"> ' + re[i].UserName + '</option>')
+            $("#IdEnbryologisteDoctorssEnbryonnaireCongelationData").append('<option value="' + re[i].Id + '"> ' + re[i].UserName + '</option>')
 
             
             

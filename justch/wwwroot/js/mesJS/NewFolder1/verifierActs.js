@@ -39,14 +39,10 @@
     $.get('/MedicalAct/GetmedicalActRecordByid', { id: sessionStorage.getItem("IdmedicalrecordActe") }, function (re) {
 
         if (re.MedicalActName == "ICSI") {
-            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-                localStorage.setItem('activeTab', $(e.target).attr('href'));
-            });
-            var activeTab = localStorage.getItem('activeTab');
-            if (activeTab) {
-
-                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
-            }
+            
+            $('#myTab2 a[href="bottom-tab1"]').tab('show');
+            $("#about-cont").addClass("active")
+            sessionStorage.setItem("nom_traitemaint", "ICSI")
             $("#acte13").hide()
             $("#acte12").hide()
             $("#acte11").hide()
@@ -57,14 +53,10 @@
           
         }
         if (re.MedicalActName == "FIV") {
-            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-                localStorage.setItem('activeTab', $(e.target).attr('href'));
-            });
-            var activeTab = localStorage.getItem('activeTab');
-            if (activeTab) {
-
-                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
-            }
+            sessionStorage.setItem("nom_traitemaint", "FIV")
+            $('#myTab2 a[href="bottom-tab1"]').tab('show');
+            $("#about-cont").addClass("active")
+          
             $("#acte13").hide()
             $("#acte12").hide()
             $("#acte11").hide()
@@ -76,6 +68,7 @@
         }
 
         if (re.MedicalActName == "IAC") {
+            sessionStorage.setItem("nom_traitemaint", "IAC")
             $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
                 localStorage.setItem('activeTab', $(e.target).attr('href'));
             });
@@ -100,15 +93,12 @@
 
         }
         if (re.MedicalActName == "Congélation Sperme") {
-            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-                localStorage.setItem('activeTab', $(e.target).attr('href'));
-            });
-            var activeTab = localStorage.getItem('activeTab');
-            if (activeTab) {
+           
 
-                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
-            }
+            $('#myTab2 a[href="bottom-tab1"]').tab('show');
+            $("#bottom-tab1").addClass("active")
 
+            sessionStorage.setItem("nom_traitemaint", "Congélation Sperme")
             $("#acte13").hide()
             $("#acte11").hide()
             $("#acte10").hide()
@@ -124,14 +114,10 @@
 
         }
         if (re.MedicalActName == "Congélation Ovocytair") {
-            $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-                localStorage.setItem('activeTab', $(e.target).attr('href'));
-            });
-            var activeTab = localStorage.getItem('activeTab');
-            if (activeTab) {
+            sessionStorage.setItem("nom_traitemaint", "Congélation Ovocytair")
+            $('#myTab2 a[href="bottom-tab1"]').tab('show');
+            $("#about-cont").addClass("active")
 
-                $('#myTab2 a[href="' + activeTab + '"]').tab('show');
-            }
 
             $("#acte13").hide()
             $("#acte11").hide()

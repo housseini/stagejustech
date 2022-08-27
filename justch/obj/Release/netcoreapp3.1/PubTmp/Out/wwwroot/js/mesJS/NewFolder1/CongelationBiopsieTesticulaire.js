@@ -17,9 +17,12 @@
     $.get("/ActDataCongelationBiopsieTesticulaire/GetByIdTraitement", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
 
         if (resulta.length == 0) {
+            $("#BiopsieTesticulaireInfo").show()
+            $("#BiopsieTesticulaireInfo1").hide()
             $("#boutonActDataBiopsieTesticulaire").append(' <a href="#ajouteboutonActDataBiopsieTesticulaireM" onclick="showaddboutonActDataBiopsieTesticulaireM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter ActDataBiopsieTesticulaire </a>')
         } else {
-
+            $("#BiopsieTesticulaireInfo").hide()
+            $("#BiopsieTesticulaireInfo1").show()
             $("#DateDEcoronisation1").val(resulta[0].Date)
             $("#HeureDEcoronisation1").val(resulta[0].Heure)
             $("#CommentairesDEcoronisation1").val(resulta[0].Commentaires)

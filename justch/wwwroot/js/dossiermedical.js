@@ -14,6 +14,9 @@
         '     <li>' +
         '          <a href="/Doctor/Index"><i class="fa fa-user"></i> <span>Medecins</span></a>' +
         '      </li>' +
+        '     <li>' +
+        '          <a href="/STATISTIQUE/Index"><i class="fa fa-user"></i> <span>Statistique</span></a>' +
+        '      </li>' +
         '    <li>' +
         '       <a href="#"  data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-cog"> <span> Parametre </span></i></a>' +
         '      <div class="dropdown-menu ">' +
@@ -26,6 +29,8 @@
         '            <a class="dropdown-item" href="/Cuve/Index">Cuve</a> ' +
 
         '           <a class="dropdown-item" href="/Utilisateur/Index">Utilisateur</a> ' +
+        '      <a class="dropdown-item" href="/Database_Registre/Index">Sauvegarde</a> ' +
+
         '           <a class="dropdown-item" href="/Automatisation/Index">Classification</a> ' +
         '       </div> ' +
         '   </li>    ';
@@ -495,4 +500,6 @@ function addlocalstroendmodalshow(id) {
     $("#delete_doctor").modal('show');
     sessionStorage.setItem("iddossier", id);
 }
+
+
 

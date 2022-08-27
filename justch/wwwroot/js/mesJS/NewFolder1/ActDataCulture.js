@@ -285,6 +285,32 @@ $().ready(function () {
     });
 
 
+
+
+    $('#tableculture1 tbody   tr ').each(function () {
+
+        if ($.trim($(this).find('td').eq(8).text()) == "Degeneré" || $.trim($(this).find('td').eq(1).text()) == "Dégeénèré") {
+
+            $(this).css("background-color", '#F9B0DB');
+        }
+
+        if ($.trim($(this).find('td').eq(8).text()) == "Congélé") {
+
+            $(this).css("background-color", '#C1EDFF');
+        }
+        if ($.trim($(this).find('td').eq(8).text()) == "Transferé") {
+
+
+            $(this).css("background-color", '#B0F5F7');
+        }
+    });
+
+
+
+
+
+
+
     $('#tableculture thead  tr  th ').on('click', function () {
 
         if ($(this).text() == "Numero Embryon" || $(this).text() == "Décoronisation" || $(this).text() == "commentaire") {

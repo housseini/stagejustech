@@ -16,12 +16,17 @@
 
         if (resulta.length == 0) {
             $("#InjectionInfo").hide()
+            $("#InjectionEInfo1").hide()
+            $("#InjectionEInfo").show()
             $("#InjectionInfo1").show()
+            
 
             $("#boutonActDataInjection").append(' <a href="#ajouteInjectionM" onclick="showaddInjectionM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Injection </a>')
         } else {
             $("#InjectionInfo").show()
             $("#InjectionInfo1").hide()
+            $("#InjectionEInfo1").show()
+            $("#InjectionEInfo").hide()
 
             $("#DateDEcoronisation1").val(resulta[0].Date)
             $("#HeureDEcoronisation1").val(resulta[0].Heure)

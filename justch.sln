@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32228.343
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "justch", "justch\justch.csproj", "{ACB4155F-E494-465A-B7B1-687547C4A332}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{34661F04-9B7C-48EA-9C23-6E8999AB4A51}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{ACB4155F-E494-465A-B7B1-687547C4A332}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACB4155F-E494-465A-B7B1-687547C4A332}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACB4155F-E494-465A-B7B1-687547C4A332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34661F04-9B7C-48EA-9C23-6E8999AB4A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34661F04-9B7C-48EA-9C23-6E8999AB4A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34661F04-9B7C-48EA-9C23-6E8999AB4A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34661F04-9B7C-48EA-9C23-6E8999AB4A51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -38,6 +38,9 @@ namespace justch.Models.DAL
 
         public static List<Document> getsBy(string Field,int value)
         {
+            DalMigration.create_table_DocumentType();
+            DalMigration.create_table_Document();
+          
             string query = "select * from Document where(IdPatient=@value); ";
             SqlConnection mycon = DbConnection.GetConnection();
             mycon.Open();

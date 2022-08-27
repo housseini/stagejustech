@@ -14,7 +14,8 @@ namespace justch.Controllers
             this.f = f;
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien")]
+
         public IActionResult Index()
         {
             ViewBag.Roomtype = BLL_RoomType.Gets();
@@ -22,7 +23,8 @@ namespace justch.Controllers
             
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         [HttpPost] 
         public IActionResult UpdatERoom(justch.Models.ENTITIES.Room room)
         {
@@ -68,7 +70,8 @@ namespace justch.Controllers
             return Json(BLL_RoomType.GetsByNom(Name));
 
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         [HttpPost]
         public IActionResult AddRoom ( justch.Models.ENTITIES.Room Room )
         {
@@ -104,7 +107,8 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-      
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         [HttpPost]
         public IActionResult AddRoomType(RoomType RoomType)
         {
@@ -140,7 +144,8 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien")]
+
         [HttpPost]
         
         public IActionResult UpdateRoomType ( RoomType RoomType )

@@ -12,7 +12,8 @@ namespace justch.Controllers
         {
             this.f = f;
         }
-        [Authorize]
+        [Authorize(Roles = "Admis")]
+
         public IActionResult Index ( )
         {
             var v = BLL_TechnienEnbrylogiste.Gets();
@@ -26,7 +27,7 @@ namespace justch.Controllers
             }
             return View();
         }
-        [Authorize]
+        [Authorize(Roles = "Admis")]
         [HttpPost]
 
         public IActionResult Add ( justch.Models.ENTITIES.TechnienEnbrylogiste enbrylogiste)
@@ -45,7 +46,7 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Admis")]
         [HttpPost]
 
         public IActionResult Update ( justch.Models.ENTITIES.TechnienEnbrylogiste enbrylogiste )
@@ -64,7 +65,7 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Admis")]
         [HttpGet]
 
         public IActionResult Delete ( int ID  )

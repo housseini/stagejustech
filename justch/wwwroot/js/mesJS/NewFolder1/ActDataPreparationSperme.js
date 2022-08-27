@@ -7,7 +7,7 @@
     $("#tab-13").css("display", "block");
 
     $('#acte7,#acte12').click((event) => {
-        if (teste != true) {
+        if (teste != true && sessionStorage.getItem("nom_traitemaint") == "FIV" && sessionStorage.getItem("nom_traitemaint") == "ICSI") {
             event.stopPropagation()
         }
     })
@@ -15,7 +15,7 @@
 
 
     $('#acte7,#acte12').mouseenter(function () {
-        if (teste != true) {
+        if (teste != true && sessionStorage.getItem("nom_traitemaint") == "FIV" && sessionStorage.getItem("nom_traitemaint") == "ICSI") {
             $(' #acte7,#acte12').css({ "cursor": 'not-allowed' });
         }
         else {

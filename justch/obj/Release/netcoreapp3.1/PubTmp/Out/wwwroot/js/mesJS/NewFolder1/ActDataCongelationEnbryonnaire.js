@@ -1,10 +1,36 @@
-﻿$().ready(function () {
+﻿
+$().ready(function () {
+
+
+    $('#acte6').mouseenter(function () {
+   
+
+        if ($("#tablecongelation tbody tr").length == 0) {
+            $('#acte6').css({ "cursor": 'not-allowed' });
+        }
+        else {
+
+
+            $('#acte6').css({ "cursor": 'pointer' });
+
+        }
+
+    });
+
+    $('#acte6').click((event) => {
+        if ($("#tablecongelation tbody tr").length == 0) {
+            event.stopPropagation()
+        }
+    })
+   
     $.get("/ActDataCongelationEnbryonnaire/GetByIdTraitement", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
 
         if (resulta.length == 0) {
             $("#boutonActDataCongelationEnbryonnaire").append(' <a href="#AjouterActDataCongelationEnbryonnaireM" onclick="showaddboutonActDataCongelationEnbryonnaire()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Act Congelation Enbryonnaire </a>')
         } else {
+           
             $.get("/EnbryonnaireCongelationData/GetByIdTraitement", { Id: resulta[0].Id }, function (res) {
+                
                 if (res.length == 0) {
                     sessionStorage.setItem("IdActDataCongelationEnbryonnaire", resulta[0].Id)
                     $("#boutonActDataCongelationEnbryonnaire").append(' <a href="#EditerActDataCongelationEnbryonnaireM" onclick="showaediteboutonActDataCongelationEnbryonnaire()" class="btn btn-primary"><i class="fa fa-plus"></i>  Editer Act Congelation Enbryonnaire </a>')
@@ -13,50 +39,55 @@
 
 
                 } else {
+                    
+ 
+
                     sessionStorage.setItem("IdActDataCongelationEnbryonnaire", resulta[0].Id)
+                  
+                 
+             
+                    ////$("#boutonActDataCongelationEnbryonnaire").append(' <a href="#EditerActDataCongelationEnbryonnaireM" onclick="showaediteboutonActDataCongelationEnbryonnaire()" class="btn btn-primary"><i class="fa fa-plus"></i>  Editer Act Congelation Enbryonnaire </a>')
+                    ////$("#boutonCongelationEnbryonnaireDATA").append(' <a href="#EditerCongelationEnbryonnaireDATAM" onclick="showaeditebCongelationEnbryonnaireDATAe()" class="btn btn-primary"><i class="fa fa-plus"></i>  Editer Congelation Enbryonnaire DATA</a>')
+                    ////$("#DateeEnbryonnaireCongelationData").text(res[0].Date)
+                    ////$("#DateEnbryonnaireCongelationData1").val(res[0].Date)
 
-                    $("#boutonActDataCongelationEnbryonnaire").append(' <a href="#EditerActDataCongelationEnbryonnaireM" onclick="showaediteboutonActDataCongelationEnbryonnaire()" class="btn btn-primary"><i class="fa fa-plus"></i>  Editer Act Congelation Enbryonnaire </a>')
-                    $("#boutonCongelationEnbryonnaireDATA").append(' <a href="#EditerCongelationEnbryonnaireDATAM" onclick="showaeditebCongelationEnbryonnaireDATAe()" class="btn btn-primary"><i class="fa fa-plus"></i>  Editer Congelation Enbryonnaire DATA</a>')
-                    $("#DateeEnbryonnaireCongelationData").text(res[0].Date)
-                    $("#DateEnbryonnaireCongelationData1").val(res[0].Date)
+                    ////$("#IdEnbryologisteDoctorEnbryonnaireCongelationData1").val(res[0].IdEnbryologisteDoctor)
 
-                    $("#IdEnbryologisteDoctorEnbryonnaireCongelationData1").val(res[0].IdEnbryologisteDoctor)
+                    ////$("#HeureeEnbryonnaireCongelationData").text(res[0].Heure)
+                    ////$("#HeureEnbryonnaireCongelationData1").val(res[0].Heure)
 
-                    $("#HeureeEnbryonnaireCongelationData").text(res[0].Heure)
-                    $("#HeureEnbryonnaireCongelationData1").val(res[0].Heure)
+                    ////$("#NumeroEnbroyoneEnbryonnaireCongelationData").text(res[0].NumeroEnbroyon)
+                    ////$("#NumeroEnbryonnaireCongelationData1").val(res[0].NumeroEnbroyon)
 
-                    $("#NumeroEnbroyoneEnbryonnaireCongelationData").text(res[0].NumeroEnbroyon)
-                    $("#NumeroEnbryonnaireCongelationData1").val(res[0].NumeroEnbroyon)
+                    ////$("#jourCongelationEnbryonnaireCongelationData").text(res[0].jourCongelation)
+                    ////$("#jourCongelationEnbryonnaireCongelationData1").val(res[0].jourCongelation)
 
-                    $("#jourCongelationEnbryonnaireCongelationData").text(res[0].jourCongelation)
-                    $("#jourCongelationEnbryonnaireCongelationData1").val(res[0].jourCongelation)
+                    ////$("#GradeEnbryonEnbryonnaireCongelationData").text(res[0].GradeEnbryon)
+                    ////$("#GradeEnbryon1").val(res[0].GradeEnbryon)
 
-                    $("#GradeEnbryonEnbryonnaireCongelationData").text(res[0].GradeEnbryon)
-                    $("#GradeEnbryon1").val(res[0].GradeEnbryon)
+                    ////$("#MilieueEnbryonnaireCongelationData").text(res[0].Milieu)
+                    ////$("#MilieuEnbryonnaireCongelationData1").val(res[0].Milieu)
 
-                    $("#MilieueEnbryonnaireCongelationData").text(res[0].Milieu)
-                    $("#MilieuEnbryonnaireCongelationData1").val(res[0].Milieu)
+                    ////$("#StatueEnbryonnaireCongelationData").text(res[0].Statu)
+                    ////$("#StatuEnbryonnaireCongelationData1").val(res[0].Statu)
+                    ////$("#CommentairesEnbryonnaireCongelationData1").val(res[0].Commentaires)
 
-                    $("#StatueEnbryonnaireCongelationData").text(res[0].Statu)
-                    $("#StatuEnbryonnaireCongelationData1").val(res[0].Statu)
-                    $("#CommentairesEnbryonnaireCongelationData1").val(res[0].Commentaires)
-
-                    $("#CommentaireseEnbryonnaireCongelationData").text(res[0].Commentaires)
-                    $("#IdPailleEnbryonnaireCongelationData1").val(res[0].Id)
-
-
-
-
+                    ////$("#CommentaireseEnbryonnaireCongelationData").text(res[0].Commentaires)
+                    ////$("#IdPailleEnbryonnaireCongelationData1").val(res[0].Id)
 
 
-                    $.get("/Paillette/GetById", { Id: res[0].IdPaillette }, function (re) {
 
-                        $('#PailletteeEnbryonnaireCongelationData').text(' .')
 
-                        $('#PailletteeEnbryonnaireCongelationData').css("background-color", re[0].Couleur)
-                        $('#IdPailleEnbryonnaireCongelationData1').css("background-color", re[0].Couleur)
 
-                    })
+
+                    ////$.get("/Paillette/GetById", { Id: res[0].IdPaillette }, function (re) {
+
+                    ////    $('#PailletteeEnbryonnaireCongelationData').text(' .')
+
+                    ////    $('#PailletteeEnbryonnaireCongelationData').css("background-color", re[0].Couleur)
+                    ////    $('#IdPailleEnbryonnaireCongelationData1').css("background-color", re[0].Couleur)
+
+           /*         })*/
 
                  /*   $("#PailletteeEnbryonnaireCongelationData").css(res[0].Heure)*/
 
@@ -249,7 +280,33 @@ function AjouterActDataCongelationEnbryonnairefo() {
 }
 
 
-function showaeditebCongelationEnbryonnaireDATAe() {
+function showaeditebCongelationEnbryonnaireDATAe(id) {
+    sessionStorage.setItem("IdEnbryonnaireCongelationData",id)
+    $.get("/EnbryonnaireCongelationData/GET", { Id: id }, function (res) {
+        console.log(res)
+
+                  $("#DateEnbryonnaireCongelationData1").val(res.Date)
+
+                    $("#IdEnbryologisteDoctorEnbryonnaireCongelationData1").val(res.IdEnbryologisteDoctor)
+
+                    $("#HeureEnbryonnaireCongelationData1").val(res.Heure)
+
+                    $("#NumeroEnbryonnaireCongelationData1").val(res.NumeroEnbroyon)
+
+                    $("#jourCongelationEnbryonnaireCongelationData1").val(res.jourCongelation)
+
+                    $("#GradeEnbryon1").val(res.GradeEnbryon)
+
+                    $("#MilieuEnbryonnaireCongelationData1").val(res.Milieu)
+
+                    $("#StatuEnbryonnaireCongelationData1").val(res.Statu)
+                    $("#CommentairesEnbryonnaireCongelationData1").val(res.Commentaires)
+
+                    $("#IdPailleEnbryonnaireCongelationData1").val(res.Id)
+
+
+
+    })
 
     $('#EditerCongelationEnbryonnaireDATAM').modal('show')
 
@@ -373,36 +430,21 @@ function AjouterEnbryonnaireCongelationDatafo() {
 function EditerEnbryonnaireCongelationDatafo() {
 
 
-    console.log({
-        actData: {
-            Id: 0, IdActDataCongelationEnbryonnaire: sessionStorage.getItem("IdActDataCongelationEnbryonnaire"),
-            IdPaillette: parseInt($("#IdPailleEnbryonnaireCongelationData1").val()),
-            IdEnbryologisteDoctor: parseInt($("#IdEnbryologisteDoctorEnbryonnaireCongelationData1").val()),
-            EmbryologisteDoctorType: "Embryologiste",
-            jourCongelation: parseInt($("#jourCongelationEnbryonnaireCongelationData1").val()),
-            Heure: ($("#HeureEnbryonnaireCongelationData1").val()),
-            GradeEnbryon: ($("#GradeEnbryon1").val()),
-            Date: ($("#DateEnbryonnaireCongelationData1").val()),
-            Commentaires: ($("#CommentairesEnbryonnaireCongelationData1").val()),
-            Milieu: ($("#MilieuEnbryonnaireCongelationData1").val()),
-            Statu: ($("#StatuEnbryonnaireCongelationData1").val()),
-            NumeroEnbroyon: parseInt($("#NumeroEnbryonnaireCongelationData1").val())
-        }
-    })
+
     $.post("/EnbryonnaireCongelationData/Update", {
         actData: {
-            Id: 0, IdActDataCongelationEnbryonnaire: sessionStorage.getItem("IdActDataCongelationEnbryonnaire"),
+            Id: sessionStorage.getItem("IdEnbryonnaireCongelationData"), IdActDataCongelationEnbryonnaire: sessionStorage.getItem("IdActDataCongelationEnbryonnaire"),
             IdPaillette: parseInt($("#IdPailleEnbryonnaireCongelationData1").val()),
             IdEnbryologisteDoctor: parseInt($("#IdEnbryologisteDoctorEnbryonnaireCongelationData1").val()),
             EmbryologisteDoctorType: "Embryologiste",
-            jourCongelation: parseInt($("#jourCongelationEnbryonnaireCongelationData1").val()),
+            jourCongelation: ($("#jourCongelationEnbryonnaireCongelationData1").val()),
             Heure: ($("#HeureEnbryonnaireCongelationData1").val()),
             GradeEnbryon: ($("#GradeEnbryon1").val()),
             Date: ($("#DateEnbryonnaireCongelationData1").val()),
             Commentaires: ($("#CommentairesEnbryonnaireCongelationData1").val()),
             Milieu: ($("#MilieuEnbryonnaireCongelationData1").val()),
-            Statu: ($("#StatuEnbryonnaireCongelationData1").val()),
-            NumeroEnbroyon: parseInt($("#NumeroEnbryonnaireCongelationData1").val())
+            Statu: "Congelé",
+            NumeroEnbroyon: 0
         }
     }, function (result) {
         if (result.status) {

@@ -8,6 +8,7 @@ namespace justch.Models.DAL
 {
     public class DAL_DossierMedical
     {
+        private static SqlConnection? mycon = null;
         public static DossierMedical GetDossierMedical(DataRow dataRow)
         {
             DossierMedical dossier=new DossierMedical();
@@ -40,7 +41,7 @@ namespace justch.Models.DAL
 
                 
                     string query = "insert into DossierMedical(Reference,Type,State)values(@Reference,@Type,@State);";
-                    SqlConnection mycon = DbConnection.GetConnection();
+                     mycon = DbConnection.GetConnection();
                     mycon.Open();
                     SqlCommand cmd = new SqlCommand(query, mycon);
                     cmd.CommandType = CommandType.Text;
@@ -78,20 +79,24 @@ namespace justch.Models.DAL
             }
             catch(Exception e)
             {
-                if (e.Message.Contains("Violation of UNIQUE KEY"))
+                if (e.Message.Contains("Violation of UNIQUE KEY constraint 'Uk_Reference'"))
                     return new Message(false,"cette reference du  dossier existe deja");
                 else
                     return new Message(false, e.Message);
 
             }
-           
+            finally
+            {
+                mycon.Close();
+            }
+
         }
         public static List<DossierMedical> GetDossiersMedicals()
         {
           try
             {
                 string query = "SELECT *FROM DossierMedical ORDER BY Id DESC; ";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -105,13 +110,17 @@ namespace justch.Models.DAL
             {
                 return null; 
             }
+            finally
+            {
+                mycon.Close();
+            }
         }
         public static DossierMedical GetDossierMedicalbyReference( string Reference)
         {
             try
             {
                 string query = "SELECT *FROM DossierMedical where(Reference=@Reference); ";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -130,7 +139,11 @@ namespace justch.Models.DAL
             {
                 return null;
             }
-            
+            finally
+            {
+                mycon.Close();
+            }
+
         }
         public static DossierMedical GetDossierMedicalbyID(int Reference)
         {
@@ -138,7 +151,7 @@ namespace justch.Models.DAL
             {
 
                 string query = "SELECT *FROM DossierMedical where(Id=@Reference); ";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -157,6 +170,10 @@ namespace justch.Models.DAL
             {
                 return null;
             }
+            finally
+            {
+                mycon.Close();
+            }
 
         }
         public static Message deleteDossierMedical(string Field, string value)
@@ -164,7 +181,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = "delete from DossierMedical where(Id=@value);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -185,6 +202,10 @@ namespace justch.Models.DAL
                 return new Message(false, e.Message);
 
             }
+            finally
+            {
+                mycon.Close();
+            }
 
         }
         public static Message updateDossierMedical(DossierMedical d, DossierMedicalPatient dmp)
@@ -192,7 +213,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = "update  DossierMedical set Reference=@Reference, Type=@Type,State=@State where(Id=@Id);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -235,13 +256,17 @@ namespace justch.Models.DAL
                     return new Message(false, e.Message);
 
             }
+            finally
+            {
+                mycon.Close();
+            }
         }
         public static Message updateDossierMedical ( DossierMedical d)
         {
             try
             {
                 string query = "update  DossierMedical set Reference=@Reference, Type=@Type,State=@State where(Id=@Id);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -284,6 +309,10 @@ namespace justch.Models.DAL
                     return new Message(false, e.Message);
 
             }
+            finally
+            {
+                mycon.Close();
+            }
         }
         public static DataTable RechercherAvance(int Id ,string Cin,string Ref, DateTime dataa,string email,string telephone,int nombre)
 
@@ -293,9 +322,9 @@ namespace justch.Models.DAL
             DateTime dat = dataa.AddDays(nombre);
            
             string queri = "select dmp.IdDossierMedical,dm.State,dm.Type,dm.DateAdmission ,dm.Reference ,dm.DateCreation from (( DossierMedical dm     INNER JOIN   DossierMedicalPatient dmp   on  (dmp.IdDossierMedical=dm.Id) ) INNER JOIN Patient ON (Patient.Id=dmp.IdPatient )) WHERE (Patient.Email =@email OR Patient.Phone=@telephone OR Patient.Cin=@Cin OR dm.Reference=@Ref  or Patient.Id=@Id or ( dm.DateCreation between  @dataa and @dat)) ;";
-            SqlConnection conn =DbConnection.GetConnection();
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(queri, conn);
+            mycon = DbConnection.GetConnection();
+            mycon.Open();
+            SqlCommand cmd = new SqlCommand(queri, mycon);
             cmd.CommandTimeout = 50;
             cmd.CommandType = CommandType.Text;
             if (string.IsNullOrEmpty(Id.ToString()))
@@ -340,7 +369,7 @@ namespace justch.Models.DAL
             SqlDataReader reader = cmd.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(reader);
-            conn.Close();
+            mycon.Close();
             return (dt);
 
 
@@ -352,7 +381,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = "SELECT SUM(Id) From DossierMedical;";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandTimeout = 50;
@@ -374,6 +403,10 @@ namespace justch.Models.DAL
             {
                 return 0;
             }
+            finally
+            {
+                mycon.Close();
+            }
         }
         public static Message completer ( int Id )
         {
@@ -381,7 +414,7 @@ namespace justch.Models.DAL
             {
 
                 string query = "update  DossierMedical set  State='complet' ,DateAdmission=(getdate())  where(Id=@Id);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -426,6 +459,10 @@ namespace justch.Models.DAL
                 return new Message(false, e.Message);
 
             }
+            finally
+            {
+                mycon.Close();
+            }
         }
         
 
@@ -438,7 +475,7 @@ namespace justch.Models.DAL
 
 
                     string query = "update  DossierMedical set  State='Incomplet' ,DateAdmission=NULL  where(Id=@Id);";
-                    SqlConnection mycon = DbConnection.GetConnection();
+                     mycon = DbConnection.GetConnection();
                     mycon.Open();
                     SqlCommand cmd = new SqlCommand(query, mycon);
                     cmd.CommandType = CommandType.Text;
@@ -463,6 +500,10 @@ namespace justch.Models.DAL
 
                 return new Message(false, e.Message);
 
+            }
+            finally
+            {
+                mycon.Close();
             }
         }
 

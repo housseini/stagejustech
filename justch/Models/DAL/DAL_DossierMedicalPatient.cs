@@ -8,12 +8,13 @@ namespace justch.Models.DAL
 {
     public class DAL_DossierMedicalPatient
     {
+        private static SqlConnection? mycon = null;
         public static Message AddDossierMedicalPatient(DossierMedicalPatient DMP)
         {
             try
             {
                 string query = "insert into DossierMedicalPatient(IdPatient,IdDossierMedical,Role,Observation)values(@IdPatient,@IdDossierMedical,@Role,@Observation);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -41,6 +42,10 @@ namespace justch.Models.DAL
                 return new Message(false, e.Message);
 
             }
+            finally
+            {
+                mycon.Close();
+            }
 
         }
         public static Message deleteDossierMedicalPatient(string Field, string value)
@@ -50,7 +55,7 @@ namespace justch.Models.DAL
 
                var T = Int64.Parse(value);
                 string query = "delete from DossierMedicalPatient where(@Field=@value );";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -71,6 +76,10 @@ namespace justch.Models.DAL
                 return new Message(false, e.Message);
 
             }
+            finally
+            {
+                mycon.Close();
+            }
 
         }
         public static Message UpdateDossierMedicalPatient(DossierMedicalPatient DMP)
@@ -78,7 +87,7 @@ namespace justch.Models.DAL
             try
             {
                 string query = "update  DossierMedicalPatient set Role=@Role,Observation=@Observation where(IdDossierMedical=@IdDossierMedical);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -103,12 +112,17 @@ namespace justch.Models.DAL
                 return new Message(false, e.Message);
 
             }
+            finally
+            {
+                mycon.Close();
+            }
 
         }
         public static DossierMedicalPatient GetDossierMedicalPatient(int IdDossierMedical)
         {
+            try {
             string query ="select * from  DossierMedicalPatient where(IdDossierMedical=@IdDossierMedical);";
-            SqlConnection mycon = DbConnection.GetConnection();
+             mycon = DbConnection.GetConnection();
             mycon.Open();
             SqlCommand cmd = new SqlCommand(query, mycon);
             cmd.CommandType = CommandType.Text;
@@ -123,14 +137,28 @@ namespace justch.Models.DAL
                 return get(table.Rows[0]);
             else
                 return null;
+            }
+            catch
+            {
+                return null;
+            }
+            finally
+            {
+                mycon.Close();
+            }
+
 
 
         }
 
         public static DossierMedicalPatient GetDossierMedicalPatientByIDpatient(int idpatient)
         {
+            try
+            {
+
+           
             string query = "select * from  DossierMedicalPatient where(IdPatient=@idpatient);";
-            SqlConnection mycon = DbConnection.GetConnection();
+             mycon = DbConnection.GetConnection();
             mycon.Open();
             SqlCommand cmd = new SqlCommand(query, mycon);
             cmd.CommandType = CommandType.Text;
@@ -149,31 +177,50 @@ namespace justch.Models.DAL
             }
             else
                 return null;
+            }
+            catch { return null; }
+            finally
+            {
+                mycon.Close();
+            }
 
         }
 
         public static DossierMedicalPatient GetDossierMedicalPatientByIdDossier(int idDossier)
         {
-            string query = "select * from  DossierMedicalPatient where(IdDossierMedical=@idDossier);";
-            SqlConnection mycon = DbConnection.GetConnection();
-            mycon.Open();
-            SqlCommand cmd = new SqlCommand(query, mycon);
-            cmd.CommandType = CommandType.Text;
-            if (string.IsNullOrEmpty(idDossier.ToString()))
-                cmd.Parameters.AddWithValue("@idDossier", DBNull.Value);
-            else
-                cmd.Parameters.AddWithValue("@idDossier", idDossier);
-            DataTable table = new DataTable();
-            SqlDataReader reader = cmd.ExecuteReader();
-            table.Load(reader);
-
-            if (table.Rows.Count != 0)
+            try
             {
-                System.Console.WriteLine(table.Rows[0]);
-                return get(table.Rows[0]);
+
+
+                string query = "select * from  DossierMedicalPatient where(IdDossierMedical=@idDossier);";
+                mycon = DbConnection.GetConnection();
+                mycon.Open();
+                SqlCommand cmd = new SqlCommand(query, mycon);
+                cmd.CommandType = CommandType.Text;
+                if (string.IsNullOrEmpty(idDossier.ToString()))
+                    cmd.Parameters.AddWithValue("@idDossier", DBNull.Value);
+                else
+                    cmd.Parameters.AddWithValue("@idDossier", idDossier);
+                DataTable table = new DataTable();
+                SqlDataReader reader = cmd.ExecuteReader();
+                table.Load(reader);
+
+                if (table.Rows.Count != 0)
+                {
+                    System.Console.WriteLine(table.Rows[0]);
+                    return get(table.Rows[0]);
+                }
+                else
+                    return null;
             }
-            else
+            catch
+            {
                 return null;
+            }
+            finally
+            {
+                mycon.Close();
+            }
 
         }
         public static List<DossierMedicalPatient> GetsbyIdPatient(int id)
@@ -182,7 +229,7 @@ namespace justch.Models.DAL
             {
                 List<DossierMedicalPatient> liste = new List<DossierMedicalPatient>();
                 string query = "select * from  DossierMedicalPatient where(IdPatient=@idpatient);";
-                SqlConnection mycon = DbConnection.GetConnection();
+                 mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
                 cmd.CommandType = CommandType.Text;
@@ -211,6 +258,10 @@ namespace justch.Models.DAL
             catch
             {
                 return null;
+            }
+            finally
+            {
+                mycon.Close();
             }
 
 

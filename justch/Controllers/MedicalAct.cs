@@ -9,7 +9,8 @@ namespace justch.Controllers
     public class MedicalAct : Controller
     {
         public IFlasher f;
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         public IActionResult Index()
         {
             ViewBag.Medicalacts = BLL_MedicalAct.gets();
@@ -25,7 +26,9 @@ namespace justch.Controllers
         {
             this.f = f;
         }
-       [HttpPost]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
+        [HttpPost]
         public IActionResult Add(justch.Models.ENTITIES.MedicalAct medicalAct)
         {
             var m = BLL_MedicalAct.add(medicalAct);
@@ -42,7 +45,8 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -66,7 +70,8 @@ namespace justch.Controllers
         {
             return Json(BLL_MedicalAct.getByID(id));
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         [HttpPost]
         public IActionResult Update(justch.Models.ENTITIES.MedicalAct medicalAct)
         {
@@ -102,7 +107,8 @@ namespace justch.Controllers
         }
 
         //update medical act Record 
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
         [HttpPost]
         public  IActionResult Updatemedicaactrecord( MedicalRecordAct medicalRecordAct )
         {

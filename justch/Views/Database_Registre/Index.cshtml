@@ -1,0 +1,243 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="profile-tabs">
+    <ul class="nav nav-tabs nav-tabs-bottom">
+        <li class="nav-item"><a class="nav-link active" href="#about-cont" data-toggle="tab">BACK UP EFFECTU2 </a></li>
+        <li class="nav-item"><a class="nav-link " href="#bottom-tab1" data-toggle="tab"> BACK UP PROGRAMM2</a></li>
+        
+
+    </ul>
+
+      <div class="tab-content">
+  <div class="tab-pane show active" id="about-cont">
+ <div class="content">
+            <h4 class="page-title">BACK UP EFFECTUER </h4>
+                <div class="row">
+                    <div class="col-sm-4 col-3">
+                        <h4 class="page-title"></h4>
+                    </div>
+                    <div class="col-sm-8 col-9 text-right m-b-20">
+                         <a href="#showmodaladdProgrammee"  onclick="showmodaladdProgrammee()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> Programmer  </a>
+                        <a href="#showmodaladdbackup"  onclick="showmodaladdbackup()" class="btn btn btn-primary btn-rounded float-right"><i class="fa fa-plus"></i> BACKUP </a>
+                    </div>
+                </div>
+				  <div class="row">
+					<div class="col-md-12">
+						<div class="table-responsive">
+							<table  id="roomtypetable" class="table table-border table-striped  ">
+								<thead>
+									<tr>
+										<th>Base des Données </th>
+											
+                                            <th>Référence </th>
+                                              <th>Jour du BACKUP  </th>
+                                                      <th>Heure  </th>
+                                                      <th> EFFECTUER PAR   </th> 
+                                                      <th> CAUSE    </th> 
+                                                        <th> Utilisateur   </th>
+									</tr>
+								</thead>
+                                <tbody>
+                                    @if (ViewBag.AllAckup!=null)
+                                   {
+                                       @foreach (var item in ViewBag.AllAckup)
+                                      {
+                                          <tr> 
+                                              <td>
+                                                  @item.Name.Split("\\")[1].Split("_")[0]
+                                              </td>
+                                             
+                                                <td>
+                                                  @item.Name.Split("\\")[1].Split("_")[2].Split(".")[0]
+                                              </td>
+                                                  <td>
+                                                  @item.Add.ToString("dd MMMM  yyyy")
+                                              </td>
+                                                 <td>
+                                                  @item.Add.ToString("T")
+                                              </td>
+                                                <td>
+                                                  @item.EFFECUTER_PAR
+                                              </td>
+                                                <td>
+                                                  @item.CAUSEs
+                                              </td>
+                                                <td>
+                                                  @item.Utulisateur_nome
+                                              </td>
+ 
+                                          </tr>
+                                      }
+                                       
+                                   }
+                                </tbody>
+
+							
+							</table>
+						</div>
+					</div>
+                    </div>
+   </div>
+ </div>
+
+    <div class="tab-pane" id="bottom-tab1">
+            <h4 class="page-title">BACK UP PROGRAMM2</h4>
+            <div class="text-right">
+                <a href="#showmodaladdProgrammee" onclick="showmodaladdProgrammee()" class="btn btn-primary"><i class="fa fa-plus"></i>  Programmer </a>
+
+
+            </div>
+            <br />
+            <div class="table-responsive">
+                <table id="tablemedicaleacteCycle" width="100%" class="table table-border table-striped custom-table datatable mb-0">
+                    <thead>
+                        <tr>
+                           
+                            <th> Base des Données	</th>
+                            <th>DATE </th>
+                              <th> HEURE </th>
+                            <th>AJOUTER </th>
+                        
+                           
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.BACKUPRO != null)
+                        {
+                            
+                                @foreach (var item in ViewBag.BACKUPRO)
+                                      {
+                                          <tr> 
+                                              <td>
+                                                  @item.Name
+                                              </td>
+                                             
+                                                <td>
+                                                  @item.Date
+                                              </td>
+                                                  <td>
+                                                   @item.Heure
+                                              </td>
+                                                
+                                                <td>
+                                                   @item.Add.ToString("dd MMMM  yyyy")
+                                              </td>
+                                               
+ 
+                                          </tr>
+                                      }
+                           
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+ </div>
+ </div>
+
+   <div id="showmodaladdbackup" class="modal " role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                   <div class="modal-header p-3 mb-2 bg-primary text-white">
+
+                    <h3> FAIRE UNE SAUVEGARDE  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+
+
+                <form id="sauvegarde">
+                          <div class="form-group ">
+                            <label for="DATABASE" class="float-left">DATABASE </label>
+                            <select class="form-control select" id="DATABASE" name="DATABASE" required>
+                                <option value="Justech DATABASE"> Justech DATABASE  </option>
+                                <option value="Registre  DATABASE">  Registre  DATABASE </option>
+                                <option value="ALL"> ALL</option>
+                            
+
+                            </select>
+                        </div>
+                    
+                        <div class="form-group ">
+                            <label for="Cause" class="float-left">Pourquoi vouliez effectuer cette sauvegarde  </label>
+                            <textarea type="text" class="form-control"  id="Cause" name="Cause" required ></textarea>
+                            
+                        </div>
+                        <button type="submit" class="btn btn-primary  btn-rounded "> Sauvegarder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+   <div id="showmodaladdProgrammee" class="modal " role="dialog">
+    <div class="modal-dialog  modal-md  ">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                   <div class="modal-header p-3 mb-2 bg-primary text-white">
+
+                    <h3> Programmer  une  SAUVEGARDE  </h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                </div>
+
+
+                <form id="sauvegardepro">
+                          <div class="form-group ">
+                            <label for="DATABASE1" class="float-left">DATABASE </label>
+                            <select class="form-control select" id="DATABASE1" name="DATABASE1" required>
+                                <option value="Justech DATABASE"> Justech DATABASE  </option>
+                                <option value="Registre  DATABASE">  Registre  DATABASE </option>
+                                <option value="ALL"> ALL</option>
+                            
+
+                            </select>
+                        </div>
+                      <div class="row">
+
+                 
+                        <div class="form-group col-sm-6">
+                            <label for="Date" class="float-left">Date  </label>
+                            <input type="date" class="form-control datepicker "  id="Date" name="Date" required >
+                            
+                        </div>
+                        <div class="form-group col-sm-6 ">
+                            <label for="Heure" class="float-left">Heure   </label>
+                            <input type="time" class="form-control datepicker "  id="Heure" name="Heure" required >
+                            
+                        </div>
+
+                        </div>
+                        <button type="submit" class="btn btn-primary  btn-rounded "> Sauvegarder</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+			
+					
+
+@section Scripts{
+
+<script src="~/js/mesJS/Backup.js" asp-append-version=true>
+
+
+</script>
+
+
+
+    }

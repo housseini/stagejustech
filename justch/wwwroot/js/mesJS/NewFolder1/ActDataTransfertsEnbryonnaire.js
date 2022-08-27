@@ -117,27 +117,27 @@ function createtableTransfer(donne) {
     
     $("#NombreEnbryonsTransferesActDataTransfertsEnbryonnaire1").val(donne.length)
     $("#NombreeEnbryonsTransferes").text(donne.length)
-    if ($.fn.DataTable.isDataTable("#exampletransfer")) {
-        $('#exampletransfer').DataTable().destroy();
+    //if ($.fn.DataTable.isDataTable("#exampletransfer")) {
+    //    $('#exampletransfer').DataTable().destroy();
 
 
-    }
-    $('#exampletransfer').DataTable({
-        "filter": true,
-        "aaData": donne,
-        "sort": false,
-        "select": true,
-        "aoColumns":
-            [
+    //}
+    //$('#exampletransfer').DataTable({
+    //    "filter": true,
+    //    "aaData": donne,
+    //    "sort": false,
+    //    "select": true,
+    //    "aoColumns":
+    //        [
 
-                { "data": "Numeroenbryon", "name": "numero ovocyte", "autoWidth": true },
+    //            { "data": "Numeroenbryon", "name": "numero ovocyte", "autoWidth": true },
                
-                { "data": "Jourtransfert", "name": "Jours de transfer", "autoWidth": true },
+    //            { "data": "Jourtransfert", "name": "Jours de transfer", "autoWidth": true },
 
 
-            ],
+    //        ],
 
-    });
+    //});
 }
 
 

@@ -1,4 +1,12 @@
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\justch.exe
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\chart.esm.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\chart.esm.min.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\chart.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\chart.min.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\chart.mjs
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\helpers.esm.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\helpers.esm.min.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Chart.js\helpers.mjs
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\bootstrap-datetimepicker.min.css
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\bootstrap.min.css
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\dataTables.bootstrap4.min.css
@@ -23,8 +31,10 @@ E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\w
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\9k.tree
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\coco.data
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\coco.names
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\cv.pdf
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\Doc1.pdf
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\electronics-10-02319.pdf
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\Formulaire demande de stage.pdf
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\french_colors.json
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\goal.txt
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\Documents\imagenet.shortnames.list
@@ -52,14 +62,19 @@ E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\w
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\delete1.png
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\doctor-thumb-12.jpg
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\favicon.ico
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\ice.png
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo-dark.png
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\logo.png
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\patient-thumb-01.jpg
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\placeholder-thumb.jpg
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\placeholder.jpg
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\Profile\default-picture_0_0.png
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\Profile\helpthemwin_0.jpg
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\Profile\IMGP1922.jpg
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\Profile\IMGP2590.jpg
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\sent.png
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\tutorial-preview-large.png
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\téléchargement.png
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\user.jpg
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\alertify.min.js
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\app.js
@@ -81,6 +96,7 @@ E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\w
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\mesJS\AddDossierMedical.js
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\mesJS\AntecedentParticulier.js
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\mesJS\Appointment.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\mesJS\Backup.js
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\mesJS\BilanEndocrinien.js
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\mesJS\Consulter.js
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\js\mesJS\ConsulterExplorationVerification.js
@@ -287,6 +303,13 @@ E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\w
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\plugins\summernote\dist\font\summernoted41d.eot
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\plugins\summernote\dist\summernote-bs4.css
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\plugins\summernote\dist\summernote-bs4.min.js
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote-ext-print-master\.gitignore
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote-ext-print-master\bower.json
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote-ext-print-master\CHANGES
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote-ext-print-master\LICENSE
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote-ext-print-master\package.json
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote-ext-print-master\README.md
+E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote-ext-print-master\summernote-ext-print.js
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote\dist\font\summernote4c4d.eot
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote\dist\font\summernote4c4d.ttf
 E:\projet\projet\stage\code\justch\justch\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\lib\summernote\dist\font\summernote4c4d.woff

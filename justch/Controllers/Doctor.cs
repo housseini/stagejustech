@@ -12,14 +12,16 @@ namespace justch.Controllers
         {
             this.f = f;
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste")]
+
+        [Authorize(Roles = "Clinicien")]
         public IActionResult Index()
         {
             ViewBag.Doctors = BLL_Doctor.gets();
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Clinicien")]
         public IActionResult Add(justch.Models.ENTITIES.Doctor doctor)
         {
 
@@ -37,7 +39,7 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien")]
         [HttpGet]
         public IActionResult Delete(int id)
         {
@@ -55,7 +57,7 @@ namespace justch.Controllers
                 return Json(m);
             }
         }
-        [Authorize]
+        [Authorize(Roles = "Clinicien")]
         [HttpGet]
         public IActionResult GetBy(int Id)
         {
@@ -63,7 +65,7 @@ namespace justch.Controllers
         }
         [Authorize]
 
-        [HttpPost]
+        [Authorize(Roles = "Clinicien")]
         public IActionResult Update(justch.Models.ENTITIES.Doctor doctor)
         {
             var m = BLL_Doctor.update(doctor);

@@ -1,0 +1,278 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="continer-fluid ">
+    <div class="row m-5">
+        <div id="tek" class="col-6">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div id="tek1" class="col-6">
+            <canvas id="myChart1"></canvas>
+        </div>
+    </div>
+
+    <br/>
+    <br/>
+    <br/>
+
+    <div class="row m-5">
+        <div id="tek2" class="col-6">
+            <canvas id="myChart2"></canvas>
+        </div>
+
+        <div id="tek3" class="col-6">
+            <canvas id="myChart3"></canvas>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts{
+
+    <script src="~/Chart.js/chart.min.js"></script>
+    <script>
+$().ready(function() { 
+
+
+            $("#listemenu").empty()
+            var menu = '<li class="menu-title">Main</li>' +
+        '  <li>' +
+        '   <a  href = "/DossierMedical/Index" ><i class="fa fa-folder"></i> <span>Dossiers</span></a > ' +
+        '  </li>' +
+        '     <li>' +
+        '      <li   >' +
+        '        <a  href="/Patient/Index"><i class="fa fa-user"></i> <span>Patients</span></a>' +
+        '     </li>' +
+        '     <li>' +
+        '         <a href="/Appointment/Index"><i class="fa fa-calendar-check-o"></i> <span>Rendez-vous</span></a>' +
+        '      </li>' +
+        '     <li>' +
+        '          <a href="/Doctor/Index"><i class="fa fa-user"></i> <span>Medecins</span></a>' +
+        '      </li>' +
+        '     <li   class="active">' +
+        '          <a href="/STATISTIQUE/Index"><i class="fa fa-line-chart"></i> <span>Statistique</span></a>' +
+        '      </li>' +
+        '    <li>' +
+        '       <a href="#"  data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-cog"> <span> Parametre </span></i></a>' +
+        '      <div class="dropdown-menu ">' +
+        '             <a class="dropdown-item" href="/Room/Index"> Salles</a>' +
+        '             <a class="dropdown-item" href="/TechnienEnbrylogiste/Index">Techniciens</a>' +
+        '<a class="dropdown-item" href="/DocumentType/Index">Docment Type </a>' +
+        '           <a class="dropdown-item" href="/MedicalAct/Index">ACTES MEDICALS</a> ' +
+        '           <a class="dropdown-item" href="/TraitementCycle/Index">TraitementCycle</a> ' +
+        '           <a class="dropdown-item" href="/Incubateur_Chambre/Index">Incubateur/Chambre</a> ' +
+        '            <a class="dropdown-item" href="/Cuve/Index">Cuve</a> ' +
+
+        '           <a class="dropdown-item" href="/Utilisateur/Index">Utilisateur</a> ' +
+        '      <a class="dropdown-item" href="/Database_Registre/Index">Sauvegarde</a> ' +
+
+        '           <a class="dropdown-item" href="/Automatisation/Index">Classification</a> ' +
+      
+        '       </div> ' +
+        '   </li>    ';
+
+    $("#listemenu").append(menu)
+        Genre = []
+        $.get("/STATISTIQUE/CountGenre", function(re) {
+            Genre.push(re.Femme)
+            Genre.push(re.Homme)
+
+
+
+        })
+
+
+
+
+
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Femme', 'Homme'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: Genre,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'REPARTION  DES  PATIENTS PAR SEXE '
+                    }
+                }
+            }
+
+
+        });
+
+        const ctx2 = document.getElementById('myChart2').getContext('2d');
+        const myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['EN COURS ', 'TERMINER ', 'SUSPENDUE ', 'ANNULER'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [1, 2, 3, 4],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'REPARTION  DES RENDEZ-VOUS SELON ETAT '
+                    }
+                }
+            }
+
+
+        });
+
+        Genre1 = []
+        $.get("/STATISTIQUE/COUNTdossierType", function(re) {
+
+
+
+            Genre1.push(re.Femme)
+            Genre1.push(re.Homme)
+            Genre1.push(re.Couple)
+
+
+
+        })
+
+        const ctx1 = document.getElementById('myChart1').getContext('2d');
+        const myChart1 = new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: ['Femme', 'Homme', 'COUPLE'],
+                datasets: [{
+                    label: '# of Votes',
+                    data: Genre1,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'REPARTION  DES DOSSIERS SELON LE TYPE  '
+                    }
+                }
+            }
+
+
+        });
+
+
+        Genre2 = []
+        $.get("/STATISTIQUE/COUNTMEDICALRECOREType", function(re) {
+
+            for (let v in re) {
+                Genre2.push(re[v])
+            }
+        })
+        console.log(Genre2)
+
+        const ctx3 = document.getElementById('myChart3').getContext('2d');
+        const myChart3 = new Chart(ctx3, {
+            type: 'pie',
+            data: {
+                labels: ['EXPLORATION ', 'Cycle de Traitement '],
+                datasets: [{
+                    label: '# of Votes',
+                    data: Genre2,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'REPARTION  DES DOSSIERS SELON LE TYPE  '
+                    }
+                }
+            }
+
+
+        });
+
+        $("#tek,#tek1,#tek3").css({ "width": "400", "height": "400" })
+        $("#tek2").css({ "width": "400", "height": "400" })
+
+        })
+
+    </script>
+}

@@ -153,6 +153,8 @@ $().ready(function () {
         '            <a class="dropdown-item" href="/Cuve/Index">Cuve</a> ' +
 
         '           <a class="dropdown-item" href="/Utilisateur/Index">Utilisateur</a> ' +
+        '      <a class="dropdown-item" href="/Database_Registre/Index">Sauvegarde</a> ' +
+
         '           <a class="dropdown-item" href="/Automatisation/Index">Classification</a> ' +
         '       </div> ' +
         '   </li>    ';

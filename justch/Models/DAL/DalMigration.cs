@@ -41,7 +41,7 @@ namespace justch.Models.DAL
         {
             try
             {
-                string query = "If not exists (select * from sysobjects where name = 'Patient') CREATE TABLE [dbo].[Patient] ([Id]              BIGINT IDENTITY(1, 1) NOT NULL,[Cin]             VARCHAR(200) NOT NULL,[IssuedOn]        NVARCHAR(MAX)NULL,[FirstName]       NVARCHAR(MAX) NOT NULL,[LastName]        NVARCHAR(MAX) NOT NULL,[MaidenName]       NVARCHAR(MAX) NULL,[State]     NVARCHAR(MAX) NULL,[Gender]          NVARCHAR(MAX) NULL,[Profession]      NVARCHAR(MAX) NULL,[Photo]           NVARCHAR(MAX) NULL,[Phone]           VARCHAR(250) NOT NULL,[Email]           VARCHAR(250) NULL,[Dataofbirth]     DATE NULL,[Placeofbirth]    NVARCHAR(MAX) NULL,[Address]         NVARCHAR(MAX) NULL,[PostalCode]      NVARCHAR(MAX) NULL,[City]            NVARCHAR(MAX) NULL,[Country]         NVARCHAR(MAX) NULL,[InsuranceAgency] NVARCHAR(MAX) NULL,[InsuranceID]     NVARCHAR(MAX) NULL,[Nationality]     NVARCHAR(MAX) NULL,[Civility]        NVARCHAR(MAX) NULL,[Addedon]       DATETIME      DEFAULT (getdate()) NOT NULL,PRIMARY KEY CLUSTERED([Id] ASC)); ALTER TABLE [dbo].[Patient] ADD  UNIQUE (Cin); ALTER TABLE [dbo].[Patient] ADD  UNIQUE (Email); ALTER TABLE [dbo].[Patient] ADD  UNIQUE (Phone);";
+                string query = "If not exists (select * from sysobjects where name = 'Patient') CREATE TABLE [dbo].[Patient] ([Id]              BIGINT IDENTITY(1, 1) NOT NULL,[Cin]             VARCHAR(200) NOT NULL,[IssuedOn]        NVARCHAR(MAX)NULL,[FirstName]       NVARCHAR(MAX) NOT NULL,[LastName]        NVARCHAR(MAX) NOT NULL,[MaidenName]       NVARCHAR(MAX) NULL,[State]     NVARCHAR(MAX) NULL,[Gender]          NVARCHAR(MAX) NULL,[Profession]      NVARCHAR(MAX) NULL,[Photo]           NVARCHAR(MAX) NULL,[Phone]           VARCHAR(250) NOT NULL,[Email]           VARCHAR(250) NULL,[Dataofbirth]     DATE NULL,[Placeofbirth]    NVARCHAR(MAX) NULL,[Address]         NVARCHAR(MAX) NULL,[PostalCode]      NVARCHAR(MAX) NULL,[City]            NVARCHAR(MAX) NULL,[Country]         NVARCHAR(MAX) NULL,[InsuranceAgency] NVARCHAR(MAX) NULL,[InsuranceID]     NVARCHAR(MAX) NULL,[Nationality]     NVARCHAR(MAX) NULL,[Civility]        NVARCHAR(MAX) NULL,[Addedon]       DATETIME      DEFAULT (getdate()) NOT NULL,PRIMARY KEY CLUSTERED([Id] ASC)); ALTER TABLE [dbo].[Patient] ADD  CONSTRAINT Uk_cin UNIQUE (Cin); ALTER TABLE [dbo].[Patient] ADD CONSTRAINT Uk_Email UNIQUE (Email); ALTER TABLE [dbo].[Patient] ADD CONSTRAINT Uk_Phone UNIQUE (Phone);";
                 SqlConnection mycon = DbConnection.GetConnection();
                 mycon.Open();
                 SqlCommand cmd = new SqlCommand(query, mycon);
@@ -60,7 +60,7 @@ namespace justch.Models.DAL
         {
             try
             {
-                string query = "If not exists (select * from sysobjects where name = 'DossierMedical') CREATE TABLE [dbo].[DossierMedical] ([Id]              BIGINT IDENTITY(1, 1) NOT NULL,[Reference]             VARCHAR(250) NOT NULL,[DateAdmission]       DATETIME   NULL ,[Type]        NVARCHAR(MAX) NOT NULL,[State]       NVARCHAR(MAX) NULL, [DateCreation]       DATETIME      DEFAULT (GETDATE()) NOT NULL,PRIMARY KEY CLUSTERED([Id] ASC)) ; ALTER TABLE [dbo].[DossierMedical] ADD  UNIQUE (Reference);";
+                string query = "If not exists (select * from sysobjects where name = 'DossierMedical') CREATE TABLE [dbo].[DossierMedical] ([Id]              BIGINT IDENTITY(1, 1) NOT NULL,[Reference]             VARCHAR(250) NOT NULL,[DateAdmission]       DATETIME   NULL ,[Type]        NVARCHAR(MAX) NOT NULL,[State]       NVARCHAR(MAX) NULL, [DateCreation]       DATETIME      DEFAULT (GETDATE()) NOT NULL,PRIMARY KEY CLUSTERED([Id] ASC)) ; ALTER TABLE [dbo].[DossierMedical] ADD  CONSTRAINT Uk_Reference UNIQUE (Reference);";
 
                 SqlConnection mycon = DbConnection.GetConnection();
                 mycon.Open();
@@ -1222,6 +1222,29 @@ namespace justch.Models.DAL
         }
 
 
+        public static Message create_table_MedicalReport()
+        {
+            try
+            {
+                string query = "If not exists (select * from sysobjects where name = 'MedicalReport') CREATE TABLE [dbo].[MedicalReport] (" +
+                    " [Id] BIGINT IDENTITY(1, 1) NOT NULL, [IdMedicalRecordAct] BIGINT NOT NULL UNIQUE " +
+                    ", [ReportBody] NVARCHAR(MAX) NULL  );";
+
+                SqlConnection mycon = DbConnection.GetConnection();
+                mycon.Open();
+                SqlCommand cmd = new SqlCommand(query, mycon);
+                cmd.ExecuteNonQuery();
+                mycon.Close();
+                return new Message(true, "Table MedicalReport  create");
+            }
+            catch (Exception e)
+            {
+                return new Message(false, e.Message);
+            }
+
+
+        }
+
 
         public static Message create_table_OvocyteCongelationData()
         {
@@ -1373,6 +1396,61 @@ namespace justch.Models.DAL
                 cmd.ExecuteNonQuery();
                 mycon.Close();
                 return new Message(true, "Table ActDataCulture  create");
+            }
+            catch (Exception e)
+            {
+                return new Message(false, e.Message);
+            }
+
+
+        }
+
+
+        public static Message create_table_Data_Registre()
+        {
+            try
+            {
+                string query = "If not exists (select * from sysobjects where name = 'Registre') CREATE TABLE [dbo].[Registre] (" +
+                    " [Id] BIGINT IDENTITY(1, 1) NOT NULL, [Add]  DATETIME      DEFAULT (getdate()) NOT NULL " +
+                    ", [Name] NVARCHAR(250) NOT NULL "+
+                    ", [EFFECUTER_PAR] NVARCHAR(MAX) NOT NULL " +
+                    ", [CAUSEs] NVARCHAR(MAX) NOT NULL " +
+                    ", [Utulisateur_nome] NVARCHAR(MAX) NOT NULL " +
+                    ");";
+
+                SqlConnection mycon = DbConnection.GetConnectionForRegistre();
+                mycon.Open();
+                SqlCommand cmd = new SqlCommand(query, mycon);
+                cmd.ExecuteNonQuery();
+                mycon.Close();
+                return new Message(true, "Table MedicalReport  create");
+            }
+            catch (Exception e)
+            {
+                return new Message(false, e.Message);
+            }
+
+
+        }
+
+        public static Message create_table_Data_BACKUP_Programmer()
+        {
+            try
+            {
+                string query = "If not exists (select * from sysobjects where name = 'BACKUP_Programmer') CREATE TABLE [dbo].[BACKUP_Programmer] (" +
+                    " [Id] BIGINT IDENTITY(1, 1) NOT NULL, [Add]  DATETIME      DEFAULT (getdate()) NOT NULL " +
+                    ", [Name] NVARCHAR(250) NOT NULL " +
+                    ", [Date] NVARCHAR(MAX) NOT NULL " +
+                    ", [Heure] NVARCHAR(MAX) NOT NULL " +
+                 
+                    ");";
+
+                SqlConnection mycon = DbConnection.GetConnectionForRegistre();
+                mycon.Open();
+                SqlCommand cmd = new SqlCommand(query, mycon);
+                cmd.ExecuteNonQuery();
+                mycon.Close();
+                return new Message(true, "Table BACKUP_Programmer  create");
             }
             catch (Exception e)
             {

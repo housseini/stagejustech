@@ -21,8 +21,12 @@
     $.get("/ActDataInseminationIAC/GetByIdTraitement", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
 
         if (resulta.length == 0) {
+            $("#InseminationIACInfo").show()
+            $("#InseminationIACInfo1").hide()
             $("#boutonActDataInseminationIAC").append(' <a href="#ajouteboutonActDataInseminationIACM" onclick="showaddboutonActDataInseminationIACM()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter ActDataInseminationIAC </a>')
         } else {
+            $("#InseminationIACInfo").hide()
+            $("#InseminationIACInfo1").show()
 
             $("#DateInseminationIAC1").val(resulta[0].Date)
             $("#HeureInseminationIAC1").val(resulta[0].Heure)

@@ -1,10 +1,43 @@
 ﻿$().ready(function () {
     $("#tab-7").css("display", "block");
+
+
+
+    const links = document.querySelectorAll(".nav-link")
+
+    links.forEach((link) => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault()
+
+            if (link.classList.contains('active')) {
+                link.classList.remove('text-light')
+                link.classList.add('text-black')
+            }
+            else {
+                link.classList('text-light')
+                if (link.classList.contains('text-black'))
+                    link.classList.remove('text-black')
+            }
+        })
+    })
+
+
+
+    alert(sessionStorage.getItem("IdmedicalrecordActe"))
     $.get("/ActDataBiopsie/GetByIdTraitement", { Id: sessionStorage.getItem("IdmedicalrecordActe") }, function (resulta) {
 
         if (resulta.length == 0) {
+            $("#BiopsieInfo").show()
+            $("#BiopsieInfo1").hide()
+            $("#Biopsie1Info1").show()
+            $("#Biopsie1Info").hide()
             $("#boutonActDataBiopsie").append(' <a href="#AjouterActDataBiopsieM" onclick="showaddActDataBiopsie()" class="btn btn-primary"><i class="fa fa-plus"></i>  Ajouter Act ActDataBiopsie </a>')
         } else {
+
+            $("#BiopsieInfo").hide()
+            $("#BiopsieInfo1").show()
+            $("#Biopsie1Info1").hide()
+            $("#Biopsie1Info").show()
             $("#boutonActDataBiopsie").append(' <a href="#EDITERActDataBiopsieM" onclick="showditeActDataBiopsie()" class="btn btn-primary"><i class="fa fa-plus"></i>  EDITER Act ActDataBiopsie </a>')
             $("#DateeActDataBiopsie").text(resulta[0].Date)
             $("#heureeActDataBiopsie").text(resulta[0].Heure)
@@ -79,6 +112,7 @@ function showaddActDataBiopsie() {
 }
 
 function AjouterActDataBiopsie() {
+    alert(sessionStorage.getItem("IdmedicalrecordActe"))
     $.post("/ActDataBiopsie/Add", {
         actData: {
             Id: 0, IdMedicalRecordAct: sessionStorage.getItem("IdmedicalrecordActe"),

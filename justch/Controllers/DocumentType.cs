@@ -10,7 +10,7 @@ namespace justch.Controllers
 {
     public class DocumentType : Controller
     {
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste,Secretaire")]
         public IActionResult Index()
         {
             return View();
@@ -22,6 +22,8 @@ namespace justch.Controllers
             return Json(BLL_DocumentType.gets());
         }
         [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste,Secretaire")]
+
         [HttpGet]
         //retourner la liste Des documment  dont le code est passé en parametre
         public IActionResult GetsDOCUMENbyCode( string Code)
@@ -44,7 +46,8 @@ namespace justch.Controllers
         /// <param name="code"></param>
         /// <returns> message selon la requette de la supprission </returns>
         /// 
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste,Secretaire")]
+
         [HttpPost]
         public IActionResult ModifierDocummentType(justch.Models.ENTITIES.DocumentType documment,string code)
         {
@@ -55,7 +58,7 @@ namespace justch.Controllers
         /// </summary>
         /// <param name="code"></param>
         /// <returns>rele message sur la requette effectuter</returns>
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste,Secretaire")]
         [HttpGet]
 
         public IActionResult Delete(string code)
@@ -66,7 +69,8 @@ namespace justch.Controllers
         /// retoure le document dont Id est passé en parametre
         /// </summary>
         /// <param name="id"></param>
-        [Authorize]
+        [Authorize(Roles = "Clinicien,Embryologiste,Secretaire")]
+
         [HttpGet]
        public IActionResult GetDocumentById(int id)
         {
